@@ -1,0 +1,143 @@
+---
+title: LEAST
+slug: W6oK-least
+description: Returns the least or smallest value in a list of values. Learn more details with this quick guide.
+createdAt: 2023-08-21T16:08:41.340Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+The `LEAST()` function returns the least or smallest value in a list of values. It needs at least one argument to work with, and if you mix different types, like a text and a number, it will return an error.&#x20;
+
+For example, comparing the greatest value among 4, "two", and 9 would result in an error.
+
+## **Syntax**
+
+The syntax for the `LEAST()` function is as follows:
+
+```pgsql
+LEAST(value_1, [value_n])
+```
+
+Where:
+
+*   `value_1`: Represents the first value.
+
+*   `value_n`: Represents one or more additional values, separated by commas.
+
+:::hint{type="info"}
+**Info:**
+
+*   `NULL` values in the list will be ignored.&#x20;
+
+*   The result will be `NULL` if all the expressions evaluate to `NULL`.&#x20;
+:::
+
+## **Examples**
+
+Below are several examples of the `LEAST()` function:
+
+### Case #1: **Basic Usage**
+
+Consider the following example:
+
+```pgsql
+SELECT LEAST(3,5,8,9,10);
+```
+
+The query will return `3`, the smallest value among the provided values.
+
+```pgsql
+ least 
+-------
+     3
+```
+
+### Case #2: **String Comparison**
+
+String comparison is also supported, as shown below:
+
+```pgsql
+SELECT LEAST('a','b','c','aa'); 
+```
+
+In this case, the result will be `'a'`, as it is the smallest string.
+
+```pgsql
+ least 
+-------
+     a
+```
+
+### Case #3: **Handling NULL Values**
+
+`NULL` values are ignored when determining the smallest value:
+
+```pgsql
+SELECT LEAST (5,null,9);
+```
+
+The result will be the smallest non-NULL value, which is `5`.
+
+```pgsql
+ least 
+-------
+     5
+```
+
+### Case #4: **Negative Numbers**
+
+Negative numbers can also be compared:
+
+```pgsql
+SELECT LEAST (4,-4,-8,8);
+```
+
+This query will return `-8`, the smallest value among the provided numbers.
+
+```pgsql
+ least 
+-------
+    -8
+```
+
+### Case #5: **Using Table Data**
+
+Suppose we have a table named `grades` containing columns `x`, `y`, and `z`.&#x20;
+
+```pgsql
+CREATE TABLE grades (
+    name TEXT,
+    x INT,
+    y INT,
+    z INT
+);
+
+INSERT INTO grades (name, x, y, z)
+VALUES
+    ('Jane', 50, 0, 70),
+    ('Rio', 60, 30, 80),
+    ('John', 60, 60, 86),
+    ('Rose', 80, 90, 88),
+    ('Gary', 100, 80, 90);
+```
+
+To find the smallest value among these columns, you can use the following query:
+
+```pgsql
+SELECT *, LEAST(x, y, z) AS least_grade FROM grades;
+```
+
+This query will add a new column named `least_grade` to the result, displaying the smallest value among columns `x`, `y`, and `z`.
+
+```pgsql
+ name |  x  | y  | z  | least_grade 
+------+-----+----+----+-------------
+ Jane |  50 |  0 | 70 |           0
+ Rio  |  60 | 30 | 80 |          30
+ John |  60 | 60 | 86 |          60
+ Rose |  80 | 90 | 88 |          80
+ Gary | 100 | 80 | 90 |          80
+```
+
