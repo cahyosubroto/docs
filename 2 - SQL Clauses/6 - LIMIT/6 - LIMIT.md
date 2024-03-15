@@ -1,0 +1,203 @@
+---
+title: LIMIT
+slug: w9Hp-limit
+description: Learn the overview, syntax and examples of how to use a LIMIT clause based on the number of rows returned by a query.
+createdAt: 2023-03-20T12:15:55.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+`LIMIT` is an optional clause of the `SELECT` statement that constrains the number of rows the query returns.&#x20;
+
+:::hint{type="info"}
+The `SELECT` statement is used to retrieve records from one or more tables.
+:::
+
+## **Syntax**
+
+The following illustrates the syntax of the `LIMIT` clause:
+
+```pgsql
+SELECT column_list  
+FROM table_name  
+ORDER BY sort_expression  
+LIMIT row_count
+```
+
+The parameters and arguments from the syntax are explained below:
+
+*   `column_list`**: **The columns or calculations that you wish to retrieve.
+
+*   `table_name`**: **The tables that you want to retrieve records from.&#x20;
+
+:::hint{type="info"}
+It is possible to have more than one table in the `FROM` clause.
+:::
+
+*   `ORDER BY`** : **It is an expression used to order the results as you wish to return. The expression could be ascending **(ASC) **or descending** (DESC)**.&#x20;
+
+*   `LIMIT row_count`: It specifies a limited number of rows to be returned based on **row\_count**.&#x20;
+
+### **💡 Special Case:**
+
+1.  If the `row_count` value is **NULL,** the query will produce a similar outcome because it does not contain the `LIMIT` clause.
+
+2.  If `row_count` is **zero**, the statement will return an empty set.
+
+## Examples
+
+Let’s take some examples of the `LIMIT` clause.&#x20;
+
+Here we are creating one new table called **comporders** using the `CREATE TABLE` command and inserting some values into the table using the `INSERT` command:
+
+```pgsql
+CREATE TABLE comporders  
+(  
+    order_id int,
+    cust_name string,   
+    prod_name string,   
+    prod_price float,  
+    status string  
+);  
+
+INSERT INTO comporders   
+VALUES
+(1002, 'Mike', 'Lenovo IdeaPad Flex 5', 600, 'PAID'),  
+(1003, 'Sean', 'Acer Aspire 3', 450, 'PAID'),  
+(1004, 'Victor', 'Microsoft Surface Laptop Go 2', 500, 'PENDING'),  
+(1005, 'Lewis', 'Lenovo Duet 5i', 700, 'PAID'),  
+(1006, 'David', 'Acer Swift 3', 640, 'PAID'),  
+(1007, 'Meghan', 'Lenovo IdeaPad Duet 5 Chromebook', 750, 'PAID'),  
+(1008, 'Harry', 'Apple iPad Air', 449, 'PENDING'),  
+(1009, 'Steve', 'Microsoft Surface Go 3', 680, 'PENDING'),  
+(1010, 'Omar', 'HP Victus 16', 800,'PAID');
+```
+
+To verify that the values have been inserted successfully, retrieve the result set using the command below:&#x20;
+
+```pgsql
+SELECT * FROM comporders;
+```
+
+```pgsql
++-----------+------------+----------------------------------+-------------+----------+
+| order_id  | cust_name  | prod_name                        | prod_price  | status   |
++-----------+------------+----------------------------------+-------------+----------+
+| 1002      | Mike       | Lenovo IdeaPad Flex 5            | 600         | PAID     |  
+| 1003      | Sean       | Acer Aspire 3                    | 450         | PAID     |
+| 1004      | Victor     | Microsoft Surface Laptop Go 2    | 500         | PENDING  |
+| 1005      | Lewis      | Lenovo Duet 5i                   | 700         | PENDING  |
+| 1006      | David      | Acer Swift 3                     | 640         | PAID     |
+| 1007      | Meghan     | Lenovo IdeaPad Duet 5 Chromebook | 750         | PAID     |
+| 1008      | Harry      | Apple iPad Air                   | 449         | PENDING  |
+| 1009      | Steve      | Microsoft Surface Go 3           | 680         | PENDING  |
+| 1010      | Omar       | HP Victus 16                     | 800         | PAID     |
++-----------+------------+----------------------------------+-------------+----------+
+```
+
+### Case #1: Using `LIMIT` with the `ORDER BY` Expression
+
+This example uses the `LIMIT` clause to get the first four orders sorted by `order_id`:
+
+```pgsql
+SELECT order_id, prod_name, prod_price
+FROM comporders
+ORDER BY order_id
+LIMIT 4;
+```
+
+The above query will give the following result:
+
+```pgsql
++-----------+-------------------------------+-------------+
+| order_id  | prod_name                     | prod_price  |
++-----------+-------------------------------+-------------+
+| 1002      | Lenovo IdeaPad Flex 5         | 600         | 
+| 1003      | Acer Aspire 3                 | 450         |
+| 1004      | Microsoft Surface Laptop Go 2 | 500         |
+| 1005      | Lenovo Duet 5i                | 700         |
++-----------+-------------------------------+-------------+
+```
+
+### Case #2: Using `LIMIT` with ASC/DESC
+
+You can use the `LIMIT` clause to select rows with the highest or lowest values from a table.
+
+**1) **To get the top 5 most expensive orders, you sort orders by the product price in descending order **(DESC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
+
+The following query depicts the idea:
+
+```pgsql
+SELECT * FROM comporders
+ORDER BY prod_price DESC
+LIMIT 5;
+```
+
+The result of the query is as follows:
+
+```pgsql
++-----------+------------+----------------------------------+-------------+----------+
+| order_id  | cust_name  | prod_name                        | prod_price  | status   |
++-----------+------------+----------------------------------+-------------+----------+
+| 1010      | Omar       | HP Victus 16                     | 800         | PAID     |  
+| 1007      | Meghan     | Lenovo IdeaPad Duet 5 Chromebook | 750         | PAID     |
+| 1005      | Lewis      | Lenovo Duet 5i                   | 700         | PENDING  |
+| 1009      | Steve      | Microsoft Surface Go 3           | 680         | PENDING  |
+| 1006      | David      | Acer Swift 3                     | 640         | PAID     |
++-----------+------------+----------------------------------+-------------+----------+
+```
+
+**2)** We will fetch the top 5 cheapest orders this time. You sort orders by the product price in ascending order **(ASC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
+
+The following query depicts the idea:
+
+```pgsql
+SELECT * FROM comporders
+ORDER BY prod_price ASC
+LIMIT 5;
+```
+
+We will get the below output:
+
+```pgsql
++-----------+------------+----------------------------------+-------------+----------+
+| order_id  | cust_name  | prod_name                        | prod_price  | status   |
++-----------+------------+----------------------------------+-------------+----------+
+| 1008      | Harry      | Apple iPad Air                   | 449         | PENDING  |
+| 1003      | Sean       | Acer Aspire 3                    | 450         | PAID     |
+| 1004      | Victor     | Microsoft Surface Laptop Go 2    | 500         | PENDING  |
+| 1002      | Mike       | Lenovo IdeaPad Flex 5            | 600         | PAID     |  
+| 1006      | David      | Acer Swift 3                     | 640         | PAID     |
++-----------+------------+----------------------------------+-------------+----------+
+```
+
+### #Case 3:  Using `LIMIT` with `OFFSET`
+
+In this example, we will use `LIMIT` and `OFFSET` clauses to get 5 orders using the below query:
+
+```pgsql
+SELECT * FROM comporders
+LIMIT 5 OFFSET 2;
+```
+
+After implementing the above command, we will get the below output:
+
+```pgsql
++-----------+------------+----------------------------------+-------------+----------+
+| order_id  | cust_name  | prod_name                        | prod_price  | status   |
++-----------+------------+----------------------------------+-------------+----------+
+| 1004      | Victor     | Microsoft Surface Laptop Go 2    | 500         | PENDING  |
+| 1005      | Lewis      | Lenovo Duet 5i                   | 700         | PENDING  |
+| 1006      | David      | Acer Swift 3                     | 640         | PAID     |
+| 1007      | Meghan     | Lenovo IdeaPad Duet 5 Chromebook | 750         | PAID     |
+| 1008      | Harry      | Apple iPad Air                   | 449         | PENDING  |
++-----------+------------+----------------------------------+-------------+----------+
+```
+
+The result above shows that:
+
+*   The orders with `order_id`** = 1002 & 1003** aren't displayed because we put the `OFFSET` value with 2. So the first 2 lines are ignored.
+
+*   The orders with `order_id`** = 1009 & 1010** aren't displayed because the `LIMIT` value is 5, which will display only 5 rows.
+

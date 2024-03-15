@@ -1,0 +1,97 @@
+---
+title: DESCRIBE statement
+slug: FM22-describe-statement
+description: The DESCRIBE statement is used to show a column of a table or a table of a database. Let us walk you through some details and examples.
+createdAt: 2022-11-02T11:32:34.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+`Describe` statement show columns within a table and tables within a database.&#x20;
+
+:::hint{type="success"}
+The `Describe` statement is recommended to use before creating a new table to avoid duplicate tables.
+:::
+
+## **Syntax**
+
+### Describe Database
+
+Below is the basic syntax for describing tables within a database:
+
+```pgsql
+DESCRIBE DATABASE;
+```
+
+### Describe Table
+
+Below is the basic syntax for describing columns within a table:
+
+```pgsql
+DESCRIBE TABLE table_name;
+```
+
+`table_name` is the name of the table that you want to show.
+
+## Examples
+
+To get a better understanding of a `DESCRIBE` statement, take a look at some examples below:
+
+### Case #1: Describe Table
+
+1\) In this example, we will figure out the columns of a **part **table. Run the query below:
+
+```pgsql
+DESCRIBE TABLE part;
+```
+
+2\) As a result, you will get a list of column names, column types, and nullable options from the **part **table.
+
+```pgsql
++----------------+------------+-------------+-------+----------+ 
+| database_name  | table_name |    name     | type  | nullable |
++----------------+------------+-------------+-------+----------+
+| public         | part       | p_partkey   | INT   | f        |
+| public         | part       | p_name      | TEXT  | f        |
+| public         | part       | p_mfgr      | TEXT  | f        |
+| public         | part       | p_category  | TEXT  | f        |
+| public         | part       | p_brand     | TEXT  | f        |
+| public         | part       | p_color     | TEXT  | f        |
+| public         | part       | p_type      | TEXT  | f        |
+| public         | part       | p_size      | INT   | f        |
+| public         | part       | p_container | TEXT  | f        |
++----------------+------------+-------------+-------+----------+
+
+```
+
+:::hint{type="success"}
+The example above shows that the tables reside in the `public` schema, the default schema in Oxla. You can also have a table from other schemas - click [here](https://docs.oxla.com/schema) for more info.
+:::
+
+### Case #2: Describe Database
+
+1\) Execute the following query to describe the database:
+
+```pgsql
+DESCRIBE DATABASE;
+```
+
+2\) You will retrieve a list of the existing tables in the database as shown below:
+
+```pgsql
++-----------------------------+
+| name                        | 
++-----------------------------+
+| supplier_scale_1_no_index   | 
+| features                    | 
+| orders                      | 
+| features2                   | 
+| featurestable               | 
+| featurestable1              | 
+| featurestable10             | 
++-----------------------------+
+```
+
+###
+

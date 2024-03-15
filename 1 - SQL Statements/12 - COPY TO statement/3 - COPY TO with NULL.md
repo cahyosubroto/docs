@@ -1,0 +1,65 @@
+---
+title: COPY TO with NULL
+slug: PqVh-copy-to-with-null
+createdAt: 2024-01-30T15:46:58.908Z
+updatedAt: 2024-02-29T14:07:51.951Z
+---
+
+## **Overview**
+
+A `NULL` value indicates that the value does not exist in the database. In Oxla, you can use the `NULL` option in the `COPY TO` state to specify a string that will replace `NULL` values ​​when copying data from the table to a CSV file.
+
+## **Syntax**
+
+The syntax for using the `NULL` option in the `COPY TO` is as follows:
+
+```pgsql
+COPY table_name TO 'file_path' (NULL 'replacement_string');
+```
+
+Parameters in the syntax include:
+
+*   `table_name`: The table containing the data to be exported.
+
+*   `file_path`: A CSV file location where the data will be saved.
+
+*   `NULL ‘replacement_string'`: The specified string that will replace NULL values in the exported CSV file. The default value is `' '`.
+
+## **Example**
+
+1\) Create a table with a `NULL` value.
+
+```pgsql
+CREATE TABLE example_table (
+  id serial,
+  name varchar(50),
+  age int,
+  city varchar(50)
+);
+
+INSERT INTO example_table (name, age, city) VALUES
+  ('John', 25, 'New York'),
+  ('Alice', NULL, 'Chicago'),
+  ('Bob', 30, NULL);
+```
+
+2\) Now, let's use `COPY TO` with an empty string:
+
+```pgsql
+COPY example_table TO '/path/to/exampleexport.csv' (NULL '');
+```
+
+3\) The `NULL` values in the table are replaced with the empty string in the CSV file.
+
+```none
+1,John,25,"New York"
+2,Alice,null,"Chicago"
+3,Bob,30,""
+```
+
+:::hint{type="info"}
+You can specify another string to replace the null value, such as blank, empty, invalid, etc.
+:::
+
+
+

@@ -1,0 +1,148 @@
+---
+title: COPY FROM statement
+slug: fKqo-copy-from-statement
+description: The COPY FROM statement is used to import data to a table. This section covers the overview, syntax, types and a detailed example of the statement.
+createdAt: 2023-02-17T15:14:45.000Z
+updatedAt: 2024-01-30T15:17:21.395Z
+---
+
+## **Overview**
+
+**COPY FROM** is used to import data from a file into a table by reading from the file directly. When using the COPY FROM, each field in the file is inserted sequentially into the specified column.
+
+:::hint{type="info"}
+The file must be accessible and able to be read and written to.
+:::
+
+## **Syntax**
+
+The syntax for** COPY FROM** is as follows:&#x20;
+
+```pgsql
+COPY table_name FROM 'file_path';
+```
+
+Two parameters need to be specified in the syntax:
+
+*   `table_name`: the table that will receive data from the file.
+
+*   `file_path`: a link to the file location accessible from the server.&#x20;
+
+## **Example**
+
+### Step #1: Create a CSV File
+
+First, you should create a CSV file and store it on your local computer. Here, we make a file called **“feature2.csv” **that stores features with its version.
+
+> create a table, 1.0
+> modify a table, 1.2
+> drop a table, 2.2
+> rename a table, 2.0
+
+### Step #2: Import FIle from Local to Server
+
+You can use the syntax below for importing the file to the server:
+
+```typescript
+aws s3 cp ~/[file location on your local computer] s3://[server location]/[file name]
+```
+
+Next, import the file to the server using the above syntax as shown below:
+
+```typescript
+aws s3 cp ~/Documents/feature2.csv s3://oxla-testdata/cayo/feature2.csv
+```
+
+If it’s successfully imported, you will get the following result:
+
+```typescript
+upload: Documents/feature2.csv to s3://oxla-testdata/cayo/feature2.csv
+```
+
+### Step #3: Connect to Oxla Server
+
+The file has been successfully uploaded to the server ✅. Now, connect to the Oxla server using the command below:
+
+```pgsql
+psql -h buildfarm.oxla.com -p 6000
+```
+
+If you get the output below, you are currently in the Oxla environment.
+
+```pgsql
+psql (15.1 (Ubuntu 15.1-1.pgdg22.10+1), server Oxla 1.0)
+WARNING: psql major version 15, server major version 0.0.
+         Some psql features might not work.
+Type "help" for help.
+```
+
+### Step #4: Create a Table
+
+Before creating a table, check for duplicate tables with the statement below:
+
+```pgsql
+DESCRIBE DATABASE
+```
+
+In return, you will retrieve a list of existing tables in the Oxla.&#x20;
+
+```pgsql
++----------------------------+
+| name                       |
++----------------------------+
+| supplier_scale_1_no_index  |
+| features                   |
+| orders                     |
+| features2                  |
+| featurestable              |
+| featurestable1             |
+| featurestable10            |
++----------------------------+
+```
+
+:::hint{type="warning"}
+Ensure you are not creating duplicate tables.
+:::
+
+We need to create a table to retrieve the data from the CSV file. Here we will create a “**featurelisttable**” table. Using the same data type as described in the file is recommended.
+
+```pgsql
+CREATE TABLE featurelisttable (featurename string, version float);
+```
+
+### Step #5: Copy the CSV File Into Table
+
+Now, copy **“feature2.csv”** by executing the COPY FROM query below:
+
+```pgsql
+COPY featurelisttable FROM 's3://oxla-testdata/cayo/feature2.csv';
+```
+
+You will get the following successful result:
+
+```pgsql
+--
+(0 rows)
+```
+
+### Step #6: Retrieve the Table
+
+To verify that the data was imported correctly from the server, retrieve all the data using the SELECT statement:
+
+```pgsql
+SELECT * FROM featurelisttable;
+```
+
+You will have the same data in the table as in the CSV file.
+
+```pgsql
++-----------------+----------+
+| featurename     | version  | 
++-----------------+----------+
+| create a table  | 1        |
+| modify a table  | 1.2      |
+| drop a table    | 2.2      |
+| rename a table  | 2        |
++-----------------+----------+
+```
+

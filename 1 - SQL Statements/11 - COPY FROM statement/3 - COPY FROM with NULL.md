@@ -1,0 +1,92 @@
+---
+title: COPY FROM with NULL
+slug: t6Yk-copy-from-with-null
+description: The COPY FROM statement is used to import data to a table with NULL value; NULL meaning no value. This guide goes more in-depth about important details.
+createdAt: 2023-02-17T15:43:23.000Z
+updatedAt: 2024-02-29T14:06:21.436Z
+---
+
+## **Overview**
+
+NULL means **no value**. In other words, it does not have any value, not equal to 0, empty string, or spaces. In Oxla, we can specify a different string as the null value in the COPY FROM statement.
+
+## **Syntax**
+
+You can define a string with any strings that will replace the null value, as shown in the syntax below:
+
+```pgsql
+COPY table_name FROM 'file_path' (NULL 'string')
+```
+
+## **Examples**
+
+### **Case #1: Show Blank for NULL Value**
+
+1\) To begin with, create a CSV file called **idvals.csv** with a null value:
+
+> null,5
+> 2,2
+> 3,2
+
+2\) In addition, create a table called **idqty** by specifying the column with an integer data type:
+
+```pgsql
+CREATE TABLE idqty (id INTEGER, quantity INTEGER);
+```
+
+3\) Execute the COPY FROM statement with a NULL option:
+
+```pgsql
+COPY idqty FROM idvals (NULL, 'null');
+```
+
+4\) A null value from the CSV file will be displayed in a table with an empty row that has no value, as shown below:
+
+```pgsql
++------+----------+
+| id   | quantity | 
++------+----------+
+|      | 5        |
+| 2    | 2        |
+| 3    | 2        |
++------+----------+
+```
+
+### **Case #2: Show String for NULL Value**
+
+1\) A string is represented with a double quote. In this case, we create a CSV file called **idvals.csv** with a null value as a string.
+
+> "null",5
+> 2,2
+> 3,"null"
+
+2\) Create a table called **idqty **by specifying the column with an integer data type:
+
+```pgsql
+CREATE TABLE idqty (id INTEGER, quantity INTEGER);
+```
+
+3\) Execute the COPY FROM statement with a NULL option:
+
+```pgsql
+COPY idqty FROM idvals (NULL, 'null');
+```
+
+4\) You can see that a null value from the CSV file will be displayed in a table with **“null”:**
+
+```pgsql
++------+----------+
+| id   | quantity | 
++------+----------+
+| null | 5        |
+| 2    | 2        |
+| 3    | null     |
++------+----------+
+```
+
+:::hint{type="info"}
+You can specify another string to replace the null value. Such as blank, empty, invalid, etc.&#x20;
+:::
+
+
+

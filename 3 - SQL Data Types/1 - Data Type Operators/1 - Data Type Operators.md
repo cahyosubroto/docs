@@ -1,0 +1,23 @@
+---
+title: Data Type Operators
+slug: 8q85-data-type-operators
+description: The Operator data type is any parsed expression that returns a value. Here is a comprehensive list of the data type operations supported by SQL.
+createdAt: 2022-08-24T04:16:19.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+The Operator data type is any parsed expression that returns a value. An operator is used in the form of a special symbol or function.
+
+The following table shows a list of logical operators that Oxla supports:
+
+| **Type**   | **Name**                 | **Operator** | **Description**                                                                              | **Example**                |
+| ---------- | ------------------------ | ------------ | -------------------------------------------------------------------------------------------- | -------------------------- |
+| Relational | Equal to                 | `=`          | This shows that the value of one item is **equal** to another item’s value.                  | `cust_name = 'Mike'`       |
+| Relational | Greater than             | `>`          | This shows that the value of one item is **greater** than another item’s value.              | `stock_value > 10`         |
+| Relational | Less than                | `<`          | This shows that the value of one item is **less** than another item’s value.                 | `stock_value < 20`         |
+| Relational | Not equal to             | `<>` or `!=` | Indicates that the value of one item is **not equal** to the other item’s value.             | `subj_score != 'FAILED'`   |
+| Relational | Greater than or equal to | `>=`         | Indicates that the value of one item is **greater than or equal to** the other item’s value. | `prod_price >= 3000`       |
+| Relational | Less than or equal to    | `<=`         | Indicates that the value of one item is **less than or equal to** the other item’s value.    | `prod_price <= 9000`       |
+| Logical    | Not                      | `NOT`        | It shows a record if the condition(s) is NOT TRUE.                                           | `NOT true = false`         |
+| Logical    | Is null                  | `IS NULL`    | Used to check for empty values (`NULL` values).                                              | `WHERE empsalary IS NULL;` |
+
