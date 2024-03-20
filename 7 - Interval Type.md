@@ -1,0 +1,159 @@
+---
+title: Interval Type
+slug: PQiF-interval-type
+description: The Interval data type is used to store intervals between periods in time and is specified using a given timestamp. Let's look at more details here.
+createdAt: 2022-08-24T04:22:55.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+The Interval data type is used to store intervals between periods in time. The interval time is specified using the number of years, months, days, hours, minutes, and seconds to a given timestamp.
+
+## **Format**
+
+```pgsql
+quantity unit [quantity unit...] [direction]  
+```
+
+Here is the description of each parameter that is used in the above syntax:
+
+| **Parameters** | **Description**                                                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `quantity`     | A specified number (can be applied with a - sign to separate each quantity).                                                                                                                          |
+| `unit`         | *   A year, month, week, day, hour, minute, second.
+
+*   An abbreviation can be y, m, d, and so on: `YYYY-MM-DD [HH:MM:SS[.SSSSSS]]`.
+
+*   The plural forms can be the months, days, and so on.&#x20; |
+| `direction`    | An additional parameter: ***ago***** **or** **the ***empty string.***                                                                                                                                 |
+
+## **Examples**
+
+### Case #1: Select Interval With Quantity and Unit
+
+This example demonstrates how to express an interval of **5 years, 4 months, 3 days, 5 hours, 10 minutes, and 25 seconds** using the INTERVAL keyword.
+
+```pgsql
+SELECT INTERVAL 5 'years' 4 'months' 2 'weeks' 3 'days' 5 'hours' 10 'minutes' 25 'second';
+```
+
+It will return the result as displayed below:
+
+```pgsql
++----------------------------------+
+| interval                         | 
++----------------------------------+
+| 5 years 4 mons 17 days 05:10:25  |
++----------------------------------+
+```
+
+### Case #2: Select the Interval With “ago”
+
+In the second example, we will figure out the interval at 2 weeks and 10 days ago:
+
+```pgsql
+SELECT INTERVAL '2 weeks 10 days ago';
+```
+
+The result will be displayed in:
+
+*   days as 2 weeks is equal to 14 days.
+
+*   negative values, as we used an ***ago*** direction.&#x20;
+
+```pgsql
++------------------+
+| interval         | 
++------------------+
+| -24 days         |
++------------------+
+```
+
+### Case #3: Select Interval by Setting the Negative Quantity and Unit
+
+By using the following command, we will have an interval of 3600 months ago but in ***years*** unit. The (-) symbol is added before the quantity:
+
+```pgsql
+SELECT INTERVAL '-3600' MONTH;
+```
+
+It will return the result as displayed below:
+
+```pgsql
++------------------+
+| interval         | 
++------------------+
+| -300 years       |
++------------------+
+```
+
+### Case #4: Select Interval by Setting the Quantity
+
+In this example, we will get to know the time of 2 years and 4 months from a specified value:&#x20;
+
+```pgsql
+SELECT INTERVAL '2-4';
+```
+
+You will get the following successful output:&#x20;
+
+```pgsql
++------------------+
+| interval         | 
++------------------+
+| 2 years 4 mons   |
++------------------+
+```
+
+### Case #5: Select Interval by Setting the Unit and Time
+
+In the previous example, we selected an interval by years and months with a specified value. In this example, we will choose an interval by day and time:
+
+```pgsql
+SELECT INTERVAL '5 5:10:06';
+```
+
+You will get the following successful output:&#x20;
+
+```pgsql
++------------------+
+| interval         | 
++------------------+
+| 5 days 05:10:06  |
++------------------+
+```
+
+### Case #6: Extracting Data From an Interval
+
+We can extract the interval field values from the timestamp with the **EXTRACT()** function:
+
+```pgsql
+SELECT EXTRACT (field FROM interval)
+```
+
+*   `field`, supported time parts are YEAR, MONTH, DAY, HOUR, MINUTE, and SECOND.
+
+*   `interval`, specified timestamp.
+
+Now, we will extract a minute from the specified timestamp below:
+
+```pgsql
+SELECT EXTRACT (MINUTE
+FROM INTERVAL '2 hours 30 minutes');
+```
+
+You will get 30 as an extracted result:&#x20;
+
+```pgsql
++-----------+
+| extract   | 
++-----------+
+| 30        |
++-----------+
+```
+
+:::hint{type="info"}
+If you query a field that is not specified in the timestamp, you will get `0` as output.
+:::
+
