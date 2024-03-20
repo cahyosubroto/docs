@@ -55,7 +55,7 @@
       ]
     },
     {
-      "group": "Run Oxla in 2 Minutes",
+      "group": "Getting Started",
       "pages": [
         "2-run-oxla/run-oxla-in-2-minutes",
         "2-run-oxla/run-oxla-on-s3",
@@ -66,10 +66,12 @@
       "group": "SQL Reference",
       "pages": [
         "3-sql-reference/sql-reference-overview",
-        "3-sql-reference/3-1-sql-statements/sql-statements-overview",
         {
-          "group": "Nested Reference Pages",
-          "pages": ["3-sql-reference/sql-reference-overview"]
+          "group": "SQL Statements",
+          "pages": [
+            "3-sql-reference/3-1-sql-statements/sql-statements-overview",
+            "3-sql-reference/3-1-sql-statements/3-1-1-sql-table/sql-table"
+          ]
         }
       ]
     },
