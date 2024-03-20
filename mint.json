@@ -29,7 +29,7 @@
     {
       {
       "name": "Changelog",
-      "url": "docs.oxla.com"
+      "url": "https://docs.oxla.com"
     }
     }
   ],
@@ -37,7 +37,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://oxla.com/blog/"
     }
   ],
   "navigation": [
