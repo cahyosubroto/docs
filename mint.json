@@ -70,6 +70,12 @@
       ]
     },
     {
+      "group": "SQL Mutations",
+      "pages": [
+        "7-SQL Mutations/0-SQL Mutations"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"
