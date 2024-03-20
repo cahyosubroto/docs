@@ -1,0 +1,83 @@
+---
+title: Date Type
+slug: 1Bru-date-type
+description: The DATE data type is used to store and insert date values using three components: year, month, and day. We'll be going over more in this guide.
+createdAt: 2022-08-24T04:22:37.000Z
+updatedAt: 2024-02-29T14:11:51.970Z
+---
+
+## Overview
+
+The `DATE` data type is used to store and insert date values.
+
+:::hint{type="info"}
+💡 The date value is stored without the time zone.
+:::
+
+## Structure
+
+The date type contains three components: year, month, and day. It’s represented in a 32-bit integer. Here is the breakdown:
+
+*   **Day component:** 5 bits store the number of days within a month. Its value is in the range <1, 31>.
+
+*   **Month component**: 4 bits store the month of the year. Its value is in the range <1, 12>.
+
+*   **Year component**: 23 bits store the number of years. Its value is from range <0, 2^23 - 1>.
+
+## Format
+
+```pgsql
+YYYY-MM-DD
+```
+
+*   `YYYY` - Four-digit year
+
+*   `MM` - One / two-digit month
+
+*   `DD` - One / two-digit day
+
+## Example
+
+In this example, we will create an **emp\_submission** table that consists of the candidate ID, candidate name, the submitted department, and a submission date with a `DATE` data type.
+
+```pgsql
+CREATE TABLE emp_submission (
+    candidate_ID INT,
+    candidate_Name TEXT,
+    sub_dept TEXT,
+    sub_date DATE
+);
+
+INSERT INTO emp_submission (candidate_ID, candidate_Name, sub_dept, sub_date)
+VALUES 
+(8557411, 'Kumar', 'HR', '2022-05-01'),
+(8557421, 'Ricky', 'HR', '2022-01-09'),
+(8557451, 'Alice', 'Finance', '2022-08-02'),
+(8557461, 'Angel', 'Product', '2012-04-16'),
+(8557431, 'Joan', 'Finance', '2022-02-02'),
+(8557471, 'Cody', 'Product', '2022-03-20'),
+(8557491, 'Liam', 'Product', '2022-06-15');
+```
+
+Now that the data has been inserted, let’s execute the `SELECT` statement below:
+
+```pgsql
+SELECT * FROM emp_submission;
+```
+
+The following is the result of the `SELECT` statement where the values in the `sub_date` column have `DATE` data type:
+
+```pgsql
++---------------+------------------+------------+---------------+
+| candidate_id  | candidate_name   | sub_dept   | sub_date      |
++---------------+------------------+------------+---------------+
+| 8557411       | Kumar            | HR         | 2022-05-01    |
+| 8557421       | Ricky            | HR         | 2022-01-09    |
+| 8557451       | Alice            | Finance    | 2022-08-02    |
+| 8557461       | Angel            | Product    | 2012-04-16    |
+| 8557431       | Joan             | Finance    | 2022-02-02    |
+| 8557471       | Cody             | Product    | 2022-03-20    |
+| 8557491       | Liam             | Product    | 2022-06-15    |
++---------------+------------------+------------+---------------+
+```
+

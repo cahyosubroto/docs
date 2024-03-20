@@ -1,0 +1,73 @@
+---
+title: Time Type
+slug: vQMa-time
+description: The TIME data type to store time values without any date information. 
+createdAt: 2023-07-27T09:51:28.805Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+The `TIME` data type in Oxla stores time values without any date information. It represents a specific time of day, independent of any time zone or date.&#x20;
+
+## Format
+
+The format for the TIME data type is as follows:
+
+```pgsql
+HH:MM:SS[.SSSSSS]
+```
+
+*   `HH`: One or two-digit hour (valid values from 00 to 23).
+
+*   `MM`: One or two-digit minutes (valid values from 00 to 59).
+
+*   `SS`: One or two-digit seconds (valid values from 00 to 59).
+
+*   `[.SSSSSS]` : Optional fractional seconds, with up to six decimal places (microsecond precision).
+
+## Examples
+
+### #Case 1: Create a Schedule Table
+
+Let's create a table to manage employee schedules, containing their names and the time they are scheduled to start work. The TIME data type will be used for the `start_time` column.
+
+```pgsql
+CREATE TABLE employee_schedule (
+    employee_name TEXT,
+    start_time TIME
+);
+
+INSERT INTO employee_schedule (employee_name, start_time)
+VALUES
+('John Doe', '08:30:00'),
+('Jane Smith', '09:00:00'),
+('Michael Johnson', '10:15:00');
+```
+
+The table has been successfully created after executing the above query:
+
+```pgsql
+COMPLETE
+INSERT 0 3
+```
+
+### #Case 2: View the Employee Schedule
+
+To view all employee schedules in the `employee_schedule` table, we can use the `SELECT` statement.
+
+```pgsql
+SELECT * FROM employee_schedule;
+```
+
+The output will display the employee names and their corresponding scheduled start times:
+
+```pgsql
+  employee_name  |   start_time    
+-----------------+-----------------
+ John Doe        | 08:30:00.000000
+ Jane Smith      | 09:00:00.000000
+ Michael Johnson | 10:15:00.000000
+(3 rows)
+```
+
