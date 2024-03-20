@@ -8,11 +8,11 @@
   "favicon": "/oxla-favicon.png",
   "colors": {
     "primary": "#3139DB",
-    "light": "#3d46f3",
+    "light": "#07C983",
     "dark": "#3139DB",
     "anchors": {
       "from": "#3139DB",
-      "to": "#3d46f3"
+      "to": "#07C983"
     }
   },
   "topbarLinks": [
@@ -42,24 +42,21 @@
     {
       "group": "Homepage",
       "pages": [
-        "welcome"
+        "0-homepage/welcome"
       ]
     },
     {
-      "group": "SQL Reference",
+      "group": "Introduction",
       "pages": [
-        "sql-reference/sqlreference"
+        "1-introduction/1-1-key-concepts-archi/introduction"
       ]
     },
     {
-      "group": "Essential",
+      "group": "Run Oxla in 2 Minutes",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "2-run-oxla/run-oxla-in-2-minutes",
+        "2-run-oxla/run-oxla-on-s3",
+        "2-run-oxla/multi-node-deployment"
       ]
     }
   ],
