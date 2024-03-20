@@ -1,0 +1,178 @@
+---
+title: Public Metrics
+slug: seAP-public-metrics
+description: Metrics enables users to gain valuable insights into their data processing and analytics workflows. Let's see how to access and leverage metrics here.
+createdAt: 2023-06-13T08:35:19.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+Metrics play a crucial role in monitoring and analyzing the performance of Oxla, enabling users to gain valuable insights into their data processing and analytics workflows. The metrics are specific to a single node.
+
+This documentation will guide you on how to access and leverage the metrics.
+
+:::hint{type="info"}
+All metrics exposed by Oxla have a `label_node_id` with a node ID set. This is the same `node_id` that can be found in logs and on data storage.
+:::
+
+## Accessing Metrics
+
+Once you have successfully deployed Oxla, you can access the comprehensive metrics that provide valuable insights into the performance and health of your database. To access the metrics, follow the steps below:
+
+1\) Open your preferred web browser and enter the following URL:&#x20;
+
+```typescript
+<ip>:8080/metrics
+```
+
+Replace `<ip>` with the actual IP address of your Oxla deployment. For example, if your Oxla instance is hosted on IP address 128.128.1.1, the URL would be:
+
+```typescript
+128.128.1.1:8080/metrics
+```
+
+2\) If you are running Oxla locally on your machine, you can use localhost as the IP address. In that case, the URL would be:
+
+```typescript
+localhost:8080/metrics
+```
+
+3\) Upon accessing the URL, you will be presented with various metrics as shown below:&#x20;
+
+```typescript
+# TYPE exposer_transferred_bytes_total counter
+exposer_transferred_bytes_total 0
+# TYPE exposer_scrapes_total counter
+exposer_scrapes_total 0
+# TYPE exposer_request_latencies summary
+exposer_request_latencies_count 0
+exposer_request_latencies_sum 0
+exposer_request_latencies{quantile="0.5"} Nan
+exposer_request_latencies{quantile="0.9"} Nan
+exposer_request_latencies{quantile="0.99"} Nan
+# TYPE client_sql_successful_queries_total counter
+client_sql_successful_queries_total{_node_id="MMBUBBTGFQ",query_type="COPY"} 0
+client_sql_successful_queries_total{_node_id="MMBUBBTGFQ",query_type="SELECT"} 0
+client_sql_successful_queries_total{_node_id="MMBUBBTGFQ",query_type="INSERT"} 0
+client_sql_successful_queries_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE client_sql_queries_total counter
+client_sql_queries_total{_node_id="MMBUBBTGFQ",query_type="COPY"} 0
+client_sql_queries_total{_node_id="MMBUBBTGFQ",query_type="SELECT"} 0
+client_sql_queries_total{_node_id="MMBUBBTGFQ",query_type="INSERT"} 0
+client_sql_queries_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE file_flushed_total counter
+file_flushed_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE tasks_executed_total counter
+tasks_executed_total{_node_id="MMBUBBTGFQ",file_task_type="compact",task_status="succeeded"} 0
+tasks_executed_total{_node_id="MMBUBBTGFQ",file_task_type="compact",task_status="failed"} 0
+tasks_executed_total{_node_id="MMBUBBTGFQ",file_task_type="merge",task_status="failed"} 0
+tasks_executed_total{_node_id="MMBUBBTGFQ",file_task_type="merge",task_status="succeeded"} 0
+# TYPE tasks_received_total counter
+tasks_received_total{_node_id="MMBUBBTGFQ",file_task_type="compact"} 0
+tasks_received_total{_node_id="MMBUBBTGFQ",file_task_type="merge"} 0
+# TYPE tasks_scheduled_total counter
+tasks_scheduled_total{_node_id="MMBUBBTGFQ",file_task_type="compact"} 0
+tasks_scheduled_total{_node_id="MMBUBBTGFQ",file_task_type="merge"} 0
+# TYPE thread_pool_tasks_finished_total counter
+thread_pool_tasks_finished_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE thread_pool_tasks_started_total counter
+thread_pool_tasks_started_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE readers_closed_total counter
+readers_closed_total{_node_id="MMBUBBTGFQ"} 8
+# TYPE readers_opened_total counter
+readers_opened_total{_node_id="MMBUBBTGFQ"} 8
+# TYPE writers_closed_total counter
+writers_closed_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE writers_opened_total counter
+writers_opened_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE cluster_has_leader_bool gauge
+cluster_has_leader_bool{_node_id="MMBUBBTGFQ"} 1
+# TYPE num_nodes_connected gauge
+num_nodes_connected{_node_id="MMBUBBTGFQ"} 1
+# TYPE node_is_leader_bool gauge
+node_is_leader_bool{_node_id="MMBUBBTGFQ"} 1
+# TYPE num_open_connections gauge
+num_open_connections{_node_id="MMBUBBTGFQ"} 2
+# TYPE postgres_connections_total gauge
+postgres_connections_total{_node_id="MMBUBBTGFQ"} 1
+# TYPE tasks_capacity_total gauge
+tasks_capacity_total{_node_id="MMBUBBTGFQ"} 8
+# TYPE tasks_ongoing_total gauge
+tasks_ongoing_total{_node_id="MMBUBBTGFQ",file_task_type="compact"} 0
+tasks_ongoing_total{_node_id="MMBUBBTGFQ",file_task_type="merge"} 0
+# TYPE thread_pool_size_total gauge
+thread_pool_size_total{_node_id="MMBUBBTGFQ"} 0
+# TYPE oxla_memory_usage_bytes gauge
+oxla_memory_usage_bytes{value="memory_consumption_total",_node_id="MMBUBBTGFQ"} 73145299
+oxla_memory_usage_bytes{value="system_memory_consumption_total",_node_id="MMBUBBTGFQ"} 5767219
+oxla_memory_usage_bytes{value="cache_memory_consumption_total",_node_id="MMBUBBTGFQ"} 67378080
+oxla_memory_usage_bytes{value="query_memory_consumption_total",_node_id="MMBUBBTGFQ"} 0
+# TYPE oxla_mallinfo gauge
+oxla_mallinfo{elem="arena",_node_id="MMBUBBTGFQ"} 1732608
+oxla_mallinfo{elem="ordblks",_node_id="MMBUBBTGFQ"} 40
+oxla_mallinfo{elem="smblks",_node_id="MMBUBBTGFQ"} 296
+oxla_mallinfo{elem="hblks",_node_id="MMBUBBTGFQ"} 13
+oxla_mallinfo{elem="hblkhd",_node_id="MMBUBBTGFQ"} 70651904
+oxla_mallinfo{elem="usmblks",_node_id="MMBUBBTGFQ"} 0
+oxla_mallinfo{elem="fsmblks",_node_id="MMBUBBTGFQ"} 21392
+oxla_mallinfo{elem="uordblks",_node_id="MMBUBBTGFQ"} 478000
+oxla_mallinfo{elem="fordblks",_node_id="MMBUBBTGFQ"} 1254608
+oxla_mallinfo{elem="keepcost",_node_id="MMBUBBTGFQ"} 18384
+```
+
+The following is a list of parameters available in the Public Metrics:
+
+| **Parameters**                        | **Description**                                                                                                                                                                                                                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `exposer_prefix`                      | The component responsible for exposing metrics.                                                                                                                                                                                                                                            |
+| `exposer_transferred_bytes_total`     | Total size of bytes transferred out by the endpoint.                                                                                                                                                                                                                                       |
+| `exposer_scrapes_total`               | Number of times metrics were scraped.                                                                                                                                                                                                                                                      |
+| `exposer_request_latencies`           | Latencies of serving scrape requests, in microseconds.                                                                                                                                                                                                                                     |
+| `exposer_request_latencies_count`     | Count of latencies.                                                                                                                                                                                                                                                                        |
+| `exposer_request_latencies_sum`       | Sum of latencies.                                                                                                                                                                                                                                                                          |
+| `client_sql_successful_queries_total` | Number of successful queries received from clients.The available queries are:*   `label="COPY"`, successful COPY queries.
+
+*   `label="SELECT"`, successful SELECT queries.
+
+*   `label="INSERT"`, successful INSERT queries.The available label is `query_type`.                          |
+| `client_sql_queries_total`            | Number of queries received from clients.&#x20;The available queries are:*   `label="COPY"`, total COPY queries.
+
+*   `label="SELECT"`, total SELECT queries.
+
+*   `label="INSERT"`, total INSERT queries.The available label is `query_type`.                                              |
+| `file_flushed_total`                  | Number of files flushed when inserting rows.                                                                                                                                                                                                                                               |
+| `tasks_executed_total`                | Number of tasks executed on the cluster.                                                                                                                                                                                                                                                   |
+| `tasks_received_total`                | Number of tasks a node has received to be executed.The available task types are:*   `file_task_type="compact"`, total compact tasks received.
+
+*   `file_task_type="merge"`, total merge tasks received.                                                                                   |
+| `tasks_scheduled_total`               | Number of tasks the leader has sent to nodes and are being executed.The available task types are:*   `file_task_type="compact"`, total compact tasks scheduled.
+
+*   `file_task_type="merge"`, total merge tasks scheduled.                                                                |
+| `thread_pool_tasks_finished_total`    | Number of tasks finished by the thread pool.                                                                                                                                                                                                                                               |
+| `thread_pool_tasks_started_total`     | Number of tasks started by the thread pool.                                                                                                                                                                                                                                                |
+| `readers_closed_total`                | Total number of readers closed since Oxla process creation.                                                                                                                                                                                                                                |
+| `readers_opened_total`                | Total number of readers opened since Oxla process creation.                                                                                                                                                                                                                                |
+| `writers_closed_total`                | Total number of writers closed since Oxla process creation.                                                                                                                                                                                                                                |
+| `writers_opened_total`                | Total number of writers opened since Oxla process creation.                                                                                                                                                                                                                                |
+| `cluster_has_leader_bool`             | Indicates if the cluster has a leader or not.                                                                                                                                                                                                                                              |
+| `num_nodes_connected`                 | Number of nodes connected.                                                                                                                                                                                                                                                                 |
+| `node_is_leader_bool`                 | Indicates if the node is a leader.                                                                                                                                                                                                                                                         |
+| `num_open_connections`                | Number of open connections.                                                                                                                                                                                                                                                                |
+| `postgres_connections_total`          | Number of clients connected using the Postgres protocol.                                                                                                                                                                                                                                   |
+| `tasks_capacity_total`                | Number of task capacity on the cluster.                                                                                                                                                                                                                                                    |
+| `tasks_ongoing_total`                 | Number of tasks currently being executed on the node.The available task types are:*   `file_task_type="compact"`, total ongoing compact tasks.
+
+*   `file_task_type="merge"`, total ongoing merge tasks.                                                                                   |
+| `thread_pool_size_total`              | Number of threads used by the thread pool.                                                                                                                                                                                                                                                 |
+| `oxla_memory_usage_bytes`             | Memory used by Oxla.The available values are:*   `value="system_memory_consumption_total"`, total system memory consumption.
+
+*   `value="cache_memory_consumption_total"`, total cache memory consumption.
+
+*   `value="query_memory_consumption_total"`, total query memory consumption. |
+| `oxla_mallinfo`                       | Information about glibc's malloc() internal state.                                                                                                                                                                                                                                         |
+
+:::hint{type="info"}
+ℹ️ By regularly monitoring these metrics, you can gain valuable insights into the efficiency of your database operations, identify potential bottlenecks, and make data-driven optimizations to enhance the overall performance and reliability of your analytical workflows.
+:::
+
