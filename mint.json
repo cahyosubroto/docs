@@ -27,7 +27,10 @@
   },
   "tabs": [
     {
-      
+      {
+      "name": "Changelog",
+      "url": "docs.oxla.com"
+    }
     }
   ],
   "anchors": [
