@@ -99,11 +99,11 @@
             {
               "group": "COPY TO statement",
               "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to",
-                "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-delimiter",
-                "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-endpoint",
-                "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-header",
-                "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-null"
+                "3-sql-reference/3-1-sql-statements/3-1-12-copy-to-statement/copy-to",
+                "3-sql-reference/3-1-sql-statements/3-1-12-copy-to-statement/copy-to-with-delimiter",
+                "3-sql-reference/3-1-sql-statements/3-1-12-copy-to-statement/copy-to-with-endpoint",
+                "3-sql-reference/3-1-sql-statements/3-1-12-copy-to-statement/copy-to-with-header",
+                "3-sql-reference/3-1-sql-statements/3-1-12-copy-to-statement/copy-to-with-null"
               ]
             }
           ]
@@ -131,9 +131,9 @@
             {
               "group": "Set Operations",
               "pages": [
+                "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/set-operations",
                 "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/except",
                 "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/intersect",
-                "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/set-operations",
                 "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/union"
               ]
             }
@@ -214,8 +214,13 @@
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/ends-with",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/length",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/lower",
-                "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/regexp",
-                "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/posix-expression",
+                {
+                  "group": "REGEXP_REPLACE",
+                  "pages": [
+                    "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/regexp",
+                    "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/posix-expression"
+                  ]
+                },
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/replace",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/starts-with",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/string-functions",
@@ -288,7 +293,7 @@
       "pages": [
         "4-sql-mutations/sql-mutations",
         "4-sql-mutations/update",
-        "4-sql-mutations/delete"
+        "4-sql-mutations/delete-mutation"
       ]
     },
     {
