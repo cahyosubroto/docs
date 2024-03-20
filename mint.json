@@ -68,45 +68,29 @@
         "3-sql-reference/sql-reference-overview",
         {
           "group": "SQL Statements",
-          "pages": [
+          "pages":[
             "3-sql-reference/3-1-sql-statements/sql-statement-overview",
-            {
-              "group": "CREATE TABLE statement",
-              "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table",
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/keywords"
-              ]
-            },
-            {
-              "group": "CREATE INDEX statement",
-              "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-3-create-index-statement/create-index"
-              ]
-            },
-            {
-              "group": "SELECT statement",
-              "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-4-select-statement/select"
-              ]
-            },
-            {
-              "group": "INSERT INTO statement",
-              "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-5-insert-into-statement/insert-into"
-              ]
-            },
-            {
-              "group": "DROP statement",
-              "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-6-drop-statement/drop"
-              ]
-            }
-          ]
-        },
-        {
-          "group": "SQL Table",
-          "pages": [
-            "3-sql-reference/3-1-sql-statements/sql-table"
+            "3-sql-reference/3-1-sql-statements/sql-table",
+            "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table",
+            "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/keywords",
+            "3-sql-reference/3-1-sql-statements/3-1-3-create-index-statement/create-index",
+            "3-sql-reference/3-1-sql-statements/3-1-4-select-statement/select",
+            "3-sql-reference/3-1-sql-statements/3-1-5-insert-into-statement/insert-into",
+            "3-sql-reference/3-1-sql-statements/3-1-6-drop-statement/drop",
+            "3-sql-reference/3-1-sql-statements/3-1-7-show-tables-statement/show-tables",
+            "3-sql-reference/3-1-sql-statements/3-1-8-describe-statement/describe",
+            "3-sql-reference/3-1-sql-statements/3-1-9-show-nodes-statement/show-nodes",
+            "3-sql-reference/3-1-sql-statements/3-1-10-set-show-statement/set-show",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from-with-delimiter",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from-with-endpoint",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from-with-header",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from-with-null",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-delimiter",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-endpoint",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-header",
+            "3-sql-reference/3-1-sql-statements/3-1-11-copy-to-statement/copy-to-with-null"
           ]
         }
       ]
