@@ -69,7 +69,19 @@
         {
           "group": "SQL Statements",
           "pages": [
-            "3-sql-reference/3-1-sql-statements/sql-statements-overview"
+            "3-sql-reference/3-1-sql-statements/sql-statements-overview",
+            {
+              "group": "test",
+              "pages": [
+                "3-sql-reference/3-1-sql-statements/sql-statements-overview",
+                {
+                  "group": "test2",
+                  "pages": [
+                    "3-sql-reference/3-1-sql-statements/sql-statements-overview"
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
