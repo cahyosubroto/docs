@@ -1,0 +1,82 @@
+---
+title: 'JSON_EXTRACT_PATH'
+slug: sDEP-jsonextractpath
+description: This function extracts a JSON value from a specified path in a JSON document. These examples will help you better understand how this function works.
+createdAt: 2023-03-28T07:56:57.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+`JSON_EXTRACT_PATH()` function extracts JSON nested value from a specified path.&#x20;
+
+## **Syntax**
+
+The syntax of the `JSON_EXTRACT_PATH()` function can be seen below. 
+
+```pgsql
+JSON_EXTRACT_PATH(from_json JSON, path TEXT[])
+```
+
+*   `from_json`: the JSON value from which to extract.
+
+*   `path`: the path to extract.
+
+### **Another Option**
+
+Besides the syntax above, Oxla provides and supports the use of operators in queries.  See the syntax below:
+
+```pgsql
+SELECT 'from_json'::JSON -> 'path';
+```
+
+*   `from_json`: the JSON value from which to extract.
+
+*   `::JSON`:  a symbol that casts the string literal to a JSON type.
+
+*   `path`: key of the field that we want to extract.
+
+## **Examples**
+
+These examples display how `JSON_EXTRACT_PATH()` extracts the "oxla" JSON sub-object from the specified path.&#x20;
+
+**1)** Use the below query:
+
+```pgsql
+SELECT JSON_EXTRACT_PATH('{"f2":{"f3":1},"f4":{"f5":99,"f6":"oxla"}}', 'f4', 'f6');
+```
+
+**or**
+
+```pgsql
+SELECT '{"f2":{"f3":1},"f4":{"f5":99,"f6":"oxla"}}'::JSON -> 'f4' -> 'f6';
+```
+
+The query above will return the following result.
+
+```pgsql
++---------+
+| f       |
++---------+
+| "oxla"  |
++---------+
+```
+
+**2)** Run the query below:
+
+```pgsql
+SELECT
+    JSON_EXTRACT_PATH('{"a": 1, "b": {"x": "subtract", "y": "plus"}}', 'b', 'x') AS "bx",
+    JSON_EXTRACT_PATH('{"a": 1, "b": {"x": "multiply", "y": "divide"}}', 'b', 'y') AS "by";
+```
+
+You will get the following output:
+
+```pgsql
++---------------+-------------+
+| bx            | by          |
++---------------+-------------+
+| "subtract"    | "divide"    |
++---------------+-------------+
+```
+
