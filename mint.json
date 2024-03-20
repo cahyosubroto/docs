@@ -42,8 +42,7 @@
     {
       "group": "Homepage",
       "pages": [
-        "introduction",
-        "test"
+        "welcome"
       ]
     },
     {
