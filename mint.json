@@ -75,7 +75,12 @@
               "group": "Nested Reference Pages",
               "pages": [
                 "2-run-oxla/run-oxla-in-2-minutes",
-                "2-run-oxla/multi-node-deployment"
+                "2-run-oxla/multi-node-deployment",
+                {
+                  "group": "Nested Reference Pages",
+                  "pages": [
+                    "2-run-oxla/run-oxla-in-2-minutes",
+                    "2-run-oxla/multi-node-deployment"
               ]
             }
           ]
