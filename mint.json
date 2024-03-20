@@ -96,13 +96,22 @@
         {
           "group": "SQL Clauses",
           "pages":[
-            "3-sql-reference/3-1-sql-statements/sql-statement-overview",
-            "3-sql-reference/3-1-sql-statements/sql-table",
-            "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table",
-            "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/keywords",
-            "3-sql-reference/3-1-sql-statements/3-1-3-create-index-statement/create-index",
-            "3-sql-reference/3-1-sql-statements/3-1-4-select-statement/select",
-            "3-sql-reference/3-1-sql-statements/3-1-5-insert-into-statement/insert-into"
+            "3-sql-reference/3-2-sql-clauses/sql-clauses-overview",
+            "3-sql-reference/3-2-sql-clauses/3-2-1-from/from",
+            "3-sql-reference/3-2-sql-clauses/3-2-1-from/join",
+            "3-sql-reference/3-2-sql-clauses/3-2-1-from/left-join",
+            "3-sql-reference/3-2-sql-clauses/3-2-1-from/outer-join",
+            "3-sql-reference/3-2-sql-clauses/3-2-1-from/right-join",
+            "3-sql-reference/3-2-sql-clauses/3-2-2-where/where",
+            "3-sql-reference/3-2-sql-clauses/3-2-3-group-by/group-by",
+            "3-sql-reference/3-2-sql-clauses/3-2-4-having/having",
+            "3-sql-reference/3-2-sql-clauses/3-2-5-order-by/order-by",
+            "3-sql-reference/3-2-sql-clauses/3-2-6-limit/limit",
+            "3-sql-reference/3-2-sql-clauses/3-2-7-offset/offset",
+            "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/except",
+            "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/intersect",
+            "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/set-operations",
+            "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/union"
           ]
         }
       ]
