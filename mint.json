@@ -70,7 +70,7 @@
           "group": "SQL Statements",
           "pages": [
             "3-sql-reference/3-1-sql-statements/sql-statement-overview",
-            "3-sql-reference/3-1-sql-statements/3-1-1-sql-table/sql-table",
+            "3-sql-reference/3-1-sql-statements/sql-table",
             {
               "group": "CREATE TABLE statement",
               "pages": [
