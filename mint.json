@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "Changelog",
-      "url": "Changelog"
+      "url": "10-changelog/oxla-changelog"
     }
   ],
   "anchors": [
@@ -49,22 +49,17 @@
       "group": "Introduction",
       "pages": [
         "/1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
-        {
-          "group": "Nested Reference Pages",
-          "pages": [
-            "1-introduction/1-1-key-concepts-archi/oltp-olap",
-            "1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions",
-            "1-introduction/1-1-key-concepts-archi/our-key-features"
-          ]
-        }
+        "1-introduction/1-1-key-concepts-archi/oltp-olap",
+        "1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions",
+        "1-introduction/1-1-key-concepts-archi/our-key-features"
       ]
     },
     {
       "group": "Run Oxla in 2 Minutes",
       "pages": [
-        "/2-run-oxla/run-oxla-in-2-minutes",
-        "/2-run-oxla/run-oxla-on-s3",
-        "/2-run-oxla/multi-node-deployment"
+        "2-run-oxla/run-oxla-in-2-minutes",
+        "2-run-oxla/run-oxla-on-s3",
+        "2-run-oxla/multi-node-deployment"
       ]
     },
     {
