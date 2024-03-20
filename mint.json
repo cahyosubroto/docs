@@ -113,6 +113,24 @@
             "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/set-operations",
             "3-sql-reference/3-2-sql-clauses/3-2-8-set-operations/union"
           ]
+        },
+        {
+          "group": "SQL Data Types",
+          "pages":[
+            "3-sql-reference/3-3-sql-data-types/data-types-overview",
+            "3-sql-reference/3-3-sql-data-types/3-3-1-operators/data-type-operator",
+            "3-sql-reference/3-3-sql-data-types/3-3-2-bool-types/bool",
+            "3-sql-reference/3-3-sql-data-types/3-3-3-date-types/date",
+            "3-sql-reference/3-3-sql-data-types/3-3-4-timestamp-without-time-zone/timestamp-without-time-zone",
+            "3-sql-reference/3-3-sql-data-types/3-3-5-timestamp-with-time-zone/timestamp-with-time-zone",
+            "3-sql-reference/3-3-sql-data-types/3-3-6-time-types/time",
+            "3-sql-reference/3-3-sql-data-types/3-3-6-time-types/time-operator",
+            "3-sql-reference/3-3-sql-data-types/3-3-7-interval-types/interval",
+            "3-sql-reference/3-3-sql-data-types/3-3-8-text-types/text",
+            "3-sql-reference/3-3-sql-data-types/3-3-9-numeric-types/numeric-type",
+            "3-sql-reference/3-3-sql-data-types/3-3-9-numeric-types/numeric-data-type-aliases",
+            "3-sql-reference/3-3-sql-data-types/3-3-10-json-types/json-type"
+          ]
         }
       ]
     },    
