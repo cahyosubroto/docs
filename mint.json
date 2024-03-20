@@ -65,13 +65,7 @@
     {
       "group": "SQL Reference",
       "pages": [
-        "3-sql-reference/sql-reference",
-        {
-          "group": "SQL Statements",
-          "pages": [
-            "3-sql-reference/3-1-sql-statements/sql-statement"
-          ]
-        }
+        "3-sql-reference/sql-reference"
       ]
     },
     {
