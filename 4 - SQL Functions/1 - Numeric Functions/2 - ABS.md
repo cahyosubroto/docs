@@ -1,0 +1,105 @@
+---
+title: ABS
+slug: eEkG-abs
+description: The ABS() function returns an absolute number (the positive value of a number). See detailed examples and syntax here to better understand the function.
+createdAt: 2023-01-25T03:07:26.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+The `ABS()` function returns an absolute number, i.e., the positive value of a number. The data type of the returned value will depend on the data type of the value passed to the `ABS()` function.
+
+## Syntax
+
+The syntax for the `ABS() `function is as follows:
+
+```pgsql
+ABS(x)
+```
+
+The `ABS()` function requires one argument:
+
+*   `x`: An expression that evaluates to a number.
+
+:::hint{type="info"}
+ℹ️ The **ABS()** function will return the negation of the negative numbers.
+:::
+
+## Examples
+
+### Case #1: Absolute value of a negative number
+
+The following example demonstrates how the `ABS()` function can be used to obtain the absolute value of a negative number:
+
+```pgsql
+SELECT ABS(-10.25);
+```
+
+It will return an absolute value of the passed argument:
+
+```pgsql
++--------+
+| f      | 
++--------+
+| 10.25  |
++--------+
+```
+
+### Case #2: ABS() function with an expression
+
+The following example demonstrates how the `ABS()` function can be used with an expression to obtain the absolute value of the result:
+
+```pgsql
+SELECT ABS( 100 - 250);
+```
+
+The result of the above statement is **-150**. However, you will get the output **150**, as 150 is the positive version of -150.
+
+```pgsql
++------+
+| f    | 
++------+
+| 150  |
++------+
+```
+
+### Case #3: Using the ABS() function with a table
+
+The following example demonstrates how the `ABS()` function can be used with a table to obtain the absolute values of all numbers in a specific column:
+
+**1)** First, create a table named absTable containing an ***initialValue*** column with some positive and negative values:
+
+```pgsql
+CREATE TABLE absTable(initialValue float);
+
+INSERT INTO absTable(initialValue)
+VALUES 
+(550),
+(-210), 
+(72.12),
+(-87.93),
+(-0.0);
+```
+
+**2)** Next, use the following query to find the absolute value of all numbers:
+
+```pgsql
+SELECT initialValue, ABS(initialValue) AS absoluteValue
+FROM absTable;
+```
+
+**3)** The above query will retrieve all values in the **"initialValue"** column and their absolute values in the **"absoluteValue"** column. The output will look something like this:
+
+```pgsql
++---------------+----------------+
+| initialValue  | absoluteValue  |
++---------------+----------------+
+| 550           | 550            |
+| -210          | 210            |
+| 72.12         | 72.12          |
+| 87.93         | 87.93          |
+| -0            | 0              |
++---------------+----------------+
+```
+

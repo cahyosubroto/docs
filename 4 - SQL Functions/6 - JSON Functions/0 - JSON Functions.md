@@ -1,0 +1,26 @@
+---
+title: JSON Functions
+slug: guhr-json-functions
+description: To help query JSON data, Oxla provides functions that will be used to operate and manipulate the JSON data. Learn the different functions and more here.
+createdAt: 2023-03-28T07:55:31.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+To help you query JSON data, Oxla provides some functions that will be used to operate and manipulate the JSON data. The functions are as follows:
+
+| **Functions**                                                                                    | **Description**                                                                        |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| [JSON\_EXTRACT\_PATH()](https://docs.oxla.com/jsonextractpath)[﻿](https://docs.oxla.com/length)﻿ | It extracts JSON sub-object at the specified path.                                     |
+| [JSON\_EXTRACT\_PATH\_TEXT()](https://docs.oxla.com/jsonextractpathtext)                         | It returns text referenced by a series of path elements in a JSON string or JSON body. |
+| [JSON\_ARRAY\_LENGTH()](https://docs.oxla.com/jsonarraylength)                                   | It returns the number of elements in the outer array of a JSON string or JSON body.    |
+| [JSON\_ARRAY\_EXTRACT()](https://docs.oxla.com/jsonarrayextract)                                 | It returns the JSON array as a set of JSON values.                                     |
+
+Operators are used to specify conditions when using JSON functions. Oxla also supports JSON operators as listed below:
+
+| **Operators** | **Description**                                          | **Example**                                          |
+| ------------- | -------------------------------------------------------- | ---------------------------------------------------- |
+| ->            | It gets & returns the element of the JSON array.         | `'[{"a":"cab"},{"b":"bac"},{"c":"abc"}]'::json -> 2` |
+| ->            | It gets & returns the JSON object field.                 | `'{"a": {"b":"abc"}}'::json -> 'a'`                  |
+| ->>           | It gets & returns the element of the JSON array as text. | `'[11,22,33]'::json ->> 2`                           |
+| ->>           | It gets & returns the JSON object field as text.         | `'{"a":13,"b":33}'::json ->> 'b'`                    |
+

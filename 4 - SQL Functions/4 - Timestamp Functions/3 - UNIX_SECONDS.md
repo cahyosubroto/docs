@@ -1,0 +1,92 @@
+---
+title: UNIX_SECONDS
+slug: lrfu-unixseconds
+description: This function returns the number of seconds that have elapsed since the Unix epoch for a given timestamp value. Here the function is illustrated clearly.
+createdAt: 2022-09-15T05:45:16.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+The `UNIX_SECONDS()` function returns a given timestamp to a UNIX timestamp in seconds, from 1970-01-01 00:00:00-00. Its syntax is illustrated below:
+
+```pgsql
+SELECT UNIX_SECONDS(TIMESTAMP)
+```
+
+Its input type is a TIMESTAMP expression, and the return data type is `int64` representing time in seconds.
+
+## Examples
+
+### #Case 1: Basic `UNIX_SECONDS()` function
+
+The below example uses the `UNIX_SECONDS()` function to convert a given timestamp into a UNIX timestamp in seconds:
+
+```pgsql
+SELECT UNIX_SECONDS(TIMESTAMP "2008-12-25 15:30:00+00") AS unix_secondsvalues;
+```
+
+The final output will be as follows:
+
+```pgsql
++-----------------------------+
+| unix_secondsvalues          |
++-----------------------------+
+| 1230219000.000000           |
++-----------------------------+
+```
+
+### #Case 2: `UNIX_SECONDS()` function using columns
+
+Let’s suppose we have a table named **time\_example **with the following timestamp values in the **time\_stampvalues** column:
+
+```pgsql
+CREATE TABLE time_example (
+  time_stampvalues timestamp
+);
+
+INSERT INTO time_example VALUES 
+('2022-12-25 13:30:00'),
+('2020-09-25 07:25:00'),
+('2008-12-25 15:30:00'),
+('2021-10-02 06:30:00');
+```
+
+```pgsql
+SELECT * FROM time_example;
+```
+
+The above query will return the following table:
+
+```pgsql
++-------------------------+
+| time_stampvalues        | 
++-------------------------+
+| 2022-12-25 13:30:00     |
+| 2020-09-25 07:25:00     |
+| 2008-12-25 15:30:00     |
+| 2021-10-02 06:30:00     | 
++-------------------------+
+```
+
+1\) We want to convert all timestamp values into UNIX timestamp values in seconds. To do that, we have to run the following query:
+
+```pgsql
+SELECT time_stampvalues, UNIX_SECONDS(time_stampvalues)
+AS time_secondsvalues
+FROM time_example;
+```
+
+2\) The output displays all the timestamp entries of the table in the **time\_stampvalues **column and the converted UNIX seconds timestamp entries in the column **time\_secondsvalues**.
+
+```pgsql
++-------------------------+-----------------------+
+| time_stampvalues        | time_secondsvalues    |
++-------------------------+-----------------------+
+| 2022-12-25 13:30:00     | 1671975000.000000     |
+| 2020-09-25 07:25:00     | 1601018700.000000     |
+| 2008-12-25 15:30:00     | 1230219000.000000     |
+| 2021-10-02 06:30:00     | 1633156200.000000     |
++-------------------------+-----------------------+
+```
+

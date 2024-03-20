@@ -1,0 +1,112 @@
+---
+title: SUBSTR
+slug: Ri1o-substr
+description: A function that extracts a specific number of characters from a string, where the starting position and length can be specified. Here is a full guide.
+createdAt: 2022-09-12T06:41:27.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+The `SUBSTR()` function extracts a specific number of characters from a string:
+
+```pgsql
+substr( string, start_position, length )
+```
+
+:::hint{type="info"}
+📌 Input and return will be of type `string`.
+:::
+
+### Start Position
+
+The `start_position` is used as the starting position, specifying the part from where the substring is to be returned. It is written as an integer value.
+
+| **Input**                                      | **Return**                                                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `start_position = 1`                           | The count starts from the first character.                                         |
+| `start_position < 0 ``start_position < string` | The `start_position` is set to `1`, and the count starts from the first character. |
+| `start_position > string`                      | Returns an empty substring.                                                        |
+| `start_position` = negative value              | The count starts from the end of the `string`.                                     |
+
+### **Length**
+
+The `length` is used to determine the number of characters to be extracted*. *It can be one or more characters.
+
+| **Input**                 | **Return**                                                                                                 |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `length` = 0              | Returns an empty substring.                                                                                |
+| `length` is not set       | The function will start from the specified `start_position` and end at the last character of the `string`. |
+| `length` = negative value | Returns an error.                                                                                          |
+
+## Examples
+
+### Case 1: `SUBSTR()` function with specified `start_position` & `length`&#x20;
+
+In this example, we will set the `start_position` with the first six characters and have five characters extracted:
+
+```pgsql
+SELECT substr('Watermelon',6,5) AS "Fruit";
+```
+
+The updated table is shown below:
+
+```pgsql
++-------------+
+| Fruit       |
++-------------+
+| melon       |
++-------------+
+```
+
+### Case 2: `SUBSTR()` function with `length` = 0
+
+The following query will extract a string with `length` = 0:
+
+```pgsql
+SELECT substr('Watermelon',6,0) AS "Fruit";
+```
+
+It will display an empty output as there is no `length` specified:
+
+```pgsql
++--------+
+| Fruit  |
++--------+
+|        |
++--------+
+```
+
+### Case 3: `SUBSTR()` function with `length` = negative value
+
+Here we will check if the `length` is specified with a negative value:
+
+```pgsql
+SELECT substr('Watermelon',6,-2) AS "Fruit";
+```
+
+Instead of extracting the string from the last characters, it will return an error as seen below:
+
+```pgsql
+ERROR:  negative substring length not allowed
+SQL state: 22011
+```
+
+### Case 4: `SUBSTR()` function with `start_position` > `string`&#x20;
+
+We know that **Watermelon** only has ten characters, but this time, we will figure out if the specified `start_position` is larger than the string’s characters:
+
+```pgsql
+SELECT substr('Watermelon',20,2) AS "Fruit";
+```
+
+It will display an empty output as shown below:
+
+```pgsql
++--------+
+| Fruit  |
++--------+
+|        |
++--------+
+```
+

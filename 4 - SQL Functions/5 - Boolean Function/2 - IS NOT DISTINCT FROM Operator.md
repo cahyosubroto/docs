@@ -1,0 +1,143 @@
+---
+title: IS NOT DISTINCT FROM Operator
+slug: -BQ--i
+description: The IS NOT DISTINCT FROM operator is a counterpart to IS DISTINCT FROM. It compares two values, treating them as equal even when they are both NULL.
+createdAt: 2023-09-11T04:12:13.004Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+The `IS NOT DISTINCT FROM` operator is a counterpart to `IS DISTINCT FROM`.&#x20;
+
+It compares two values, treating them as equal even when they are both `NULL`. This operator returns `TRUE` if the two values are the same, including the case where both values are `NULL` and `FALSE` if they are different.
+
+## **Syntax**
+
+The syntax for the operator is as follows:
+
+```pgsql
+value1 IS NOT DISTINCT FROM value2
+```
+
+Where:
+
+*   `value1` is the first value for comparison.
+
+*   `value2` is the second value for comparison.
+
+## **Examples**
+
+### Case #1: Basic Usage
+
+Consider the following example where we compare two values:
+
+**Example 1**
+
+```pgsql
+SELECT 45 IS NOT DISTINCT FROM 45 AS "Result";  
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ t
+```
+
+**Example 2**
+
+```pgsql
+SELECT 60 IS NOT DISTINCT FROM 30 AS "Result";    
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ f
+```
+
+**Example 3**
+
+```pgsql
+SELECT NULL IS NOT DISTINCT FROM NULL AS "Result";
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ t
+```
+
+### Case #2: Comparing NULL Values
+
+In this example, we'll compare NULL values using the IS NOT DISTINCT FROM operator:
+
+**Example 1**
+
+```pgsql
+SELECT NULL IS NOT DISTINCT FROM 80 AS "Result";   
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ f
+```
+
+**Example 2**
+
+```pgsql
+SELECT 5 IS NOT DISTINCT FROM NULL AS "Result";
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ f
+```
+
+### Case #3: Analyzing Data Completeness
+
+Suppose we have a table named customer\_contacts that stores customer contact information.&#x20;
+
+```pgsql
+CREATE TABLE customer_contacts (
+  customer_id INT,
+  email TEXT,
+  phone TEXT
+);
+
+INSERT INTO customer_contacts VALUES
+(101, 'john@example.com', NULL),
+(102, NULL, '+1234567890'),
+(103, 'jane@example.com', '+9876543210'),
+(104, NULL, NULL),
+(105, 'alex@example.com', '+5555555555');
+```
+
+Our objective is to retrieve records from this table where an email address or a phone number is available for contacting the customers.
+
+```pgsql
+SELECT *
+FROM customer_contacts
+WHERE email IS NOT DISTINCT FROM phone;
+```
+
+In this query, we retrieve all rows from the `customer_contacts table` where the email and phone are NULL. We can conclude that the customer with `customer_id 104` has no phone number or email address.
+
+```pgsql
+ customer_id | email | phone 
+-------------+-------+-------
+         104 |       | 
+```
+

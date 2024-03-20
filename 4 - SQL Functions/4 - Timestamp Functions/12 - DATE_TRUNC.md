@@ -1,0 +1,162 @@
+---
+title: DATE_TRUNC
+slug: sk_2-datetrunc
+description: The DATE_TRUNC() function truncates intervals or timestamps/time zones to a specified field.
+createdAt: 2024-02-29T14:26:19.728Z
+updatedAt: 2024-02-29T14:33:35.154Z
+---
+
+## **Overview**
+
+The `DATE_TRUNC()` function truncates intervals or timestamps/time zones to a specified field. The return type is the same as the source type.&#x20;
+
+## **Syntax**
+
+The syntax for using the `DATE_TRUNC()` function is as follows:
+
+```pgsql
+DATE_TRUNC(field, source);
+```
+
+or
+
+```pgsql
+DATE_TRUNC(field, source, time_zone);
+```
+
+Let’s analyze the above syntax:
+
+*   `field`: The unit of time used to truncate the `source` value. It accepts `text` inputs and is case-insensitive.
+
+*   `source`: The value you want to truncate. It can be `INTERVAL`, `TIMESTAMP`, or `TIMESTAMP WITH TIME ZONE`.
+
+*   `time_zone` *(applicable for the second syntax option)*: The time zone for the operation. It accepts `text` input.
+
+## **Fields**
+
+Below is a list of supported values to specify the fields param in `DATE_TRUNC()` syntax.
+
+*   `microseconds `
+
+*   `milliseconds`
+
+*   `second`
+
+*   `minute`
+
+*   `hour`
+
+*   `day`
+
+*   `week`
+
+*   `month`
+
+*   `quarter`
+
+*   `year`
+
+*   `decade`
+
+*   `century`
+
+*   `millennium`
+
+## **Examples **
+
+### Case #1: **Truncating to Year**
+
+This example truncates the timestamp to the year level.&#x20;
+
+```pgsql
+select DATE_TRUNC('year', '1911-12-02 19:40:00'::timestamp);
+```
+
+The timestamp **“1911-12-02 19:40:00” **has been truncated to 1911, with the month and day set to January 1st.&#x20;
+
+```pgsql
+         date_trunc         
+----------------------------
+ 1911-01-01 00:00:00.000000
+```
+
+### Case #2: **Truncating to Day**
+
+This query truncates the timestamp **"1911-12-02 19:40:00"** to the day level.
+
+```pgsql
+select DATE_TRUNC('day', '1911-12-02 19:40:00'::timestamp);
+```
+
+The timestamp has been truncated to the same day, year, month, and day components.&#x20;
+
+```pgsql
+        date_trunc         
+----------------------------
+ 1911-12-02 00:00:00.000000
+```
+
+### Case #3: **Truncating to Week**
+
+This query truncates the timestamp **"1911-12-02 19:40:00"** to the week level.
+
+```pgsql
+select DATE_TRUNC('week', '1911-12-02 19:40:00'::timestamp);
+```
+
+The timestamp has been truncated to the week starting on November 27, 1911.&#x20;
+
+```pgsql
+        date_trunc         
+----------------------------
+ 1911-11-27 00:00:00.000000
+```
+
+### Case #4: **Truncating to Quarter**
+
+This query truncates the timestamp **"1911-12-02 19:40:00"** to the quarter level.
+
+```pgsql
+select DATE_TRUNC('quarter', '1911-12-02 19:40:00'::timestamp);
+```
+
+The year component of the timestamp is truncated, but the month and day components are set to the beginning of the quarter.
+
+```pgsql
+        date_trunc         
+----------------------------
+ 1911-10-01 00:00:00.000000
+```
+
+### Case #5: **Truncating to Hour**
+
+This query truncates the interval of **"15 hours 10 minutes"** to the hour level.
+
+```pgsql
+select DATE_TRUNC('hour', '15 hour 10 minutes'::interval);
+```
+
+The interval** **has been truncated to 15 hours, with the minutes and seconds set to zero.
+
+```pgsql
+   date_trunc    
+-----------------
+ 15:00:00.000000
+```
+
+### Case #6: **Truncating to Quarter (Interval)**
+
+This query truncates the interval **"16 years 4 months"** to the quarter level.
+
+```pgsql
+select DATE_TRUNC('quarter', '16 years 4 months'::interval);
+```
+
+The interval has been truncated to the nearest quarter.
+
+```pgsql
+   date_trunc    
+-----------------
+ 16 years 3 mons
+```
+

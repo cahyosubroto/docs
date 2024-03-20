@@ -1,0 +1,84 @@
+---
+title: pg_get_expr
+slug: zBjI-pggetexpr
+description: A function function that retrieves the internal form of an individual expression
+createdAt: 2023-10-31T05:32:34.970Z
+updatedAt: 2023-10-31T05:40:34.932Z
+---
+
+## **Overview**
+
+The `pg_get_expr` function retrieves the internal form of an individual expression, such as the default value for a column.
+
+## **Syntax**
+
+There are two versions of the `pg_get_expr` function:
+
+**Version 1**
+
+```pgsql
+SELECT pg_get_expr('expr_text', relation_oid);
+```
+
+**Version 2**
+
+```pgsql
+SELECT pg_get_expr('expr_text', relation_oid, pretty_bool);
+```
+
+Please see the breakdown of both versions:
+
+*   `expr_text`**: **The expression for which you want to obtain the internal representation. It can be any string value.
+
+*   `relation_oid`: The OID (Object Identifier) of the table the expression belongs to. It is in integer type.
+
+*   `pretty_bool`: A boolean value determining whether to format the expression in a more human-readable format (TRUE) or not (FALSE).&#x20;
+
+## **Output**
+
+Both versions of the `pg_get_expr` function return an empty string `""`.
+
+## **Example**
+
+1\. First, create a sample table named **employees.**
+
+```pgsql
+CREATE TABLE employees (
+    id INT,
+    name TEXT,
+    salary TEXT
+);
+```
+
+2\. Get OID of the table.
+
+```pgsql
+SELECT oid FROM pg_class WHERE relname = 'employees';
+```
+
+You will get the OID of the table:
+
+```pgsql
+ oid  
+------
+ 1018
+```
+
+3\. Retrieve the internal form for the `salary` column using `pg_get_expr`.
+
+```pgsql
+-- Version 1
+SELECT pg_get_expr('salary', 1018);
+
+-- Version 2
+SELECT pg_get_expr('salary', 1018, TRUE);
+```
+
+Both return the same value, an empty string `""`.
+
+```pgsql
+ pg_get_expr 
+-------------
+ 
+```
+

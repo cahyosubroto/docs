@@ -1,0 +1,89 @@
+---
+title: TIMESTAMP_SECONDS
+slug: QthS-timestampseconds
+description: This is a function that returns a timestamp value truncated to the nearest second. Let's run through the basics and look at some examples as well.
+createdAt: 2022-09-15T06:05:40.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## Overview
+
+The `TIMESTAMP_SECONDS()` function converts a given UNIX timestamp value in seconds from 1970-01-01 00:00:00 UTC into a timestamp. Its syntax can be seen below:
+
+```pgsql
+SELECT TIMESTAMP_SECONDS(Int64)
+```
+
+Its input type is an `int64` expression representing a UNIX timestamp in seconds, and the return data type is a timestamp.
+
+## Examples
+
+### #Case 1: Basic `TIMESTAMP_SECONDS()` function
+
+The below example uses the `TIMESTAMP_SECONDS()` function to convert a given UNIX timestamp in seconds into a timestamp:
+
+```pgsql
+SELECT TIMESTAMP_SECONDS(1671975000) AS timestamp_secondsvalue;
+```
+
+The final output will be as follows:
+
+```pgsql
++-----------------------------+
+| timestamp_secondsvalue      |
++-----------------------------+
+| 2022-12-25 13:30:00         |
++-----------------------------+
+```
+
+### #Case 2: `TIMESTAMP_SECONDS()` function using columns
+
+Let’s suppose we have a table named **unix\_time **with the following UNIX time values in seconds:
+
+```pgsql
+CREATE TABLE unix_time (
+  unix_time int
+);
+
+INSERT INTO unix_time VALUES 
+('982384720'),
+('1671975000'),
+('171472000');
+```
+
+```pgsql
+SELECT * FROM unix_time;
+```
+
+The above query will show the following table:
+
+```pgsql
++-------------+
+| unix_time   | 
++-------------+
+| 982384720   |
+| 1671975000  |
+| 171472000   |
++-------------+
+```
+
+We want to convert all UNIX timestamp values in seconds to timestamp values. To do that, we have to run the following query:
+
+```pgsql
+SELECT unix_time, TIMESTAMP_SECONDS(unix_time)
+AS timestamp_value
+FROM unix_time ;
+```
+
+The output displays all the entries in the table in UNIX timestamp format (in seconds) in the **unix\_time **column** **and in the timestamp format without timezone in the column** timestamp\_value**.
+
+```pgsql
++-------------------------+-----------------------+
+| unix_time               | timestamp_value       |
++-------------------------+-----------------------+
+| 982384720               | 2001-02-17 04:38:40   |
+| 1671975000              | 2022-12-25 13:30:00   |
+| 171472000               | 1975-06-08 15:06:40   |
++-------------------------+-----------------------+
+```
+

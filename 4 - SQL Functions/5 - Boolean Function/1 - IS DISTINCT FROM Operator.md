@@ -1,0 +1,143 @@
+---
+title: IS DISTINCT FROM Operator
+slug: Lahb-is
+description: The IS DISTINCT FROM operator compares two values, considering them distinct even when both are NULL. This guide goes through the details of this operator.
+createdAt: 2023-09-11T04:11:16.178Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+The `IS DISTINCT FROM` operator compares two values, considering them distinct even when both are `NULL`. It returns `TRUE` if the two values are different and `FALSE` if they are the same, including the case where both values are `NULL`.&#x20;
+
+## **Syntax**
+
+The syntax for the operator is as follows:
+
+```pgsql
+value1 IS DISTINCT FROM value2
+```
+
+Where:
+
+*   `value1` is the first value for comparison.
+
+*   `value2` is the second value for comparison.
+
+## **Examples**
+
+### Case #1: Basic Usage
+
+Consider the following example where we compare two values:
+
+**Example 1**
+
+```pgsql
+SELECT NULL IS DISTINCT FROM NULL AS "Result";
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ f
+```
+
+**Example 2**
+
+```pgsql
+SELECT 10 IS DISTINCT FROM 20 AS "Result";
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ t
+```
+
+**Example 3**
+
+```pgsql
+SELECT 10 IS DISTINCT FROM 10 AS "Result";    
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ f
+```
+
+### Case #2: Comparing NULL Values
+
+In this example, we'll compare `NULL` values using the `IS DISTINCT FROM` operator:
+
+**Example 1**
+
+```pgsql
+SELECT NULL IS DISTINCT FROM 10 AS "Result";  
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ t
+```
+
+**Example 2**
+
+```pgsql
+SELECT 10 IS DISTINCT FROM NULL AS "Result";
+```
+
+The above query will return the following output:
+
+```pgsql
+ Result 
+--------
+ t
+```
+
+### Case #3: Tracking Inventory Variations
+
+Suppose we have a table named `inventory_changes` that tracks changes in the quantities of products in a warehouse. The table has the following structure:
+
+```pgsql
+CREATE TABLE inventory_changes (
+  product_id INT,
+  change_date DATE,
+  change_quantity INT
+);
+
+INSERT INTO inventory_changes VALUES
+(101, '2023-08-01', 50),
+(102, '2023-08-01', 0),
+(101, '2023-08-02', -15),
+(103, '2023-08-03', 30),
+(102, '2023-08-04', 0);
+```
+
+We want to retrieve records where the change quantity is distinct from zero. In this scenario, the `IS DISTINCT FROM` operator can be used.
+
+```pgsql
+SELECT *
+FROM inventory_changes
+WHERE change_quantity IS DISTINCT FROM 0;
+```
+
+The result of the query will not include the 0 values as shown below:
+
+```pgsql
+ product_id | change_date | change_quantity 
+------------+-------------+-----------------
+        101 | 2023-08-01  |              50
+        101 | 2023-08-02  |             -15
+        103 | 2023-08-03  |              30
+```
+
