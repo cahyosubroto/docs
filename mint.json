@@ -48,7 +48,7 @@
     {
       "group": "Introduction",
       "pages": [
-        "/1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
+        "1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
         "1-introduction/1-1-key-concepts-archi/oltp-olap",
         "1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions",
         "1-introduction/1-1-key-concepts-archi/our-key-features"
@@ -65,7 +65,19 @@
     {
       "group": "SQL Reference",
       "pages": [
-        "welcome"
+        "3-sql-reference/sql-reference",
+        {
+          "group": "SQL Statements",
+          "pages": [
+            "3-sql-reference/3-1-sql-statements/sql-statement",
+            {
+              "group": "SQL Table",
+              "pages":[
+                "3-sql-reference/3-1-sql-statements/3-1-1-sql-table/sql-table"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
