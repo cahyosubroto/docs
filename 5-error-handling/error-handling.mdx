@@ -1,0 +1,162 @@
+---
+title: 'Error Handling'
+slug: edFu-error-handling
+description: Learn how to troubleshoot any connecting or running errors that may occur with Oxla. This comprehensive guide will help you through resolving these errors.
+image: https://archbee-image-uploads.s3.amazonaws.com/S_lGBDD7H53z1OcF8Kc79/q3VmPjfH-kqAIhdJftZzX_img5232.png
+createdAt: 2022-09-12T06:00:01.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+Learn more about the common errors and how to resolve them. 
+
+Below is the list of the common errors and its resolutions you might encounter while connecting or running the Oxla server.
+
+### Undefined volume and invalid compose project
+
+🚧 If you encounter an error like this:
+` service "oxla_node" refers to undefined volume local_csvs: invalid compose project`
+
+✅ Follow these steps:
+
+1\) Change the directory where you store the docker-compose configuration file by executing this command:
+
+```typescript
+cd your_folder_name
+```
+
+2\) Open the docker-compose configuration file by executing this command:
+
+```typescript
+vim your_file_name.yml
+```
+
+3\) Remove `local_csvs:/local_csvs`in your docker compose file.
+
+### Too many open files
+
+🚧 If you encounter an error as follows when deploying Oxla servers
+
+```typescript
+Jan 24 13:58:26 server[XXXXXX]: 2023-01-24 13:58:26.301 ERROR [229223] [network::StateHandlerManager>::start@241] could not accept incoming connection because:
+Jan 24 13:58:26 server[XXXXXX]: --------------------------------------------------------------------------------
+Jan 24 13:58:26 server[XXXXXX]: Too many open files
+```
+
+✅ Follow these steps:
+
+1\) Change the directory where you store the docker compose configuration file by executing this command:
+
+```typescript
+cd your_folder_name
+```
+
+2\) Open the docker compose configuration file by executing this command:
+
+```typescript
+vim your_file_name.yml
+```
+
+3\) Ensure that your docker compose file has the correct limit as follows:
+
+```typescript
+ulimits:
+      nofile:
+        soft: 40000
+        hard: 40000
+```
+
+### Command not recognized - psql
+
+🚧 If you encounter an error like this:
+`'psql' is not recognized as an internal or external command, operable program, or batch file`
+
+✅ Follow these steps:
+
+**For windows**:
+
+1\) Open the **PostgreSQL** folder > **scripts **folder and open the command prompt on your computer:
+
+![open command prompt](https://archbee-image-uploads.s3.amazonaws.com/S_lGBDD7H53z1OcF8Kc79/80jZhU63tk1pglP_V-Oti_ezcom-maker-26.gif)
+
+```typescript
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\PostgreSQL\14\scripts>
+```
+
+2\) Run the following command: cd "C:\Program Files\PostgreSQL\14\bin"``
+
+```typescript
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\PostgreSQL\14\scripts> cd "C:\Program Files\PostgreSQL\14\bin"
+```
+
+3\) Last but not least, execute the following command to run the Oxla server: psql -h 44.210.23.203``
+
+```typescript
+(c) Microsoft Corporation. All rights reserved. 
+
+C:\Program Files\PostgreSQL\14\scripts> cd "C:\Program Files\PostgreSQL\14\bin" 
+
+C:\Program Files\PostgreSQL\14\bin> psql.exe -h 44.210.23.203
+```
+
+### Encoding is not supported
+
+🚧 If you encounter an error like this:
+`Psql: error: connection to server at "44.210.23.203", port 5432 failed: FATAL: WIN1252 encoding is not supported`
+
+✅ Follow these steps:
+
+1\) Run the following command:
+
+```typescript
+SET PGCLIENTENCODING=UTF8
+```
+
+2\) Then, activate the code page with the command below:
+
+```typescript
+chcp 65001Command
+```
+
+You will get the following output:
+
+```typescript
+Active code page: 65001
+```
+
+3\) Execute the following command to run the Oxla server: psql -h 44.210.23.203﻿``
+
+```typescript
+C:\Program Files\PostgreSQL\14\bin>SET PGCLIENTENCODING=UTF8
+
+C:\Program Files\PostgreSQL\14\bin>chcp 65001
+Active code page: 65001
+
+C:\Program Files\PostgreSQL\14\bin>psql.exe -h 44.210.23.203
+```
+
+
+
+### Missing argument
+
+🚧 If you encounter an error like this:
+`Psql: warning: extra command-line argument "44.210.23.203" ignored`
+
+✅ Re-check the command. Keep an eye on each component, even the symbols and uppercase/lowercase words.
+
+### Command not found - psql
+
+🚧 If you encounter an error like this:
+`Psql.exe: command not found`
+
+**✅ **Download and install PostgreSQL on your computer:
+
+**For windows, **download PostgreSQL from [here](https://www.postgresql.org/download/).
+**For mac**, install PostgreSQL using the brew in terminal: `mac$ brew install postgresql`.
+
+![Installing PostgreSQL](https://archbee-image-uploads.s3.amazonaws.com/S_lGBDD7H53z1OcF8Kc79/l5eN2BdKhfjiciegK3d1P_imageedit24068984245.png)
+
+**For linux**, install PostgreSQL by following the steps [here](https://www.postgresql.org/download/linux/ubuntu/).

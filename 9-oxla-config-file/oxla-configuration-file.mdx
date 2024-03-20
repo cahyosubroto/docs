@@ -1,0 +1,143 @@
+---
+title: 'Oxla Configuration File'
+slug: 8-4q-oxl-co
+createdAt: 2023-10-30T06:49:41.269Z
+updatedAt: 2023-11-28T17:01:07.417Z
+---
+
+## **1. Overview**
+
+The configuration of Oxla is managed through a configuration file. The configuration file defining various aspects of Oxla's behavior and its usage is helpful for both development and deployment.&#x20;
+
+When Oxla is run as a docker container, the config file is generated automatically inside a container in `/oxla/startup_config` based on environment variables passed and default values.
+
+## **2. Mounting Config Directory**
+
+The `/oxla/startup_config` config directory can be mounted using `-v /path/to/mount:/oxla/startup_config` to access the config file directly:
+
+```shell
+docker run --rm -it -p 5432:5432 -v /path/to/mount:/oxla/startup_config public.ecr.aws/oxla/release:latest
+```
+
+### **2.1. Config File Handling**
+
+*   **Automatic Generation from Defaults:**
+
+If no configuration is found in the specified directory, Oxla generates one using default values. The default name would be `config.yml`.
+
+During generation, Oxla takes into account [environment variables](https://docs.oxla.com/oxla-configuration-file#rweBJ) passed. When the environment variable is passed, this value is written to the generated config instead of the default one.
+
+*   **Modifying Default Config Path:**
+
+To modify the default config path inside the Oxla Docker container, pass the `OXLA_CONFIG_FILE=path/to/config.yml` environment variable to the `docker run`\`\` command. Passing an empty path indicates the intent to use default values only.
+
+*   **Partial Variable Specification:**
+
+When creating a custom configuration file, it is not required to pass all the possible variables. If a variable is not passed, it assumes the default value. So, an empty configuration file can be used, but Oxla will use defaults for everything.
+
+*   **Regenerating the Config File:**
+
+The best way to regenerate the config file is to remove or rename the existing config file, so there's no `/oxla/startup_config/config.yml`. Oxla will then automatically generate a new configuration file based on default values.
+
+## 3. Configuration Variables
+
+The yaml below is the default configuration file in Oxla:
+
+```yaml
+network:
+  port: 5769
+  postgresql_port: 5432
+  prometheus_port: 8080
+  nodes:
+    - "localhost"
+  cluster_name: "cluster_1"
+  host_name: "oxla_node_1"
+
+metrics:
+  no_prometheus_exposer: false
+
+insertion:
+  buffer_size_limit: 42M
+  buffer_timeout: 100 ms
+
+logging:
+  level: "INFO"
+
+storage:
+  oxla_home: "/oxla/data"
+  s3:
+    enable_discovery: true
+    use_dual_stack: true
+    endpoint: ""
+```
+
+Below is a list of key configuration variables:
+
+| **Variable**                    | **Description**                                                                                                                                                         |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `network.port`                  | Port on which Oxla listens for connections from nodes in the cluster.                                                                                                   |
+| `network.postgresql_port`       | Port on which the node listens for TCP connections to the Postgres client.                                                                                              |
+| `network.prometheus_port`       | Port on which the process listens for HTTP connections for Prometheus metrics.                                                                                          |
+| `network.nodes`                 | List of IP addresses or DNS addresses to which Oxla connects.                                                                                                           |
+| `network.cluster_name`          | Common cluster name used for node connection validation.                                                                                                                |
+| `network.host_name`             | Unique name of a single node in the cluster.                                                                                                                            |
+| `metrics.no_prometheus_exposer` | Disable the Prometheus exposer.                                                                                                                                         |
+| `insertion.buffer_size_limit`   | Threshold for data or time before dumping data from memory to the filesystem.**Possible units:**&#x20;*   `G`
+
+*   `M`
+
+*   `K`**Default value:** interpreted as bytes. |
+| `insertion.buffer_timeout`      | Timeout for dumping data from memory to the filesystem.**Possible units:***   `h`
+
+*   `min`
+
+*   `s`
+
+*   `ms`**Default value: **value in `ms` unit.                   |
+| `logging.info`                  | Logging level.&#x20;**Possible values:***   `VERBOSE`
+
+*   `DEBUG`
+
+*   `INFO`
+
+*   `WARNING`
+
+*   `ERROR`
+
+*   `FATAL`
+
+*   `NONE`                                     |
+| `storage.oxla_home`             | Directory for data. Either on local disk (path inside the container), or on S3.                                                                                         |
+| `storage.s3.enable_discovery`   | By default, regional or overridden endpoints are used. To enable endpoint discovery, set the variable to `true`.                                                        |
+| `storage.s3.use_dual_stack`     | Enable or disable dual-stack IPv4 and IPv6 endpoints.**Note**: not all AWS services support IPv6 in all Regions.                                                        |
+| `storage.s3.endpoint`           | Endpoint for the S3 protocol.If not provided, the default AWS endpoint is used.                                                                                         |
+
+### **3.1. Environment Variables**
+
+Values in the configuration file take precedence over environment variables and default values.&#x20;
+
+Naming conventions for environment variables are derived from the configuration variable names, with `__` (double underscores) replacing YAML hierarchy levels. For example:
+
+```yaml
+network:
+  port: 5769
+```
+
+:::hint{type="info"}
+The port is expressed as the `NETWORK__PORT` environment variable.
+:::
+
+Environment variables can be passed using the `-e` parameter in the `docker run` command, as illustrated below:
+
+```shell
+docker run --rm -it -p 5432:5432 -e INSERTION__BUFFER_TIMEOUT=1ms public.ecr.aws/oxla/release:latest
+```
+
+
+
+
+
+
+
+
+

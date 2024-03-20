@@ -1,0 +1,66 @@
+---
+title: 'COPY FROM with Endpoint'
+slug: cyPP-copy-from-with-endpoint
+createdAt: 2023-11-30T01:11:14.033Z
+updatedAt: 2024-02-29T14:06:06.281Z
+---
+
+## **Overview**
+
+We've improved the functionality for [COPY FROM](https://docs.oxla.com/copy-from-statement) queries. Now, you have the option to include the **endpoint URL**. This enhancement is useful for scenarios where you need to provide credentials and specify specific endpoints.
+
+## **Syntax**
+
+The syntax is as follows:
+
+```pgsql
+COPY table_name FROM 'file_path' (AWS_CRED(AWS_REGION 'aws_region', AWS_KEY_ID "
+      "'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 'endpoint_url'));
+```
+
+*   `table_name`: The table that will receive data from the file.
+
+*   `file_path`: A link to the file location accessible from the server.
+
+*   `aws_region`: The AWS region associated with the storage service (e.g., 'region1').
+
+*   `key_id`: The key identifier for authentication.
+
+*   `access_key`: The access key for authentication.
+
+*   `endpoint_url`: The URL endpoint for the storage service.
+
+## **Examples**
+
+### Case #1: COPY FROM with AWS S3 Bucket
+
+In this example, we are using the COPY FROM statement to import data into a table named `students` from a file named `students_file`.
+
+In this case endpoint could be: `s3.us-east-2.amazonaws.com`.
+
+```pgsql
+COPY students FROM 'students_file' (AWS_CRED(AWS_REGION 'region1', AWS_KEY_ID "
+      "'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 's3.us-east-2.amazonaws.com'));
+```
+
+**Expected Output: **Data from `students_file` is copied into the `students` table.
+
+### Case #2: COPY FROM with Google Cloud Storage
+
+This example shows how to use the `COPY FROM` statement to import data, but this time, the data is stored on Google Cloud Storage.&#x20;
+
+In this case endpoint could be: `https://storage.googleapis.com`.
+
+```pgsql
+COPY project FROM 'project_file' (AWS_CRED(AWS_REGION 'region1', AWS_KEY_ID "
+      "'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 'https://storage.googleapis.com'));
+```
+
+**Expected Output: **Data from `project_file` is copied into the `project` table.
+
+:::hint{type="info"}
+For Google Cloud Storage, it's recommended to use HMAC keys for authentication. You can find more details on the [HMAC keys - Cloud Storage](https://cloud.google.com/storage/docs/authentication/hmackeys) page.
+:::
+
+
+

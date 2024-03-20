@@ -1,0 +1,133 @@
+---
+title: 'Key Concepts & Architecture'
+slug: vZnW-key-concepts-and-architecture
+description: The key to Oxla's success is within our fundamental ideas and structures. Learn more about what makes Oxla tiers above any other OLAP solutions.
+createdAt: 2022-08-22T03:36:26.000Z
+updatedAt: 2024-02-21T16:54:23.046Z
+---
+
+```html
+<style>
+  #main-column.max-w-\[760px\] {
+    max-width: unset;
+  }
+</style>
+```
+
+Oxla enables data processing, analytics, and storage solutions that are easily scalable, highly reliable, cheaper, easier to use, and faster than the other OLAP solutions.&#x20;
+
+We are an advanced distributed analytical database with robust analytical processing. We store data using several file systems, such as AWS S3, Ceph, and GCS.&#x20;
+
+![Oxla Logo](../../assets/Key%20Concepts%20&%20Architecture_oxlalogo.png)
+
+Oxla is designed to support analytical query workloads, also known as Online Analytical Processing (OLAP). These workloads are complex queries that analyze a stored dataset, such as joins between numerous extensive databases or aggregations across large tables.
+
+The current build of the Oxla database allows users to import data using .csv and run SQL queries using CLI with various supported clauses, data types, and functions.
+
+# Oxla Architecture
+
+Oxla has a uniform architecture that contains the node leader that can distribute workloads equally among replicas and partitions. Data can be processed directly from data warehouses into the OLAP database management system without going through the terminal messaging cluster. Our cutting-edge technology allows users to process data faster with less infrastructure. Users will be able to request data using queries and receive data in real time.&#x20;
+
+Oxla’s unique architecture uses the Dynamic Oxla cluster in the query processing layer. This cluster can expand and shrink dynamically depending on the analytical demand for data processing. Within the cluster, a node leader coordinates activities across Oxla. It performs key activities such as authentication, query parsing, optimization, etc. Our architecture consists of two layers, **query processing, **and a **database storage layer**. We separate the computing layer, _a.k.a_ query processing layer, with the database storage layer to provide our customers greater flexibility and cost savings for big data and advanced analytics.
+
+![Architecture](../../assets/Key%20Concepts%20&%20Architecture_architecture.png)
+
+## Example Use Cases Benefits:
+
+Let’s say a large corporation wants to improve the customer journey by driving insights and running more queries/analyses from their existing customer’s data, such as purchase transactions, social data, etc. They need to process and transform a large amount of data in real-time resulting in the need to improve the computing power and not the storage. In this use case, our decoupled storage and compute design will benefit the corporation since they only need to upgrade the query processing and not include the database storage. &#x20;
+
+### 🔑 Our Key Benefits:
+
+1.  No need for external metastore.
+
+2.  No need for a queue for batching insertions.
+
+3.  Simpler deployment and maintenance.
+
+4.  Fewer people are needed to manage and maintain the database, which results in cheaper labor costs.
+
+## Oxla Cluster
+
+Our Dynamic Oxla cluster technology allows you to store and run SQL queries faster with less cost. There are two main components in our cluster:
+
+- **Node leader: **the component that distributes the workload to run the SQL queries to all the worker nodes and appoints any node to store the data.
+
+- **Worker node:** the component that executes the SQL queries and stores the data.
+
+:::hint{type="info"}
+**Note: **There shall be always a single node per machine.
+:::
+
+![cluster](../../assets/Key%20Concepts%20&%20Architecture_cluster.png)
+
+## Our Main Differentiator
+
+### ⚡️ High Availability (No Single Point of Failure)
+
+If the node leader fails, the cluster can appoint one of the worker leaders to be the new node leader. It allows you to run SQL queries with high availability and redundancy.
+
+### 💨 Fast Query Processing
+
+Oxla performs query execution using our query engine. Our database technology was specifically designed for big data analytics. Four critical aspects within our architecture allow us to run the queries faster than other solutions, they are:
+
+**Self-contained architecture**
+
+Our architecture only needs distributed storage as the external component. It does not require other additional components such as distributed message queue, external metastore, etc. Oxla processes the queries using the worker nodes that the node leader leads. When a client app wants to initiate a query request, it connects to any node within our cluster.
+
+Once connected, it will send an SQL query request containing a string with SQL query. The node leader will parse the string and create an execution plan. This execution plan will then get distributed to all the worker nodes to execute the query.&#x20;
+
+Each worker node is an independent compute node that does not share compute resources with other worker nodes. It allows each worker node to efficiently execute the query without impacting others. It provides high availability and redundancy with no single point of failure.&#x20;
+
+![self contained architecture](../../assets/Key%20Concepts%20&%20Architecture_self-contained-architecture.png)
+
+**The radically vectorized query engine**
+
+Big Data usually contains very complex and high volumes of data. It usually has workloads with queries that touch across a subset of columns but a large number of rows for those columns. Our vectorized query engine can perform complex computations faster than the traditional database.
+
+**"JOIN" and "GROUP BY" improved algorithms**
+
+Oxla is designed explicitly with improved “JOIN“ and “GROUP BY“ algorithms using custom data structures optimized for highly optimized lookups. Our hashmap implementation has better performance in typical SQL query operations. It reduces the lookup time and allows a faster response.
+
+**All-level code optimizations**
+
+We have designed our technology from scratch to provide the best solutions for big data analytics. We performed a holistic improvement and approach to design and develop the entire technology resulting in fast query processing time and fewer data storage for big data analytics.
+
+### 🔋 Efficient Data Storage
+
+Our Oxla cluster technology automatically selects and detects which worker node should be responsible for handling data insertion. Combining it with our unique data insertion algorithm, our users will be able to:
+
+- Handle large amounts of data insert operations;
+
+- Store large amounts of data efficiently, which results in lesser data storage and cheaper cost;
+
+- Provide data resiliency if any node fails.
+
+Oxla stores data in optimized columnar format whenever the users load data into Oxla. The typical data warehouse solutions require users to insert data in large batches. Our technology enables users to insert large amounts of data even with single rows.&#x20;
+
+:::hint{type="success"}
+👨🏻‍💻 We handle all key aspects of data storage, including file organization, compression, structure, and database metastore.&#x20;
+:::
+
+### 💸 Cheaper Cost
+
+The typical OLAP solutions require terminal messaging clusters such as Kafka to distribute workloads. Each cluster usually comprises more than one Broker to maintain load balance. Maintaining the cluster state requires additional ZooKeeper, another infrastructure to maintain.&#x20;
+
+Our Oxla cluster and data insertion technologies already provide efficient distribution workload technology to distribute workloads among the worker nodes. It eliminates the need for both Kafka clusters and ZooKeeper. Ultimately, you will save the cost of purchasing these infrastructures and reduce the man-hour cost of maintaining them by using our solution.
+
+![database structure comparison](../../assets/Key%20Concepts%20&%20Architecture_database-structure-comparison.png)
+
+### 👩🏻‍💻 Improved Scalability
+
+Our Oxla cluster is also dynamic, allowing you to scale quickly without having the hassle of upgrading the data warehouse whenever you want to store more data or run more queries for your business. Our cluster will automatically expand or shrink depending on the number of queries or data you store.&#x20;
+
+**For example,** from 9 AM to 5 PM, when your data analyst runs a lot of queries, our cluster will expand to cover the needs of more analytical power. After 5 PM, when there are not that many queries to do, our cluster will shrink back to adjust. This flexibility will save you time and cost in managing the database infrastructure
+
+# **Did You Know…?**
+
+Oxla was designed and written from scratch, we explored and analyzed why organized data is important to accelerate business outcomes with rapid comprehension and reach the maximum edge of your potential in data and analytics.&#x20;
+
+At Oxla, we use big data analytics and approach the speed of commercial database management systems while scaling to the size of your business.
+
+> **_Fast, Trustworthy, Cost-Effective… That’s Us!_**
+
+🙋🏻‍♂️ Data has never been more important. Get in touch with [us](https://www.oxla.com/)!

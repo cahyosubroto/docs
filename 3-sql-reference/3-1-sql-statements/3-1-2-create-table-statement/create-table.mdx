@@ -1,0 +1,180 @@
+---
+title: 'CREATE TABLE statement'
+slug: sJI9-create-table-statement
+description: This article guides users through the CREATE TABLE statement, covering the overview, syntax, constraints, index, and examples.
+createdAt: 2022-08-22T09:27:47.000Z
+updatedAt: 2024-01-10T17:37:41.396Z
+---
+
+## Overview
+
+The `CREATE TABLE` statement is used to create a new table. Each table contains one or more columns, and each has a data type that defines the data that can be stored, e.g., numbers, strings, or date data.&#x20;
+
+:::hint{type="warning"}
+🚧 The table stores the data in a **database**, so ensure that you already have one.
+:::
+
+## Syntax
+
+To create a table, you should name and define the columns with their data types.
+
+Let's see what the syntax should look like:
+
+```pgsql
+CREATE TABLE table_name(
+column1 datatype,
+column2 datatype,
+column3 datatype,
+.....
+);
+```
+
+From the syntax above, we learned that to create a new table, we should:
+
+1.  Specify the name of the new table** (table\_name)**.
+
+2.  Specify the column's name **(column1, column2, etc..)**.
+
+3.  Following the column’s name, specify the column’s data type (integer, string, date, and so on).
+
+The table name of the column name can't be a keyword unless it is quoted. The unquoted name is case insensitive.
+
+:::hint{type="info"}
+Click [here](https://docs.oxla.com/keywords) to see the list of keywords.
+:::
+
+## Constraints
+
+When creating a table, we can add the following column constraints:
+
+**NOT NULL **– ensures that values in a column cannot be NULL and will always contain a value. In other words, if you don't define NOT NULL, the column can be empty/have no value/NULL.
+
+```pgsql
+CREATE TABLE table_name(
+column1 datatype NOT NULL,
+column2 datatype NOT NULL,
+column3 datatype NOT NULL,
+.....
+);
+```
+
+## Table index
+
+The freshly created table can contain an index. More detail [here](https://docs.oxla.com/create-index-statement).
+
+:::hint{type="info"}
+By default, the table will be created in the `public` schema. Furthermore, you can also create and specify tables to other specific schemas. Click [here](https://docs.oxla.com/schema) for more info
+:::
+
+## Examples
+
+### #Case 1: Creating a new table
+
+Let us take an example where we create an “**employees”** table with an employee id, name, and address of the employee:
+
+
+```pgsql
+CREATE TABLE employees (
+    employeeID int,
+    lastName string,
+    firstName string NOT NULL,
+    address string
+);
+```
+
+If you have made the table successfully, you will get the following output:&#x20;
+
+```pgsql
+CREATE TABLE
+
+Query returned successfully in 263 msec.
+```
+
+You can verify it by running this command:
+
+```pgsql
+SELECT * FROM employees;
+```
+
+The table will be created with each defined column as shown below:
+
+| **employeeid** | **lastname** | **firstname** | **address** |
+| -------------- | ------------ | ------------- | ----------- |
+
+:::hint{type="danger"}
+❌ The table is only created with its headers. It doesn't have any value.
+:::
+
+### #Case 2: Creating a new table with values
+
+Below is an example of creating a **client **table with values:
+
+```pgsql
+CREATE TABLE client (
+  client_id int,
+  client_name string NOT NULL,
+  client_origin string
+);
+INSERT INTO client 
+    (client_id, client_name, client_origin) 
+VALUES 
+    (181891,'Oxla','Poland'),
+    (181892,'Google','USA'),
+    (181893,'Samsung','South Korea');
+```
+
+You can run the following command to verify the completed request:
+
+```pgsql
+SELECT * FROM client;
+```
+
+As a result, we have a table as seen below:
+
+```pgsql
++------------+--------------+------------------+
+| client_id  | client_name  | client_origin    |
++------------+--------------+------------------+
+| 181891     | Oxla         | Poland           |
+| 181892     | Google       | USA              | 
+| 181893     | Samsung      | South Korea      |
++------------+--------------+------------------+
+```
+
+### #Case 3: Quoted names
+
+Let's try creating a table with the column named "language":
+
+```pgsql
+CREATE TABLE preferences (language TEXT);
+```
+
+This will fail with an error message:
+
+```shell
+ERROR:  syntax error, unexpected LANGUAGE, expecting IDENTIFIER (LINE:1COLUMN:27)
+CREATE TABLE preferences (language TEXT);
+                          ^
+LINE 1: CREATE TABLE preferences (language TEXT);
+                                 ^
+
+```
+
+It happens because "language" is a keyword. To use a keyword as a name one must use quotes:
+
+```pgsql
+CREATE TABLE preferences ("language" TEXT);
+```
+
+This will succeed. Querying this table will also require using quotes when selecting this column:
+
+```pgsql
+SELECT "language" FROM preferences;
+```
+
+Names within quotes are case-sensitive. That means that this query will fail:
+
+```pgsql
+SELECT "Language" FROM preferences;
+```
+
