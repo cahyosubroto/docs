@@ -44,6 +44,36 @@
       "pages": [
         "welcome"
       ]
+    },
+    {
+      "group": "Introduction",
+      "pages": [
+        "welcome"
+      ]
+    },
+    {
+      "group": "Run Oxla in 2 Minutes",
+      "pages": [
+        "welcome"
+      ]
+    },
+    {
+      "group": "SQL Reference",
+      "pages": [
+        "welcome"
+      ]
+    },
+    {
+      "group": "SQL Mutations",
+      "pages": [
+        "welcome"
+      ]
+    },
+    {
+      "group": "Error Handling",
+      "pages": [
+        "welcome"
+      ]
     }
   ],
   "footerSocials": {
