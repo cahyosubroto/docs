@@ -5,7 +5,7 @@
     "dark": "/logo/light.png",
     "light": "black-oxla-logo.svg"
   },
-  "favicon": "favicon.svg",
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#3139DB",
     "light": "#3139DB",
