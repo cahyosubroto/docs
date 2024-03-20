@@ -1,0 +1,105 @@
+---
+title: OFFSET
+slug: WgBE-offset
+description: The OFFSET clause is used in conjunction with the LIMIT clause to skip a specified number of rows in a result set of a query. Learn more information here.
+createdAt: 2023-03-28T04:05:16.000Z
+updatedAt: 2023-10-09T13:02:32.129Z
+---
+
+## **Overview**
+
+The `OFFSET` is a clause that skips some records from the result set.
+
+## **Syntax**
+
+The basic syntax of the `OFFSET` clause is shown below:
+
+```pgsql
+SELECT columns
+FROM table_name
+OFFSET num;
+```
+
+The parameters and arguments from the syntax are:
+
+*   `columns`: the columns to be fetched.
+
+*   `table_name`: a table from which the records will be fetched.
+
+*   `OFFSET`: a clause that will skip a subset of records.
+    *   `num`: the number of records to be skipped.
+
+## **Example**
+
+**1)** Here, we are creating one new table called **oxlafunctions** using the `CREATE TABLE` command and inserting some values into the table using the `INSERT` command:
+
+```pgsql
+CREATE TABLE oxlafunctions  
+(  
+    func_name string,   
+    func_sub string   
+);  
+
+INSERT INTO oxlafunctions   
+VALUES
+('Numeric', 'ABS'),  
+('Numeric', 'CEIL'),  
+('String', 'LENGTH'),  
+('Numeric', 'SQRT'),  
+('Boolean', 'IF'),  
+('String', 'STRPOS'),  
+('Numeric', 'FLOOR'),  
+('String', 'CONCAT'),  
+('String', 'LOWER');  
+```
+
+**2)** To verify that the values have been inserted successfully, retrieve the result set using the command below:&#x20;
+
+```pgsql
+SELECT * FROM oxlafunctions;
+```
+
+```pgsql
++------------+------------+
+| func_name  | func_sub   |
++------------+------------+
+| Numeric    | ABS        |
+| Numeric    | CEIL       |
+| String     | LENGTH     |
+| Numeric    | SQRT       |
+| Boolean    | IF         |
+| String     | STRPOS     |
+| Numeric    | FLOOR      | 
+| String     | CONCAT     |
+| String     | LOWER      |
++------------+------------+
+```
+
+**3)** Use the **LIMIT** clause in conjunction with the **OFFSET** clause to skip a subset of records:
+
+```pgsql
+SELECT * FROM oxlafunctions
+ORDER BY func_name
+LIMIT 5 OFFSET 2;
+```
+
+In the above query:
+
+*   The **“LIMIT 5”** clause is used to fetch only five records.
+
+*   The **“OFFSET 2”** clause is used to skip the first two records before retrieving the result set of the limit clause.
+
+**4)** You will get the following output:
+
+```pgsql
++------------+------------+
+| func_name  | func_sub   |
++------------+------------+
+| Boolean    | IF         |
+| Numeric    | SQRT       |
+| Numeric    | CEIL       |
+| Numeric    | ABS        | 
+| Numeric    | FLOOR      |
++------------+------------+
+```
+
