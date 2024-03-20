@@ -215,7 +215,7 @@
           ]
         },
         {
-          "group": "COmment Support",
+          "group": "Comment Support",
           "pages":[
             "3-sql-reference/comment-support"
           ]
@@ -231,32 +231,12 @@
       ]
     },
     {
-      "group": "Troubleshoot",
+      "group": "Resources",
       "pages": [
-        "5-error-handling/error-handling"
-      ]
-    },
-    {
-      "group": "Comparison",
-      "pages": [
-        "6-oxla-vs-postgre/differences-between-oxla-vs-postgre"
-      ]
-    },
-    {
-      "group": "Transactions",
-      "pages": [
-        "7-transactions/understanding-transactions"
-      ]
-    },
-    {
-      "group": "Monitoring",
-      "pages": [
-        "8-public-metrics/public-metrics"
-      ]
-    },
-    {
-      "group": "Configuration",
-      "pages": [
+        "5-error-handling/error-handling",
+        "6-oxla-vs-postgre/differences-between-oxla-vs-postgre",
+        "7-transactions/understanding-transactions",
+        "8-public-metrics/public-metrics",
         "9-oxla-config-file/oxla-configuration-file"
       ]
     }
