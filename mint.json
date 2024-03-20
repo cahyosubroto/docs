@@ -2,10 +2,10 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kiit",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon/oxla-favicon.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hello@oxla.com"
     }
   ],
   "topbarCtaButton": {
@@ -27,15 +27,15 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Changelog",
+      "url": "10-changelog/Changelog"
     }
   ],
   "anchors": [
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://oxla.com/blog/"
     }
   ],
   "navigation": [
@@ -48,8 +48,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/oxla_database",
+    "discord": "https://discord.gg/DJaksZfurn",
+    "linkedin": "https://www.linkedin.com/company/oxla/"
   }
 }
