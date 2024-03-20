@@ -69,11 +69,13 @@
         {
           "group": "Nested Reference Pages",
           "pages": [
-            "nested-reference-page",
+            "1-introduction/1-1-key-concepts-archi/our-key-features",
+            "2-run-oxla/run-oxla-on-s3",
             {
               "group": "Nested Reference Pages",
               "pages": [
-                "nested-reference-page"
+                "2-run-oxla/run-oxla-in-2-minutes",
+                "2-run-oxla/multi-node-deployment"
               ]
             }
           ]
