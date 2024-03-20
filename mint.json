@@ -48,17 +48,23 @@
     {
       "group": "Introduction",
       "pages": [
-        "welcome"
+        "/1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
+        {
+          "group": "Nested Reference Pages",
+          "pages": [
+            "1-introduction/1-1-key-concepts-archi/oltp-olap",
+            "1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions",
+            "1-introduction/1-1-key-concepts-archi/our-key-features"
+          ]
+        }
       ]
     },
     {
       "group": "Run Oxla in 2 Minutes",
       "pages": [
-        "1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
-        {
-          "group": "Nested Reference Pages",
-          "pages": ["1-introduction/1-1-key-concepts-archi/oltp-olap","1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions","1-introduction/1-1-key-concepts-archi/our-key-features"]
-        }
+        "/2-run-oxla/run-oxla-in-2-minutes",
+        "/2-run-oxla/run-oxla-on-s3",
+        "/2-run-oxla/multi-node-deployment"
       ]
     },
     {
