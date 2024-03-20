@@ -208,18 +208,8 @@
             "3-sql-reference/3-4-sql-functions/trigonometric-functions"
           ]
         },
-        {
-          "group": "Schema",
-          "pages":[
-            "3-sql-reference/schema"
-          ]
-        },
-        {
-          "group": "Comment Support",
-          "pages":[
-            "3-sql-reference/comment-support"
-          ]
-        }
+          "3-sql-reference/schema",
+          "3-sql-reference/comment-support"
       ]
     },    
     {
