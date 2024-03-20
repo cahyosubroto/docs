@@ -43,8 +43,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "development",
-        "0 - SQL Reference"
+        "sql-reference"
       ]
     },
     {
