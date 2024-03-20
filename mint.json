@@ -42,8 +42,13 @@
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "sql-reference"
+        "introduction"
+      ]
+    },
+    {
+      "group": "SQL Reference",
+      "pages": [
+        "sql-reference/sqlreference"
       ]
     },
     {
