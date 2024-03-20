@@ -1,0 +1,116 @@
+---
+title: SET/SHOW statement
+slug: QQmY-setshow
+description: The SET and SHOW statements let you specify and display the specific value you want. This guide will walk you through the details and examples.
+createdAt: 2024-01-02T16:47:35.699Z
+updatedAt: 2024-01-02T17:01:25.962Z
+---
+
+## **Overview**
+
+The `SET` statement lets you set specific options, and the `SHOW` statement helps you see the current values in Oxla.
+
+## **Syntax**
+
+**SET Syntax**
+
+```pgsql
+SET <option> TO <value>;
+```
+
+**SHOW Syntax**
+
+```pgsql
+SHOW <option>;
+```
+
+The available options that can be set and shown are:
+
+*   `extra_float_digits`: By default, Oxla displays a limited number of digits, but you can set how many extra digits are displayed after the decimal point in floating-point numbers by using `extra_float_digits`.
+
+*   `application_name`: Sets a custom name for the application.
+
+*   `timezone`: Determines the time zone used for date and time functions.
+
+*   `client_min_messages`: Sets the message levels sent to the client. Valid values are `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `LOG`, `NOTICE`, `WARNING`, and `ERROR`.
+
+*   `search_path`: Defines namespaces at which Oxla looks for tables.
+
+## **Examples**
+
+### Case #1: SHOW Statement
+
+**Example 1**
+
+To display the current timezone setting, use the following query:
+
+```pgsql
+SHOW timezone;
+```
+
+This will display the current timezone setting.
+
+```pgsql
+ timezone 
+----------
+ Etc/UTC
+```
+
+**Example 2**
+
+To display the current search path, use the following query:
+
+```pgsql
+SHOW search_path;
+```
+
+This will display the current search path setting.
+
+```pgsql
+ search_path 
+-------------
+ public
+```
+
+### Case #2: SET Statement
+
+**Example 1**
+
+To change the number of digits, use the `SET` statement below:
+
+```pgsql
+SET extra_float_digits TO 2;
+```
+
+This will set the number of digits displayed for floating-point values to 2.
+
+```pgsql
+SHOW extra_float_digits;
+```
+
+```pgsql
+ extra_float_digits 
+--------------------
+ 2
+```
+
+**Example 2**
+
+To change the client message, use the `SET` statement below:
+
+```pgsql
+SET client_min_messages TO 'WARNING';
+```
+
+This will set the message level to 'WARNING'.
+
+```pgsql
+SHOW client_min_messages;
+```
+
+```pgsql
+ client_min_messages 
+---------------------
+ warning
+```
+

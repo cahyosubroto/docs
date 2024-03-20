@@ -1,0 +1,58 @@
+---
+title: COPY TO with Endpoint
+slug: i6qa-copy-to-with-endpoint
+createdAt: 2024-01-30T15:49:36.468Z
+updatedAt: 2024-02-29T14:08:16.504Z
+---
+
+## **Overview**
+
+The `COPY TO` now allows specifying an endpoint URL where credentials and specific endpoints need to be provided.
+
+## **Syntax**
+
+The syntax for using the enhanced `COPY TO` statement is as follows:
+
+```pgsql
+COPY table_name TO 'file_path' (AWS_CRED(AWS_REGION 'aws_region', AWS_KEY_ID '
+      'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 'endpoint_url'));
+```
+
+Parameters in the syntax include:
+
+*   `table_name`: The table containing the data to be exported.
+
+*   `file_path`: The CSV file location accessible from the server.
+
+*   `aws_region`: The AWS region associated with the storage service (e.g., 'region1').
+
+*   `key_id`: The key identifier for authentication.
+
+*   `access_key`: The access key for authentication.
+
+*   `endpoint_url`: The URL endpoint for the storage service.
+
+## **Examples**
+
+### **Case #1: COPY TO with AWS S3 Bucket**&#x20;
+
+In this example, we use the `COPY TO` statement to export data from a `students` table to a CSV file named `students_file`.
+
+```pgsql
+COPY students TO 's3://oxla-testdata/cayo/students_file' (AWS_CRED(AWS_REGION 'region1', AWS_KEY_ID '
+      'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 's3.us-east-2.amazonaws.com'));
+```
+
+**Expected Output:** `student` table data is copied to the `students_file` on AWS S3.
+
+### **Case #2: COPY TO with Google Cloud Storage**&#x20;
+
+This example shows how to use the `COPY TO` statement to export data, but this time, the data is stored on Google Cloud Storage.
+
+```pgsql
+COPY project TO 'gs://your-bucket/project_file' (AWS_CRED(AWS_REGION 'region1', AWS_KEY_ID '
+      'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 'https://storage.googleapis.com'));
+```
+
+**Expected Output:** Data from the `project` table is copied to the `project_file` on Google Cloud Storage.
+
