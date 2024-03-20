@@ -131,19 +131,133 @@
             "3-sql-reference/3-3-sql-data-types/3-3-9-numeric-types/numeric-data-type-aliases",
             "3-sql-reference/3-3-sql-data-types/3-3-10-json-types/json-type"
           ]
+        },
+        {
+          "group": "SQL Functions",
+          "pages":[
+            "3-sql-reference/3-4-sql-functions/sql-functions-overview",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/numeric-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/abs",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/cbrt",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/ceil",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/exp",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/floor",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/greatest",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/least",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/ln",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/log",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/power",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/random",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/round",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/sin",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/sqrt",
+            "3-sql-reference/3-4-sql-functions/3-4-1-numeric-functions/to-char-from-number",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/aggregation-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/avg",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/bool-and",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/bool-or",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/count",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/for-max",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/for-min",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/max",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/min",
+            "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/sum",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/concat",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/ends-with",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/length",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/lower",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/regexp",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/regexp-replace/posix-expression",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/replace",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/starts-with",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/string-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/strpos",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/substr",
+            "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/upper",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/timestamp-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/current-timestamp",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/date-trunc",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/extract",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/format-timestamp",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/timestamp-micros",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/timestamp-millis",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/timestamp-second",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/timestamp-trunc",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/to-char-from-timestamp",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/to-timestamp",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/unix-macros",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/unix-millis",
+            "3-sql-reference/3-4-sql-functions/3-4-4-timestamp-functions/unix-seconds",
+            "3-sql-reference/3-4-sql-functions/3-4-5-boolean-functions/boolean-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-5-boolean-functions/is-distinct-from-operator",
+            "3-sql-reference/3-4-sql-functions/3-4-5-boolean-functions/is-not-distinct-from-operator",
+            "3-sql-reference/3-4-sql-functions/3-4-6-json-functions/json-functions",
+            "3-sql-reference/3-4-sql-functions/3-4-6-json-functions/json-array-extract",
+            "3-sql-reference/3-4-sql-functions/3-4-6-json-functions/json-array-length",
+            "3-sql-reference/3-4-sql-functions/3-4-6-json-functions/json-extract-path",
+            "3-sql-reference/3-4-sql-functions/3-4-6-json-functions/json-extract-path-text",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/other-function",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/coalesce",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/current-database",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/current-schema",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/has-schema-privillege",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/nullif",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/pg-get-expr",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/pg-total-relation-size",
+            "3-sql-reference/3-4-sql-functions/3-4-7-other-functions/pg-typeof",
+            "3-sql-reference/3-4-sql-functions/trigonometric-functions"
+          ]
+        },
+        {
+          "group": "Schema",
+          "pages":[
+            "3-sql-reference/schema"
+          ]
+        },
+        {
+          "group": "COmment Support",
+          "pages":[
+            "3-sql-reference/comment-support"
+          ]
         }
       ]
     },    
     {
       "group": "SQL Mutations",
       "pages": [
-        "welcome"
+        "4-sql-mutations/sql-mutations",
+        "4-sql-mutations/update",
+        "4-sql-mutations/delete",
       ]
     },
     {
-      "group": "Error Handling",
+      "group": "Troubleshoot",
       "pages": [
-        "welcome"
+        "5-error-handling/error-handling"
+      ]
+    },
+    {
+      "group": "Comparison",
+      "pages": [
+        "6-oxla-vs-postgre/differences-between-oxla-vs-postgre"
+      ]
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "7-transactions/understanding-transactions"
+      ]
+    },
+    {
+      "group": "Monitoring",
+      "pages": [
+        "8-public-metrics/public-metrics"
+      ]
+    },
+    {
+      "group": "Configuration",
+      "pages": [
+        "9-oxla-config-file/oxla-configuration-file"
       ]
     }
   ],
