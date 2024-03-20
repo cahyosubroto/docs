@@ -31,6 +31,13 @@
       "url": "api-reference"
     }
   ],
+  "acnhors": [
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://oxla.com/blog/"
+    }
+  ]
   "navigation": [
     {
       "group": "Get Started",
