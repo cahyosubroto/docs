@@ -227,7 +227,7 @@
       "pages": [
         "4-sql-mutations/sql-mutations",
         "4-sql-mutations/update",
-        "4-sql-mutations/delete",
+        "4-sql-mutations/delete"
       ]
     },
     {
