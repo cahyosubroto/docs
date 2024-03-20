@@ -67,21 +67,15 @@
       "pages": [
         "3-sql-reference/sql-reference-overview",
         {
-          "group": "Nested Reference Pages",
+          "group": "SQL Statements",
           "pages": [
-            "1-introduction/1-1-key-concepts-archi/our-key-features",
-            "2-run-oxla/run-oxla-on-s3",
+            "3-sql-reference/3-1-sql-statements/sql-statement-overview",
+            "3-sql-reference/3-1-sql-statements/3-1-1-sql-table/sql-table",
             {
-              "group": "Nested Reference Pages",
+              "group": "CREATE TABLE statement",
               "pages": [
-                "2-run-oxla/run-oxla-in-2-minutes",
-                "2-run-oxla/multi-node-deployment",
-                {
-                  "group": "Nested Reference Pages",
-                  "pages": [
-                    "2-run-oxla/run-oxla-in-2-minutes"
-                  ]
-                }
+                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table",
+                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/keywords"
               ]
             }
             ]
