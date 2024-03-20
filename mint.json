@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "Changelog",
-      "url": "2-run-oxla"
+      "url": "10-changelog"
     }
   ],
   "anchors": [
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "group": "Getting Startedd",
+      "group": "Getting Started",
       "pages": [
         "2-run-oxla/run-oxla-in-2-minutes",
         "2-run-oxla/run-oxla-on-s3",
