@@ -1,24 +1,24 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Oxla Developer Hub",
+  "name": "Starter Kit",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
   },
-  "favicon": "/favicon/oxla-favicon.png",
+  "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#3139DB",
+    "primary": "#0D9373",
     "light": "#07C983",
-    "dark": "#3139DB",
+    "dark": "#0D9373",
     "anchors": {
-      "from": "#3139DB",
+      "from": "#0D9373",
       "to": "#07C983"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hello@oxla.com"
+      "url": "mailto:hi@mintlify.com"
     }
   ],
   "topbarCtaButton": {
@@ -27,42 +27,65 @@
   },
   "tabs": [
     {
-      "name": "Changelog",
-      "url": "https://docs.oxla.com/changelog"
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "anchors": [
     {
+      "name": "Documentation",
+      "icon": "book-open-cover",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://mintlify.com/community"
+    },
+    {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://oxla.com/blog/"
+      "url": "https://mintlify.com/blog"
     }
   ],
   "navigation": [
     {
-      "group": "Homepage",
+      "group": "Get Started",
       "pages": [
-        "0-homepage/welcome"
+        "introduction",
+        "quickstart",
+        "development"
       ]
     },
     {
-      "group": "Introduction",
+      "group": "Essentials",
       "pages": [
-        "1-introduction/1-1-key-concepts-archi/introduction"
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation",
+        "essentials/reusable-snippets"
       ]
     },
     {
-      "group": "Run Oxla in 2 Minutes",
+      "group": "API Documentation",
       "pages": [
-        "2-run-oxla/run-oxla-in-2-minutes",
-        "2-run-oxla/run-oxla-on-s3",
-        "2-run-oxla/multi-node-deployment"
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/get",
+        "api-reference/endpoint/create",
+        "api-reference/endpoint/delete"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/i/flow/login?redirect_after_login=%2Foxla_database",
-    "discord": "https://discord.com/invite/DJaksZfurn",
-    "linkedin": "https://www.linkedin.com/company/oxla"
+    "twitter": "https://twitter.com/mintlify",
+    "github": "https://github.com/mintlify",
+    "linkedin": "https://www.linkedin.com/company/mintsearch"
   }
 }
