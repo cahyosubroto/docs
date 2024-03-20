@@ -65,7 +65,12 @@
     {
       "group": "SQL Reference",
       "pages": [
-        "3-sql-reference/sql-reference"
+        "3-sql-reference/sql-reference-overview",
+        "3-sql-reference/3-1-sql-statements/sql-statements-overview",
+        {
+          "group": "Nested Reference Pages",
+          "pages": ["3-sql-reference/sql-reference-overview"]
+        }
       ]
     },
     {
