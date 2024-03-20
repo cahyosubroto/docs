@@ -31,13 +31,13 @@
       "url": "api-reference"
     }
   ],
-  "acnhors": [
+  "anchors": [
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://oxla.com/blog/"
+      "url": "https://mintlify.com/blog"
     }
-  ]
+  ],
   "navigation": [
     {
       "group": "Get Started",
