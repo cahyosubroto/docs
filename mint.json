@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "Changelog",
-      "url": "10-changelog/Changelog"
+      "url": "Changelog"
     }
   ],
   "anchors": [
@@ -54,7 +54,11 @@
     {
       "group": "Run Oxla in 2 Minutes",
       "pages": [
-        "welcome"
+        "1-introduction/1-1-key-concepts-archi/key-concept-and-architecture",
+        {
+          "group": "Nested Reference Pages",
+          "pages": ["1-introduction/1-1-key-concepts-archi/oltp-olap","1-introduction/1-1-key-concepts-archi/oxla-vs-other-olap-solutions","1-introduction/1-1-key-concepts-archi/our-key-features"]
+        }
       ]
     },
     {
