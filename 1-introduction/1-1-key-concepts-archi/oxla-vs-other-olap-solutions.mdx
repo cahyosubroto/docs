@@ -14,12 +14,8 @@ The comparison tests were performed on a single node; using more nodes will sign
 
 | **Oxla** | **ClickHouse** |
 | -------- | -------------- |
-
-| Supports a lot of Clauses, Data Types, and Functions. Such as `GROUP BY`, `JOIN (INNER JOIN, LEFT JOIN, RIGHT JOIN, OUTER JOIN)
-`&#xA;We also support uncorrelated subqueries e.g.\* `SELECT num`
-
-- `COUNT(*)` count `FROM (SELECT ageCOUNT(*)` as num `FROM` user `GROUP BY age) ` | Non-standard SQL-like query language with several limitations.&#xA;&#xA; |
-  | Oxla has homogenous architecture: there are no workers, data, or master nodes. One of the nodes is dynamically selected as the leader with no single point of failure.&#x20; | On-premise with dedicated clusters, no elasticity. We need to migrate into bigger/smaller clusters. |
+| Supports a lot of Clauses, Data Types, and Functions. Such as `GROUP BY`, `JOIN` (INNER JOIN, LEFT JOIN, RIGHT JOIN, OUTER JOIN). We also support uncorrelated subqueries e.g. `SELECT num, COUNT(*) as num FROM user GROUP BY age`. | Non-standard SQL-like query language with several limitations. |
+| Oxla has homogeneous architecture: there are no workers, data, or master nodes. One of the nodes is dynamically selected as the leader with no single point of failure. | On-premise with dedicated clusters, no elasticity. We need to migrate into bigger/smaller clusters. |
 
 ### b) Cost
 
@@ -45,14 +41,8 @@ Understanding Oxla and then comparing it with other solutions made us realize th
 
 We suggest you take a step back and evaluate your products, team talents, market, and needs before deciding what to use for your business. Choosing the right technology today can make a huge difference now and in the future.
 
-:::hint{type="success"}
-_✅ Choose an architecture that will grow with you rather than one that makes you start over._
-:::
+<Tip>Choose an architecture that will grow with you rather than one that makes you start over.</Tip>
 
 We, at Oxla, will be super pleased to support you in achieving your goal with our dazzling distributed DBMS ✨
 
-> **Are you curious about Oxla? Join our **
->
-> [**waiting list**](https://www.oxla.com/)
->
-> **! 🙋‍♂️**
+**Are you curious about Oxla? Join our [waiting list](https://www.oxla.com/)!🙋‍♂️**

@@ -4,14 +4,6 @@ createdAt: 2022-08-22T03:36:26.000Z
 updatedAt: 2024-02-21T16:54:23.046Z
 ---
 
-```html
-<style>
-  #main-column.max-w-\[760px\] {
-    max-width: unset;
-  }
-</style>
-```
-
 Oxla enables data processing, analytics, and storage solutions that are easily scalable, highly reliable, cheaper, easier to use, and faster than the other OLAP solutions.&#x20;
 
 We are an advanced distributed analytical database with robust analytical processing. We store data using several file systems, such as AWS S3, Ceph, and GCS.&#x20;
@@ -48,13 +40,11 @@ Let’s say a large corporation wants to improve the customer journey by driving
 
 Our Dynamic Oxla cluster technology allows you to store and run SQL queries faster with less cost. There are two main components in our cluster:
 
-- **Node leader: **the component that distributes the workload to run the SQL queries to all the worker nodes and appoints any node to store the data.
+- **Node leader:** the component that distributes the workload to run the SQL queries to all the worker nodes and appoints any node to store the data.
 
 - **Worker node:** the component that executes the SQL queries and stores the data.
 
-:::hint{type="info"}
-**Note: **There shall be always a single node per machine.
-:::
+<Info>There shall be always a single node per machine.</Info>
 
 ![cluster](../../assets/Key%20Concepts%20&%20Architecture_cluster.png)
 
@@ -102,9 +92,7 @@ Our Oxla cluster technology automatically selects and detects which worker node 
 
 Oxla stores data in optimized columnar format whenever the users load data into Oxla. The typical data warehouse solutions require users to insert data in large batches. Our technology enables users to insert large amounts of data even with single rows.&#x20;
 
-:::hint{type="success"}
-👨🏻‍💻 We handle all key aspects of data storage, including file organization, compression, structure, and database metastore.&#x20;
-:::
+<Check>We handle all key aspects of data storage, including file organization, compression, structure, and database metastore.</Check>
 
 ### 💸 Cheaper Cost
 
