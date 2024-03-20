@@ -2,10 +2,10 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Oxla Developer Hub",
   "logo": {
-    "dark": "black-oxla-logo.svg",
-    "light": "white-oxla-logo.svg"
+    "dark": "white-oxla-logo.svg",
+    "light": "black-oxla-logo.svg"
   },
-  "favicon": "favicon.png",
+  "favicon": "favicon.svg",
   "colors": {
     "primary": "#3139DB",
     "light": "#4c54fc",
