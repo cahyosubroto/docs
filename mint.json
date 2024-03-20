@@ -80,27 +80,33 @@
             {
               "group": "CREATE INDEX statement",
               "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table"
+                "3-sql-reference/3-1-sql-statements/3-1-3-create-index-statement/create-index"
               ]
             },
             {
               "group": "SELECT statement",
               "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table"
+                "3-sql-reference/3-1-sql-statements/3-1-4-select-statement/select"
               ]
             },
             {
               "group": "INSERT INTO statement",
               "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table"
+                "3-sql-reference/3-1-sql-statements/3-1-5-insert-into-statement/insert-into"
               ]
             },
             {
               "group": "DROP statement",
               "pages": [
-                "3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/create-table"
+                "3-sql-reference/3-1-sql-statements/3-1-6-drop-statement/drop"
               ]
             }
+          ]
+        },
+        {
+          "group": "SQL Table",
+          "pages": [
+            "3-sql-reference/3-1-sql-statements/sql-table"
           ]
         }
       ]
