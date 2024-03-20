@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "Changelog",
-      "url": "10-changelog"
+      "url": "2-run-oxla"
     }
   ],
   "anchors": [
@@ -216,8 +216,8 @@
       "group": "SQL Mutations",
       "pages": [
         "4-sql-mutations/sql-mutations",
-        "4-sql-mutations/update",
-        "4-sql-mutations/delete"
+        "4-sql-mutations/delete",
+        "4-sql-mutations/update"
       ]
     },
     {
