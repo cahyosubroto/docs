@@ -69,13 +69,7 @@ SELECT * FROM orders;
 DELETE FROM orders
 WHERE quantity <= 2;
 ```
-The output shows that the order with `order_id`: `102`, `103`, and `104` are deleted because they have a quantity <= 2.
-```sql
- order_id | customer_name | product_id | quantity | order_status 
-----------+---------------+------------+----------+--------------
-      101 | Alice Johnson |          1 |        3 | shipped
-      105 | Eva Davis     |          4 |        4 | shipped
-```
+5. The output shows that the order with order_id: 102, 103, and 104 are deleted because they have a quantity <= 2.
 
 
 
