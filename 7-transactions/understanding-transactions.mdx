@@ -15,51 +15,47 @@ These commands are used to manage transactions:
 
 ### **2.1. BEGIN**
 
-Initiates a new transaction.
+Initiates a new transaction by calling one of the syntax below.
+<CodeGroup>
 
-**Syntax**
-
-```pgsql
+```sql BEGIN
 BEGIN;
 ```
 
-or
-
-```pgsql
+```sql BEGIN TRANSACTION
 BEGIN TRANSACTION;
 ```
+</CodeGroup>
 
 ### **2.2. COMMIT**
 
-Saves the changes made in a transaction to the database. It simply ends the transaction.
+Saves the changes made in a transaction to the database. It simply ends the transaction. 
+<br /> Call one of the syntax below.
 
-**Syntax**
+<CodeGroup>
 
-```pgsql
+```sql COMMIT
 COMMIT;
 ```
 
-or
-
-```pgsql
+```sql END TRANSACTION
 END TRANSACTION;
 ```
+</CodeGroup>
 
 ### **2.3. ROLLBACK**
 
 In Oxla, when you issue a ROLLBACK command, it doesn't undo changes made in the current transaction. It simply finishes the transaction without any rollback action.
 
-**Syntax**
-
-```pgsql
+```sql
 ROLLBACK;
 ```
 
 ## **3. Example**
 
-1\) Let’s define a table named `products` with columns: `product_name`, `price`, and `stock_quantity`.
+1. Let's define a table named `products` with columns: `product_name`, `price`, and `stock_quantity`.
 
-```pgsql
+```sql
 CREATE TABLE productsnew(
     product_name TEXT,
     price INT,
@@ -67,43 +63,40 @@ CREATE TABLE productsnew(
 );
 ```
 
-```pgsql
+```sql
 COMPLETE
 ```
 
-2\) Next, we want to insert product data into a `products` table.&#x20;
+2. Next, we want to insert product data into a `products` table.&#x20;
 
-```pgsql
+```sql
 BEGIN;
 
 INSERT INTO productsnew(product_name, price, stock_quantity) VALUES ('Tab', 8000, 20);
 INSERT INTO productsnew(product_name, price, stock_quantity) VALUES ('Laptop', 10000, 32);
 INSERT INTO productsnew(product_name, price, stock_quantity) VALUES ('Harddisk', 12000, 14);
 ```
-
-:::hint{type="warning"}
-The `INSERT` statement is executed immediately without waiting for the end of the transaction or until a COMMIT is issued.
-:::
+<Warning>The `INSERT` statement is executed immediately without waiting for the end of the transaction or until a COMMIT is issued.</Warning>
 
 You will get the following output:
 
-```pgsql
+```sql
 BEGIN
 INSERT 0 1
 INSERT 0 1
 INSERT 0 1
 ```
 
-3\) View the changes by displaying the products table:
+3. View the changes by displaying the products table:
 
-```pgsql
+```sql
 SELECT * FROM productsnew;
 COMMIT; -- or ROLLBACK;
 ```
 
 The product data is now added to the table.
 
-```pgsql
+```sql
  product_name | price | stock_quantity 
 --------------+-------+----------------
  Harddisk     | 12000 |             14
