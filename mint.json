@@ -193,7 +193,7 @@
               ]
             },
             {
-              "group": "Aggregation FUnctions",
+              "group": "Aggregation Functions",
               "pages": [
                 "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/aggregation-functions",
                 "3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/avg",
