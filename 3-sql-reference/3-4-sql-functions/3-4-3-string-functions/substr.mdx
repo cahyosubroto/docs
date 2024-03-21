@@ -8,13 +8,11 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `SUBSTR()` function extracts a specific number of characters from a string:
 
-```pgsql
+```sql
 substr( string, start_position, length )
 ```
 
-:::hint{type="info"}
-📌 Input and return will be of type `string`.
-:::
+<Tip>Input and return will be of type `string`.</Tip>
 
 ### Start Position
 
@@ -43,13 +41,13 @@ The `length` is used to determine the number of characters to be extracted*. *It
 
 In this example, we will set the `start_position` with the first six characters and have five characters extracted:
 
-```pgsql
+```sql
 SELECT substr('Watermelon',6,5) AS "Fruit";
 ```
 
 The updated table is shown below:
 
-```pgsql
+```sql
 +-------------+
 | Fruit       |
 +-------------+
@@ -61,13 +59,13 @@ The updated table is shown below:
 
 The following query will extract a string with `length` = 0:
 
-```pgsql
+```sql
 SELECT substr('Watermelon',6,0) AS "Fruit";
 ```
 
 It will display an empty output as there is no `length` specified:
 
-```pgsql
+```sql
 +--------+
 | Fruit  |
 +--------+
@@ -79,13 +77,13 @@ It will display an empty output as there is no `length` specified:
 
 Here we will check if the `length` is specified with a negative value:
 
-```pgsql
+```sql
 SELECT substr('Watermelon',6,-2) AS "Fruit";
 ```
 
 Instead of extracting the string from the last characters, it will return an error as seen below:
 
-```pgsql
+```sql
 ERROR:  negative substring length not allowed
 SQL state: 22011
 ```
@@ -94,13 +92,13 @@ SQL state: 22011
 
 We know that **Watermelon** only has ten characters, but this time, we will figure out if the specified `start_position` is larger than the string’s characters:
 
-```pgsql
+```sql
 SELECT substr('Watermelon',20,2) AS "Fruit";
 ```
 
 It will display an empty output as shown below:
 
-```pgsql
+```sql
 +--------+
 | Fruit  |
 +--------+

@@ -8,7 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `STRPOS()` is used to return the position from where the substring (the second argument) is matched with the string (the first argument).
 
-```pgsql
+```sql
 STRPOS(string, substring)
 ```
 
@@ -26,13 +26,13 @@ The input and return must be of type `string`.
 
 In the example below, we will find the **ut** (substring) position in the **computer** (string):
 
-```pgsql
+```sql
 SELECT STRPOS('computer', 'ut') AS "Position of ut";
 ```
 
 We can see that **ut** is located at the fifth character of the **computer**:
 
-```pgsql
+```sql
 +-----------------+
 | Position of ut  |
 +-----------------+
@@ -44,7 +44,7 @@ We can see that **ut** is located at the fifth character of the **computer**:
 
 We have a **listofwords** table where it stores the word data.
 
-```pgsql
+```sql
 CREATE TABLE listofwords (
   words string
 );
@@ -62,13 +62,13 @@ VALUES
     ('albatross');
 ```
 
-```pgsql
+```sql
 SELECT * FROM listofwords;
 ```
 
 The above query will show the following table:
 
-```pgsql
+```sql
 +----------------+
 | words          |
 +----------------+
@@ -86,14 +86,14 @@ The above query will show the following table:
 
 The following query will display the words and a position of a specific substring = ‘**al**’ using the `STRPOS()` function:
 
-```pgsql
+```sql
 SELECT words, STRPOS(words, 'al') AS "Position of al"
 FROM listofwords;
 ```
 
 The result will display the **al** position of different words:
 
-```pgsql
+```sql
 +----------------+------------------+
 | words          | Position of al   |
 +----------------+------------------+
