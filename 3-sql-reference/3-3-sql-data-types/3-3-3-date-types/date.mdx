@@ -8,19 +8,17 @@ updatedAt: 2024-02-29T14:11:51.970Z
 
 The `DATE` data type is used to store and insert date values.
 
-:::hint{type="info"}
-💡 The date value is stored without the time zone.
-:::
+<Info>The date value is stored without the time zone.</Info>
 
 ## Structure
 
 The date type contains three components: year, month, and day. It’s represented in a 32-bit integer. Here is the breakdown:
 
-*   **Day component:** 5 bits store the number of days within a month. Its value is in the range <1, 31>.
+*   **Day component:** 5 bits store the number of days within a month. Its value is in the range `<1, 31>`.
 
-*   **Month component**: 4 bits store the month of the year. Its value is in the range <1, 12>.
+*   **Month component**: 4 bits store the month of the year. Its value is in the range `<1, 12>`.
 
-*   **Year component**: 23 bits store the number of years. Its value is from range <0, 2^23 - 1>.
+*   **Year component**: 23 bits store the number of years. Its value is from range `<0, 2^23 - 1>`.
 
 ## Format
 
@@ -57,7 +55,7 @@ VALUES
 (8557491, 'Liam', 'Product', '2022-06-15');
 ```
 
-Now that the data has been inserted, let’s execute the `SELECT` statement below:
+Now that the data has been inserted, let's execute the `SELECT` statement below:
 
 ```pgsql
 SELECT * FROM emp_submission;

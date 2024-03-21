@@ -8,20 +8,14 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 Oxla provides you with two data types for handling timestamps:
 
-1.  [**Timestamp without Time Zone**](https://docs.oxla.com/timestamp-without-time-zone-type): It allows you to store both date and time.
+1.  [**Timestamp without Time Zone**](https://oxla.mintlify.app/3-sql-reference/3-3-sql-data-types/3-3-4-timestamp-without-time-zone/timestamp-without-time-zone): It allows you to store both date and time.
 
 2.  **Timestamp with Time Zone**: It stores date and time values but does not store time zone information within the database. Instead, it processes the time zone information during operations.
     1.  During **INSERT** operation, the time zone is ignored. The date and time are stored without considering the time zone.
 
     2.  During **the SELECT** operation, the time zone information from the user's session is also ignored. The data is returned exactly as it is stored without adjusting the time zone.
 
-:::hint{type="warning"}
-**Important Note:**&#x20;
-
-Keep in mind that all user sessions have a local timezone associated with them, affecting how timestamps` with time zone` values are displayed.&#x20;
-
-The timezone information **is not stored in the database**. Consequently, every time a user requests a value of this type, Oxla converts from UTC to the user's local timezone before displaying it.
-:::
+<Warning>**Important Note:** <br /> Keep in mind that all user sessions have a local timezone associated with them, affecting how timestamps `with time zone` values are displayed. <br /> The timezone information **is not stored in the database**. Consequently, every time a user requests a value of this type, Oxla converts from UTC to the user's local timezone before displaying it.</Warning>
 
 On this page, you will learn about the timestamp with the time zone.
 

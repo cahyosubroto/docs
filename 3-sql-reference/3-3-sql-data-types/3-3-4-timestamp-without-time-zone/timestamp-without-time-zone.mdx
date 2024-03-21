@@ -28,9 +28,7 @@ YYYY-MM-DD [HH:MM:SS[.SSSSSS]]
 
 *   `[.SSSSSS]`: Up to six fractional digits (microsecond precision)
 
-:::hint{type="info"}
-Fractional digits are the digits after the decimal point ( . )
-:::
+<Info>Fractional digits are the digits after the decimal point ( . )</Info>
 
 ## **Examples**
 
@@ -143,9 +141,7 @@ We learned that the seconds are displayed as `00` as `60`, which adds 1 minute t
 
 The `AT TIME ZONE` operator enables us to convert the input timestamp to the target time zone specified in the query. Additionally, the timestamp you inputted will always be presented in the user's local timezone (currently set as UTC).
 
-:::hint{type="warning"}
-It's important to note that the result type of this operator is different. It produces a timestamp with a time zone.&#x20;
-:::
+<Warning>It's important to note that the result type of this operator is different. It produces a timestamp with a time zone.</Warning>
 
 ### **Syntax**
 
@@ -180,7 +176,7 @@ The result will be a timestamp with the time zone adjusted to MST:
 
 ### **Example 2**
 
-Let's consider from the [visitors](https://docs.oxla.com/timestamp-without-time-zone-type#-QtBT) table, we wish to retrieve a list of visit dates in the MST time zone. We can achieve this using the following query:
+Let's consider from the [visitors](https://oxla.mintlify.app/3-sql-reference/3-3-sql-data-types/3-3-4-timestamp-without-time-zone/timestamp-without-time-zone#case-1-create-a-table) table, we wish to retrieve a list of visit dates in the MST time zone. We can achieve this using the following query:
 
 ```pgsql
 SELECT visitDate, visitDate AT TIME ZONE 'MST' as "visitDateMST" FROM visitors; 
