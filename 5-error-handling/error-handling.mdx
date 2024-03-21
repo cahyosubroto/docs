@@ -15,19 +15,19 @@ Below is the list of the common errors and its resolutions you might encounter w
 
 ✅ Follow these steps:
 
-1\) Change the directory where you store the docker-compose configuration file by executing this command:
+1. Change the directory where you store the docker-compose configuration file by executing this command:
 
 ```typescript
 cd your_folder_name
 ```
 
-2\) Open the docker-compose configuration file by executing this command:
+2. Open the docker-compose configuration file by executing this command:
 
 ```typescript
 vim your_file_name.yml
 ```
 
-3\) Remove `local_csvs:/local_csvs`in your docker compose file.
+3. Remove `local_csvs:/local_csvs`in your docker compose file.
 
 ### Too many open files
 
@@ -41,19 +41,19 @@ Jan 24 13:58:26 server[XXXXXX]: Too many open files
 
 ✅ Follow these steps:
 
-1\) Change the directory where you store the docker compose configuration file by executing this command:
+1. Change the directory where you store the docker compose configuration file by executing this command:
 
 ```typescript
 cd your_folder_name
 ```
 
-2\) Open the docker compose configuration file by executing this command:
+2. Open the docker compose configuration file by executing this command:
 
 ```typescript
 vim your_file_name.yml
 ```
 
-3\) Ensure that your docker compose file has the correct limit as follows:
+3. Ensure that your docker compose file has the correct limit as follows:
 
 ```typescript
 ulimits:
@@ -71,7 +71,7 @@ ulimits:
 
 **For windows**:
 
-1\) Open the **PostgreSQL** folder > **scripts **folder and open the command prompt on your computer:
+1. Open the **PostgreSQL** folder > **scripts **folder and open the command prompt on your computer:
 
 ![open command prompt](https://archbee-image-uploads.s3.amazonaws.com/S_lGBDD7H53z1OcF8Kc79/80jZhU63tk1pglP_V-Oti_ezcom-maker-26.gif)
 
@@ -81,7 +81,7 @@ ulimits:
 C:\Program Files\PostgreSQL\14\scripts>
 ```
 
-2\) Run the following command: cd "C:\Program Files\PostgreSQL\14\bin"``
+2. Run the following command: cd "C:\Program Files\PostgreSQL\14\bin"``
 
 ```typescript
 (c) Microsoft Corporation. All rights reserved.
@@ -89,7 +89,7 @@ C:\Program Files\PostgreSQL\14\scripts>
 C:\Program Files\PostgreSQL\14\scripts> cd "C:\Program Files\PostgreSQL\14\bin"
 ```
 
-3\) Last but not least, execute the following command to run the Oxla server: psql -h 44.210.23.203``
+3. Last but not least, execute the following command to run the Oxla server: psql -h 44.210.23.203``
 
 ```typescript
 (c) Microsoft Corporation. All rights reserved. 
@@ -106,13 +106,13 @@ C:\Program Files\PostgreSQL\14\bin> psql.exe -h 44.210.23.203
 
 ✅ Follow these steps:
 
-1\) Run the following command:
+1. Run the following command:
 
 ```typescript
 SET PGCLIENTENCODING=UTF8
 ```
 
-2\) Then, activate the code page with the command below:
+2. Then, activate the code page with the command below:
 
 ```typescript
 chcp 65001Command
@@ -124,7 +124,7 @@ You will get the following output:
 Active code page: 65001
 ```
 
-3\) Execute the following command to run the Oxla server: psql -h 44.210.23.203﻿``
+3. Execute the following command to run the Oxla server: psql -h 44.210.23.203﻿``
 
 ```typescript
 C:\Program Files\PostgreSQL\14\bin>SET PGCLIENTENCODING=UTF8
@@ -149,11 +149,12 @@ C:\Program Files\PostgreSQL\14\bin>psql.exe -h 44.210.23.203
 🚧 If you encounter an error like this:
 `Psql.exe: command not found`
 
-**✅ **Download and install PostgreSQL on your computer:
+✅ Download and install PostgreSQL on your computer:
 
-**For windows, **download PostgreSQL from [here](https://www.postgresql.org/download/).
-**For mac**, install PostgreSQL using the brew in terminal: `mac$ brew install postgresql`.
+- **For windows,** download PostgreSQL from [here](https://www.postgresql.org/download/).
+- **For linux**, install PostgreSQL by following the steps [here](https://www.postgresql.org/download/linux/ubuntu/).
+- **For mac**, install PostgreSQL using the brew in terminal: `mac$ brew install postgresql`.
 
 ![Installing PostgreSQL](https://archbee-image-uploads.s3.amazonaws.com/S_lGBDD7H53z1OcF8Kc79/l5eN2BdKhfjiciegK3d1P_imageedit24068984245.png)
 
-**For linux**, install PostgreSQL by following the steps [here](https://www.postgresql.org/download/linux/ubuntu/).
+
