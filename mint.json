@@ -17,7 +17,7 @@
   },
   "metadata": {
     "og:image": "/assets/oxla-logo.png"
-},
+  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -213,6 +213,7 @@
             {
               "group": "String Functions",
               "pages": [
+                "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/string-functions",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/concat",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/ends-with",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/length",
@@ -226,7 +227,6 @@
                 },
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/replace",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/starts-with",
-                "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/string-functions",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/strpos",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/substr",
                 "3-sql-reference/3-4-sql-functions/3-4-3-string-functions/upper"
