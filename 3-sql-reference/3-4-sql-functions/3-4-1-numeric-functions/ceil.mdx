@@ -62,7 +62,7 @@ The output of this statement will be -89, as -89 is the nearest integer value gr
 
 The following example demonstrates how the `CEIL()` function can be used with a table to round up the values in a specific column:
 
-**1)** First, create a table called ***CeilRecords*** with the following query:
+1. First, create a table called ***CeilRecords*** with the following query:
 
 ```pgsql
 CREATE TABLE CeilRecords (numbers float);
@@ -76,9 +76,9 @@ VALUES
     (42.16);
 ```
 
-The above statement will create a table called **"CeilRecords" **with a column called **"numbers" **and insert 5 decimal values into it.
+The above statement will create a table called **"CeilRecords"** with a column called **"numbers" **and insert 5 decimal values into it.
 
-2\) The statement below can be used to retrieve and round up the value for all records in the column ***numbers****:*
+2. The statement below can be used to retrieve and round up the value for all records in the column ***numbers****:*
 
 ```pgsql
 SELECT *, CEIL(numbers) AS CeilValue FROM CeilRecords;
@@ -86,9 +86,9 @@ SELECT *, CEIL(numbers) AS CeilValue FROM CeilRecords;
 
 The final result will contain the following:
 
-*   A ***numbers*** column with initial decimal values.
+*   A **numbers** column with initial decimal values.
 
-*   A ***CeilValue***** **column with rounded-up integer values.
+*   A **CeilValue** column with rounded-up integer values.
 
 ```pgsql
 +---------+------------+

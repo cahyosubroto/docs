@@ -62,7 +62,7 @@ You will get the following result as it is the nearest integer smaller than or e
 
 The following example demonstrates how the `FLOOR()` function can be used with a table to round down the values in a specific column:
 
-**1)** Create a new table called **FloorRecords** with double-precision values using the query below:
+1. Create a new table called **FloorRecords** with double-precision values using the query below:
 
 ```pgsql
 CREATE TABLE FloorRecords (numbers float);
@@ -70,14 +70,14 @@ INSERT INTO FloorRecords VALUES (3.987), (4.325), (-0.76), (-22.57);
 ```
 
 
-**2)** Retrieve the table with its value by running the following query:
+2. Retrieve the table with its value by running the following query:
 
 ```pgsql
 SELECT * ,FLOOR(numbers) AS Floorvalue FROM FloorRecords;
 ```
 
 
-**3)** The return table will contain the following:
+3. The return table will contain the following:
 
 *   **numbers,** the column with the initial double-precision values.
 

@@ -20,9 +20,7 @@ The `ABS()` function requires one argument:
 
 *   `x`: An expression that evaluates to a number.
 
-:::hint{type="info"}
-ℹ️ The **ABS()** function will return the negation of the negative numbers.
-:::
+<Note>The **ABS()** function will return the negation of the negative numbers.</Note>
 
 ## Examples
 
@@ -66,7 +64,7 @@ The result of the above statement is **-150**. However, you will get the output 
 
 The following example demonstrates how the `ABS()` function can be used with a table to obtain the absolute values of all numbers in a specific column:
 
-**1)** First, create a table named absTable containing an ***initialValue*** column with some positive and negative values:
+1. First, create a table named absTable containing an ***initialValue*** column with some positive and negative values:
 
 ```pgsql
 CREATE TABLE absTable(initialValue float);
@@ -80,14 +78,14 @@ VALUES
 (-0.0);
 ```
 
-**2)** Next, use the following query to find the absolute value of all numbers:
+2. Next, use the following query to find the absolute value of all numbers:
 
 ```pgsql
 SELECT initialValue, ABS(initialValue) AS absoluteValue
 FROM absTable;
 ```
 
-**3)** The above query will retrieve all values in the **"initialValue"** column and their absolute values in the **"absoluteValue"** column. The output will look something like this:
+3. The above query will retrieve all values in the **"initialValue"** column and their absolute values in the **"absoluteValue"** column. The output will look something like this:
 
 ```pgsql
 +---------------+----------------+
