@@ -8,9 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 `LIMIT` is an optional clause of the `SELECT` statement that constrains the number of rows the query returns.&#x20;
 
-:::hint{type="info"}
-The `SELECT` statement is used to retrieve records from one or more tables.
-:::
+<Note>The `SELECT` statement is used to retrieve records from one or more tables.</Note>
 
 ## **Syntax**
 
@@ -25,15 +23,13 @@ LIMIT row_count
 
 The parameters and arguments from the syntax are explained below:
 
-*   `column_list`**: **The columns or calculations that you wish to retrieve.
+*   `column_list`: The columns or calculations that you wish to retrieve.
 
-*   `table_name`**: **The tables that you want to retrieve records from.&#x20;
+*   `table_name`: The tables that you want to retrieve records from.&#x20;
 
-:::hint{type="info"}
-It is possible to have more than one table in the `FROM` clause.
-:::
+<Info>It is possible to have more than one table in the `FROM` clause.</Info>
 
-*   `ORDER BY`** : **It is an expression used to order the results as you wish to return. The expression could be ascending **(ASC) **or descending** (DESC)**.&#x20;
+*   `ORDER BY`: It is an expression used to order the results as you wish to return. The expression could be ascending **(ASC)** or descending **(DESC)**.&#x20;
 
 *   `LIMIT row_count`: It specifies a limited number of rows to be returned based on **row\_count**.&#x20;
 
@@ -122,7 +118,7 @@ The above query will give the following result:
 
 You can use the `LIMIT` clause to select rows with the highest or lowest values from a table.
 
-**1) **To get the top 5 most expensive orders, you sort orders by the product price in descending order **(DESC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
+1. To get the top 5 most expensive orders, you sort orders by the product price in descending order **(DESC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
 
 The following query depicts the idea:
 
@@ -146,7 +142,7 @@ The result of the query is as follows:
 +-----------+------------+----------------------------------+-------------+----------+
 ```
 
-**2)** We will fetch the top 5 cheapest orders this time. You sort orders by the product price in ascending order **(ASC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
+2. We will fetch the top 5 cheapest orders this time. You sort orders by the product price in ascending order **(ASC)** and use the `LIMIT` clause to get the first 5 orders.&#x20;
 
 The following query depicts the idea:
 
@@ -195,7 +191,7 @@ After implementing the above command, we will get the below output:
 
 The result above shows that:
 
-*   The orders with `order_id`** = 1002 & 1003** aren't displayed because we put the `OFFSET` value with 2. So the first 2 lines are ignored.
+*   The orders with `order_id`= **1002 & 1003** aren't displayed because we put the `OFFSET` value with 2. So the first 2 lines are ignored.
 
-*   The orders with `order_id`** = 1009 & 1010** aren't displayed because the `LIMIT` value is 5, which will display only 5 rows.
+*   The orders with `order_id`= **1009 & 1010** aren't displayed because the `LIMIT` value is 5, which will display only 5 rows.
 

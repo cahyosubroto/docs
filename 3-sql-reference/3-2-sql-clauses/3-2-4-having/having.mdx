@@ -6,7 +6,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 ## Overview
 
-The `HAVING` clause specifies a search condition by using an [aggregate function](https://docs.oxla.com/aggregation-functions). It will filter out the records returned from a `GROUP BY` clause that do not fulfill a specified condition.
+The `HAVING` clause specifies a search condition by using an [aggregate function](https://oxla.mintlify.app/3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/aggregation-functions). It will filter out the records returned from a `GROUP BY` clause that do not fulfill a specified condition.
 
 ### Differences Between WHERE and HAVING Clause
 
@@ -46,7 +46,7 @@ Let’s explore the above syntax:
 
 Let’s assume that we have two tables here, the student table and the score table:
 
-**                                                                                         **student table****
+**student table**
 
 ```pgsql
 CREATE TABLE student (
@@ -71,7 +71,7 @@ VALUES
 SELECT * FROM student;
 ```
 
-** **It will create a table as shown below:**                                                                 **
+It will create a table as shown below:                                                     
 
 ```pgsql
 +------------+------------+
@@ -89,7 +89,7 @@ SELECT * FROM student;
 +------------+------------+
 ```
 
-**                     **                                                                 score table****
+**score table**
 
 ```pgsql
 CREATE TABLE score (

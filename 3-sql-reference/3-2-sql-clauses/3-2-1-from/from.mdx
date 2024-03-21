@@ -16,7 +16,7 @@ There must be at least one table listed in the `FROM` clause. See the following 
 query FROM table_name;
 ```
 
-If two or more tables are listed in the `FROM` clause, these tables are joined using [JOIN](https://docs.oxla.com/join), [RIGHT JOIN](https://docs.oxla.com/right-join), [LEFT JOIN](https://docs.oxla.com/left-join), or [OUTER JOIN](https://docs.oxla.com/outer-join), depending on the operations to be queried as seen in the syntax below:
+If two or more tables are listed in the `FROM` clause, these tables are joined using [JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/join), [RIGHT JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/right-join), [LEFT JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/left-join), or [OUTER JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/outer-join), depending on the operations to be queried as seen in the syntax below:
 
 ```pgsql
 FROM table1_name
@@ -26,10 +26,7 @@ FROM table1_name
   | OUTER JOIN } table2_name
 ON table1_name.column1 = table2_name.column1 ]
 ```
-
-:::hint{type="info"}
-The examples below are executed in the `public` schema, the default schema in Oxla. You can also create, insert, and display a table from other schemas - click [here](https://docs.oxla.com/schema) for more info.
-:::
+<Note>The examples below are executed in the `public` schema, the default schema in Oxla. You can also create, insert, and display a table from other schemas - click [here](https://oxla.mintlify.app/3-sql-reference/schema) for more info.</Note>
 
 ## Example
 
@@ -67,13 +64,13 @@ It will create a table as shown below:
 +------------+--------------+------------------+
 ```
 
-1\) Run the following query:
+1. Run the following query:
 
 ```pgsql
 SELECT client_name, client_origin FROM client;
 ```
 
-2\) You will get a list of the client’s data for a successful result:
+2. You will get a list of the client’s data for a successful result:
 
 ```pgsql
 +--------------+------------------+
@@ -84,20 +81,14 @@ SELECT client_name, client_origin FROM client;
 | Samsung      | South Korea      |
 +--------------+------------------+
 ```
+<Check>If two or more tables are listed in the FROM clause, please refer to these sections for more examples related to this: [JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/join), [RIGHT JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/right-join), [LEFT JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/left-join), or [OUTER JOIN](https://oxla.mintlify.app/3-sql-reference/3-2-sql-clauses/3-2-1-from/outer-join).</Check>
 
-:::hint{type="success"}
-🧐 If two or more tables are listed in the FROM clause, please refer to these sections for more examples related to this: [JOIN](https://docs.oxla.com/join), [RIGHT JOIN](https://docs.oxla.com/right-join), [LEFT JOIN](https://docs.oxla.com/left-join), or [OUTER JOIN](https://docs.oxla.com/outer-join).
-:::
-
-***
 
 ## FROM - Sub Queries
 
 FROM clause is also used to specify a sub-query expression. The relation created from the sub-query is then used as a new relation on the other query.&#x20;
 
-:::hint{type="info"}
-ℹ️ More than one table can be defined by separating it with a comma **(,)**.
-:::
+<Info>More than one table can be defined by separating it with a comma **(,)**.</Info>
 
 ### Syntax
 
@@ -121,7 +112,7 @@ WHERE conditions (X.column, Y.column);
 
 We want to find a product whose price exceeds all categories' average budget. 
 
-&#x20;                                                                        product table****
+&#x20;                                                                        **product table**
 
 ```pgsql
 CREATE TABLE product (
@@ -160,7 +151,7 @@ It will create a table as shown below:
 +---------+----------------------------------+-----------+--------+
 ```
 
-&#x20;                                                                     category table&#x20;
+&#x20;                                                                     **category table**
 
 ```pgsql
 CREATE TABLE category (
@@ -197,13 +188,13 @@ It will create a table as shown below:
 
 ***
 
-1\) Run the following query to know and ensure the average value of all category’s budgets:
+1. Run the following query to know and ensure the average value of all category’s budgets:
 
 ```pgsql
 select avg(budget) as avgBudget from category;
 ```
 
-2\) The average budget of all categories from the **category** table is 7700.&#x20;
+2. The average budget of all categories from the **category** table is 7700.&#x20;
 
 ```pgsql
 +--------------------+
@@ -213,13 +204,13 @@ select avg(budget) as avgBudget from category;
 +--------------------+
 ```
 
-3\) Now, run the following query:
+3. Now, run the following query:
 
-*   We specify the **product **table as **P** and the budget’s average value from the **category **table as C.
+*   We specify the **product** table as **P** and the budget's average value from the **category** table as C.
 
-*   We will display the product’s name, category, and price.
+*   We will display the product's name, category, and price.
 
-*   We set the conditions where the product’s price exceeds the budget’s average value.
+*   We set the conditions where the product's price exceeds the budget's average value.
 
 ```pgsql
 select P.product, P.category, P.price from
@@ -227,7 +218,7 @@ select P.product, P.category, P.price from
 where P.price > C.avgBudget;
 ```
 
-➡️ The output will display “court vision women's shoes nike 👟” and Defacto adidas 🧢”* *as the products with a price of more than 7700.
+➡️ The output will display “court vision women's shoes nike” and "Defacto adidas” as the products with a price of more than 7700.
 
 ```pgsql
 +------------------------------------+-----------+----------+

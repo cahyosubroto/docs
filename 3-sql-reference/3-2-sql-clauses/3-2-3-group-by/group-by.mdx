@@ -10,15 +10,12 @@ The `GROUP BY` clause returns a group of records from a table or multiple tables
 
 The result of the `GROUP BY` clause returns a single row for each value of the column.
 
-:::hint{type="info"}
-💡 You can use [aggregate functions](https://docs.oxla.com/aggregation-functions) such as `COUNT()`, `MAX()`, `MIN()`, `SUM()`, etc., to perform the operations on the grouped values in the `SELECT` statement.
-:::
+<Note>You can use [aggregate functions](https://oxla.mintlify.app/3-sql-reference/3-4-sql-functions/3-4-2-aggregation-functions/aggregation-functions) such as `COUNT()`, `MAX()`, `MIN()`, `SUM()`, etc., to perform the operations on the grouped values in the `SELECT` statement.</Note>
 
 ## Syntax
 
-:::hint{type="warning"}
-⚠️ Ensure the column you are using to group is available in the column list.
-:::
+<Warning>Ensure the column you are using to group is available in the column list.</Warning>
+
 
 ### a) Basic syntax
 
@@ -38,14 +35,12 @@ Let’s explore the above syntax:
 *   `SELECT column_1, column_2, aggregate_function(column_3)` defines the columns you want to group (`column_1, column_2`) and the column that you want to apply an aggregate function to (`column_3`).
 
 
-*   `FROM table_name`defines the table where the data comes from.
+*   `FROM table_name` defines the table where the data comes from.
 
 
-*   `GROUP BY column_1, column_2,...; ` lists the columns that you want to group in the `GROUP BY` clause.
+*   `GROUP BY column_1, column_2,...;` lists the columns that you want to group in the `GROUP BY` clause.
 
-:::hint{type="info"}
-🧐 The column specified in the `SELECT` command must also appear in the `GROUP BY` clause.
-:::
+<Info>The column specified in the `SELECT` command must also appear in the `GROUP BY` clause.</Info>
 
 ### b) Syntax with `WHERE` clause
 
@@ -66,7 +61,7 @@ column_1, column_2,...;
 
 Let’s assume that we have two tables here, the customer table and the orders table:
 
-**                                                                                      **customer table****
+**customer table**
 
 ```pgsql
 CREATE TABLE customer (
@@ -107,7 +102,7 @@ It will create a table as shown below:
 +-----------+------------+
 ```
 
-|                                                                             orders table**** |
+|                                                                             orders table |
 | -------------------------------------------------------------------------------------------- |
 
 ```pgsql
