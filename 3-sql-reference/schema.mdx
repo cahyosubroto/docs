@@ -20,9 +20,7 @@ By default, the `public` schema is used in Oxla.&#x20;
 
 When unqualified `table_name` is used, that `table_name` is equivalent to `public.table_name`. It also applies to `CREATE`, `DROP`, and `SELECT TABLE` statements.
 
-:::hint{type="info"}
-💡 Furthermore, you can create multiple schemas per your needs.&#x20;
-:::
+<Info>Furthermore, you can create multiple schemas per your needs.</Info>
 
 ## **Schema Usage Scenarios**
 
@@ -30,7 +28,7 @@ When unqualified `table_name` is used, that `table_name` is equivalent to `publi
 
 The basic syntax of creating a schema is as follows:
 
-```pgsql
+```sql
 CREATE SCHEMA schema_name;
 ```
 
@@ -40,7 +38,7 @@ CREATE SCHEMA schema_name;
 
 The syntax to create a table in a specified schema is as follows:
 
-```pgsql
+```sql
 CREATE TABLE schema_name.table_name(
 ...
 );
@@ -54,7 +52,7 @@ CREATE TABLE schema_name.table_name(
 
 After creating the table and inserting some data, display all rows with the syntax below:&#x20;
 
-```pgsql
+```sql
 SELECT * FROM schema_name.table_name;
 ```
 
@@ -66,27 +64,27 @@ SELECT * FROM schema_name.table_name;
 
 To drop an empty schema where no objects remain in it, use the command below:
 
-```pgsql
+```sql
 DROP SCHEMA schema_name;
 ```
 
 Tables reside in a schema, so it is impossible to drop a schema without also dropping the tables. With the command below, you will also drop the schema with the tables.
 
-```pgsql
+```sql
 DROP SCHEMA schema_name CASCADE;
 ```
 
-## **Example #1 **
+## **Example #1**
 
-1\) First, connect to Oxla and create a schema as shown below:
+1. First, connect to Oxla and create a schema as shown below:
 
-```pgsql
+```sql
 CREATE SCHEMA oxlarefs;
 ```
 
-2\) Next, create a table in the above schema with the following details:
+2. Next, create a table in the above schema with the following details:
 
-```pgsql
+```sql
 CREATE TABLE oxlarefs.functions(
   id int,
   function_name string,
@@ -102,15 +100,15 @@ VALUES
 ('5555', 'Boolean', 'TRUE');
 ```
 
-3\) You can verify and show the table made with the command below:
+3. You can verify and show the table made with the command below:
 
-```pgsql
+```sql
 SELECT * FROM oxlarefs.functions;
 ```
 
-4\) You will get the following result:
+4. You will get the following result:
 
-```pgsql
+```sql
 +------+---------------+---------+
 | id   | function_name | active  |
 +------+---------------+---------+
@@ -124,15 +122,15 @@ SELECT * FROM oxlarefs.functions;
 
 ## **Example #2**
 
-From Example #1, we created a new schema and a table. Use the command below to delete the schema and also the tables in it:
+From [Example #1](https://oxla.mintlify.app/3-sql-reference/schema#example-1), we created a new schema and a table. Use the command below to delete the schema and also the tables in it:
 
-```pgsql
+```sql
 DROP SCHEMA oxlarefs CASCADE;
 ```
 
 Another case is if there is no table or object created inside the schema, you can use the following command to drop the schema:
 
-```pgsql
+```sql
 DROP SCHEMA oxlarefs;
 ```
 
