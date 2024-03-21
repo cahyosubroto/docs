@@ -1,142 +1,99 @@
 ---
-title: 'UPDATE'
-slug: khRa-update
-createdAt: 2023-12-01T00:52:09.771Z
-updatedAt: 2023-12-01T01:04:00.271Z
+title: TEST
+slug: e_Xx-d
+createdAt: 2023-12-01T00:52:46.477Z
+updatedAt: 2023-12-01T01:49:31.081Z
 ---
 
 ## **Overview**
 
-The `UPDATE` mutation is used to modify the existing records in a table. This support has limitations:
+The `DELETE` mutation deletes one or more records from a table based on specified conditions. This support has limitations:
 
-1.  Only **one data mutation (DELETE or UPDATE) **at given moment is possible, trying to run another one will result in failure.
+1.  Only **one data mutation (DELETE or UPDATE) **at a given moment is possible, trying to run another one will fail.
 
-2.  Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Please note that running `DELETE from table` without any condition is possible, but it will be much slower than just `DROP TABLE table`.
+2.  Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Running `DELETE from the table` without any condition is possible, but it will be much slower than the `DROP TABLE table`.
 
-3.  The syntax is simplified in comparison to Postgres. For example, the `SET column=<value>` operation doesn’t support sub-SELECT as the value, also the WHERE clause cannot contain sub-SELECT.
+3.  The syntax is simplified in comparison to Postgres. For example, the `SET column=<value>` operation doesn't support sub-SELECT as the value, and the `WHERE` clause cannot contain sub-SELECT.
 
 :::hint{type="success"}
 **Feature Update: Initial Release**
 
-This marks the initial release of our new Mutation feature, providing you with the ability to update data. The Mutations involve rewriting entire files which take several minutes and could generate infrastructure costs.&#x20;
+This marks the initial release of our new Mutation feature, which allows you to update data. The Mutations involve rewriting entire files, which takes several minutes and could generate infrastructure costs.&#x20;
 
 We are aiming to enhance and optimize this feature in future updates!
 :::
 
 ## **Syntax**
 
-The syntax for `UPDATE` mutation is as follows:
+The syntax for `DELETE` mutation is as follows:
 
 ```pgsql
-UPDATE table
-SET column1 = expression1,
-    column2 = expression2
-    ...
+DELETE FROM table
 WHERE conditions;
 ```
 
 In this syntax:
 
-*   `table`: The name of the table you want to update.
+*   `table`: The table name from which you want to delete records.
 
-*   `column1, column2`: The columns that you wish to update.
+*   `WHERE conditions`** (Optional)**: The conditions must be met for the deletion to execute. If no conditions are provided, all records from the table will be deleted.
 
-*   `expression1, expression2`: The new values to assign to column1, column2, and so on. Each column is set to its corresponding expression.
+## **Example**
 
-*   `WHERE conditions`** (Optional)**: The conditions that must be met for the update to execute. If no conditions are provided, all table records will be updated.
-
-## **Examples**
-
-Let's create a sample table called tasks:
+1\) Let's create a sample table named `orders` that track customer orders.
 
 ```pgsql
-CREATE TABLE tasks (
-    task_id INT,
-    task_name TEXT,
-    status TEXT
+CREATE TABLE orders (
+    order_id INT,
+    customer_name TEXT,
+    product_id INT,
+    quantity INT,
+    order_status TEXT
 );
 
-INSERT INTO tasks (task_id, task_name, status)
+INSERT INTO orders (order_id, customer_name, product_id, quantity, order_status)
 VALUES
-    (1001, 'Task A', 'pending'),
-    (1002, 'Task B', 'in-progress'),
-    (1003, 'Task C', 'pending');
+    (101, 'Alice Johnson', 1, 3, 'shipped'),
+    (102, 'Bob Smith', 2, 1, 'pending'),
+    (103, 'Charlie Brown', 3, 2, 'completed'),
+    (104, 'David White', 1, 1, 'pending'),
+    (105, 'Eva Davis', 4, 4, 'shipped');
 ```
 
-The tasks table will be created as shown below:
+2\) This creates a table named orders and inserts some sample data.
 
 ```pgsql
- task_id | task_name |   status    
----------+-----------+-------------
-    1001 | Task A    | pending
-    1002 | Task B    | in-progress
-    1003 | Task C    | pending
+SELECT * FROM orders;
 ```
 
-Now, let’s see the following cases for updating the table:
-
-### Case #1: Update a Single Column
-
-1\) In this case, we want to update the `status` column to “completed” for the record where `task_id` is 1001.
+You'll get the following table:
 
 ```pgsql
-UPDATE tasks
-SET status = 'completed'
-WHERE task_id = 1001;
+ order_id | customer_name | product_id | quantity | order_status 
+----------+---------------+------------+----------+--------------
+      101 | Alice Johnson |          1 |        3 | shipped
+      102 | Bob Smith     |          2 |        1 | pending
+      103 | Charlie Brown |          3 |        2 | completed
+      104 | David White   |          1 |        1 | pending
+      105 | Eva Davis     |          4 |        4 | shipped
 ```
 
-The output below shows that the update was successful.
+3\) Let's say we want to delete orders with a quantity less than or equal to 2.
 
 ```pgsql
-UPDATE
+DELETE FROM orders
+WHERE quantity <= 2;
 ```
 
-2\) Check the updated table by running the `SELECT` query below:
+4\) The output shows that the order with `order_id`: `102`, `103`, and `104` are deleted because they have a quantity <= 2.
 
 ```pgsql
-SELECT * FROM tasks;
+SELECT * FROM orders;
 ```
-
-3\) The `UPDATE` mutation updates the status to “completed” for the task with ID 1001.
 
 ```pgsql
- task_id | task_name |   status    
----------+-----------+-------------
-    1001 | Task A    | completed
-    1002 | Task B    | in-progress
-    1003 | Task C    | pending
+ order_id | customer_name | product_id | quantity | order_status 
+----------+---------------+------------+----------+--------------
+      101 | Alice Johnson |          1 |        3 | shipped
+      105 | Eva Davis     |          4 |        4 | shipped
 ```
-
-### Case #2: Update Multiple Columns
-
-1\) Let’s assume we want to update the `task_name` and `status` columns for the record where `task_id` is 1002.
-
-```pgsql
-UPDATE tasks
-SET task_name = 'Updated Task B',
-    status = 'completed'
-WHERE task_id = 1002;
-```
-
-The output below shows that the update was successful.
-
-```pgsql
-UPDATE
-```
-
-2\) Check the updated table by running the `SELECT` query below:
-
-```pgsql
-SELECT * FROM tasks;
-```
-
-3\) Here, the task name and status columns are updated for the task with ID 1002.
-
-```pgsql
- task_id |   task_name    |  status   
----------+----------------+-----------
-    1001 | Task A         | completed
-    1002 | Updated Task B | completed
-    1003 | Task C         | pending
-```
-
