@@ -10,64 +10,53 @@ updatedAt: 2024-03-07T09:18:18.997Z
 
 A mathematical function operates on input values provided as arguments and returns a numeric value as the operation's output.
 
-| **Mathematical** | **Description**                                                                                          | **Example**           | **Available in Oxla** |
-| ---------------- | -------------------------------------------------------------------------------------------------------- | --------------------- | --------------------- |
-| ABS              | Returns the absolute value of a number.                                                                  | > SELECT  ABS(-11);   | Available             |
-| CEIL             | Returns the value after rounding up any positive or negative value to the nearest largest integer.&#x20; | > SELECT CEIL(53.7);  | Available             |
-| FLOOR            | Returns the value after rounding up any positive or negative decimal value as smaller than the argument. | > SELECT FLOOR(53.6); | Available             |
-| LN               | Returns the natural logarithm of a given number.                                                         | > SELECT LN(3);       | Available             |
-| RANDOM           | Returns the random value between 0 and 1.                                                                | > SELECT RANDOM();    | Available             |
-| SQRT             | Returns the square root of a given positive number.                                                      | > SELECT SQRT(225);   | Available             |
+| **Mathematical** | **Description**                                                                                          | **Example**                   | **Available in Oxla** |
+| ---------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------- |
+| ABS              | Returns the absolute value of a number.                                                                  | ```SELECT  ABS(-11);```       | Available             |
+| CEIL             | Returns the value after rounding up any positive or negative value to the nearest largest integer.&#x20; | ```SELECT CEIL(53.7);```      | Available             |
+| FLOOR            | Returns the value after rounding up any positive or negative decimal value as smaller than the argument. | ```SELECT FLOOR(53.6);```     | Available             |
+| LN               | Returns the natural logarithm of a given number.                                                         | ```SELECT LN(3);```           | Available             |
+| RANDOM           | Returns the random value between 0 and 1.                                                                | ```SELECT RANDOM();```        | Available             |
+| SQRT             | Returns the square root of a given positive number.                                                      | ```SELECT SQRT(225);```       | Available             |
+
 
 ### b) Trigonometric
 
 | **Trigonometric** | **Description**                           | **Example**        | **Available in Oxla** |
 | ----------------- | ----------------------------------------- | ------------------ | --------------------- |
-| SIN               | Returns the sine of the specified radian. | > SELECT sin(0.2); | Available             |
+| SIN               | Returns the sine of the specified radian. | ```SELECT sin(0.2);``` | Available             |
 
 ## **2. Operators**
 
 Below is a list of math operators available in PostgreSQL:
 
-| **Operators** | **Description** | **Example**                                                                        | **Result**               | **Available in Oxla** | **Note**                                |
-| ------------- | --------------- | ---------------------------------------------------------------------------------- | ------------------------ | --------------------- | --------------------------------------- |
-| `+`           | Addition        | *   `SELECT 5+8;`
+| **Operators** | **Description** | **Example**               | **Result** | **Available in Oxla** | **Note**                                |
+| ------------- | --------------- | ------------------------- | ---------- | --------------------- | --------------------------------------- |
+| `+`           | Addition        | `SELECT 5+8;`             | 13         | Available             |                                         |
+|               |                 | `SELECT 5 + 8;`           |            |                       |                                         |
+|               |                 | `SELECT 5+ 8;`            |            |                       |                                         |
+|               |                 | `SELECT 5 +8;`            |            |                       |                                         |
+| `-`           | Subtraction     | `SELECT 2 - 3;`           | \-1        | Available             |                                         |
+|               |                 | `SELECT 2+-3;`            |            |                       |                                         |
+| `-`           | Negation        | `SELECT -4;`              | \-4        | Available             |                                         |
+|               |                 | `SELECT -(-4);`           | 4          |                       |                                         |
+|               |                 | `SELECT 5+(-2);`          | 3          |                       |                                         |
+|               |                 | `SELECT 5-(-2);`          | 7          |                       |                                         |
+| `*`           | Multiplication  | `SELECT 3*3;`             | 9          | Available             |                                         |
+|               |                 | `SELECT 3 + 3;`           |            |                       |                                         |
+|               |                 | `SELECT 3+ 3;`            |            |                       |                                         |
+|               |                 | `SELECT 3 +3;`            |            |                       |                                         |
+| `/`           | Division        | `SELECT 10/2;`            | 5          | Available             |                                         |
+|               |                 | `SELECT 10 / 2;`          |            |                       |                                         |
+|               |                 | `SELECT 10/ 2;`           |            |                       |                                         |
+|               |                 | `SELECT 10 /2;`           |            |                       |                                         |
+| `%`           | Modulo          | `SELECT 20%3;`            | 2          | Available             |                                         |
+|               |                 | `SELECT 20 % 3;`          |            |                       |                                         |
+|               |                 | `SELECT 20% 3;`           |            |                       |                                         |
+|               |                 | `SELECT 20 %3;`           |            |                       |                                         |
+| `&`           | Bitwise AND     | `SELECT 91 & 15;`         | 91         | Available             | the result is different from PostgreSQL |
+| `#`           | Bitwise XOR     | `SELECT 17 # 5;`          | 17         | Available             | the result is different from PostgreSQL |
 
-*   `SELECT 5 + 8;`
-
-*   `SELECT 5+ 8;`
-
-*   `SELECT 5 +8;`     | >  f  &#xA;----&#xA; 13  | Available             |                                         |
-| `-`           | Subtraction     | *   `SELECT 2 - 3;`
-
-*   `SELECT 2+-3;`                                            | >  f  &#xA;----&#xA; \-1 | Available             |                                         |
-| `-`           | Negation        | `SELECT -4;`                                                                       | >  f  &#xA;----&#xA; \-4 | Available             |                                         |
-|               |                 | `SELECT -(-4);`                                                                    | >  f  &#xA;----&#xA; 4   | Available             |                                         |
-|               |                 | `SELECT 5+(-2);`                                                                   | >  f  &#xA;----&#xA; 3   | Available             |                                         |
-|               |                 | `SELECT 5-(-2);`                                                                   | >  f &#xA;----&#xA; 7    | Available             |                                         |
-| `*`           | Multiplication  | *   `SELECT 3*3;`
-
-*   `SELECT 3 + 3;`
-
-*   `SELECT 3+ 3;`
-
-*   `SELECT 3 +3;`     | >  f  &#xA;----&#xA; 9   | Available             |                                         |
-| `/`           | Division&#x20;  | *   `SELECT 10/2;`
-
-*   `SELECT 10 / 2;`
-
-*   `SELECT 10/ 2;`
-
-*   `SELECT 10 /2;` | >  f  &#xA;----&#xA; 5   | Available             |                                         |
-| `%`           | Modulo          | *   `SELECT 20%3;`
-
-*   `SELECT 20 % 3;`
-
-*   `SELECT 20% 3;`
-
-*   `SELECT 20 %3;` | >  f  &#xA;----&#xA; 2   | Available             |                                         |
-| `&`           | Bitwise AND     | `91 & 15`                                                                          | >  f  &#xA;----&#xA; 91  | Available             | the result is different from PostgreSQL |
-| `#`           | Bitwise XOR     | `17 # 5`                                                                           | >  f  &#xA;----&#xA; 17  | Available             | the result is different from PostgreSQL |
 
 ## **3. Behaviors Difference**
 
@@ -75,11 +64,11 @@ Below is a list of math operators available in PostgreSQL:
 
 Missing function name in output header, PostgreSQL shows the function name, like in this example:
 
-```pgsql
+```sql
 SELECT COS(0),LN(1);
 ```
 
-```pgsql
+```sql
 cos  | ln 
 -----+-----
  1   | 0
@@ -87,11 +76,11 @@ cos  | ln
 
 Oxla does not show the function name, like in this example:
 
-```pgsql
+```sql
 SELECT COS(0),LN(1);
 ```
 
-```pgsql
+```sql
  f | f_1 
 ---+-----
  1 | 0
@@ -101,11 +90,11 @@ SELECT COS(0),LN(1);
 
 Differences are also found in the ABS function, where there are differences in decimal results.&#x20;
 
-***For example: ***
+***For example:***
 
 The example below will return the absolute value of -1.0
 
-```pgsql
+```sql
 SELECT ABS(-1.0);
 ```
 
