@@ -1,5 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+  "metadata": {
+    "og:image": "/assets/oxla-logo.png"
+  },
   "name": "Oxla Developer Hub",
   "logo": {
     "dark": "/logo/light.png",
@@ -14,9 +17,6 @@
       "from": "#3139DB",
       "to": "#7d83fa"
     }
-  },
-  "metadata": {
-    "og:image": "assets/oxla-logo.png"
   },
   "topbarLinks": [
     {
