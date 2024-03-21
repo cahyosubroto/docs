@@ -8,9 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 `Describe` statement show columns within a table and tables within a database.&#x20;
 
-:::hint{type="success"}
-The `Describe` statement is recommended to use before creating a new table to avoid duplicate tables.
-:::
+<Check>The `Describe` statement is recommended to use before creating a new table to avoid duplicate tables.</Check>
 
 ## **Syntax**
 
@@ -38,13 +36,13 @@ To get a better understanding of a `DESCRIBE` statement, take a look at some exa
 
 ### Case #1: Describe Table
 
-1\) In this example, we will figure out the columns of a **part **table. Run the query below:
+1. In this example, we will figure out the columns of a **part** table. Run the query below:
 
 ```pgsql
 DESCRIBE TABLE part;
 ```
 
-2\) As a result, you will get a list of column names, column types, and nullable options from the **part **table.
+2. As a result, you will get a list of column names, column types, and nullable options from the **part **table.
 
 ```pgsql
 +----------------+------------+-------------+-------+----------+ 
@@ -63,19 +61,17 @@ DESCRIBE TABLE part;
 
 ```
 
-:::hint{type="success"}
-The example above shows that the tables reside in the `public` schema, the default schema in Oxla. You can also have a table from other schemas - click [here](https://docs.oxla.com/schema) for more info.
-:::
+<Check>The example above shows that the tables reside in the `public` schema, the default schema in Oxla. You can also have a table from other schemas - click [here](https://oxla.mintlify.app/3-sql-reference/schema) for more info.</Check>
 
 ### Case #2: Describe Database
 
-1\) Execute the following query to describe the database:
+1. Execute the following query to describe the database:
 
 ```pgsql
 DESCRIBE DATABASE;
 ```
 
-2\) You will retrieve a list of the existing tables in the database as shown below:
+2. You will retrieve a list of the existing tables in the database as shown below:
 
 ```pgsql
 +-----------------------------+

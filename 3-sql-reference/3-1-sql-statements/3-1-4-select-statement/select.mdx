@@ -35,7 +35,7 @@ We will define each syntax as follows.
 
 *   `SELECT` determines the data we need from the database or a table.
 
-*   `* `referred to as ***select star*** or ***asterisk*** or represents ***all***. It defines that the query should return all columns of the queried tables.
+*   `*` referred to as ***select star*** or ***asterisk*** or represents ***all***. It defines that the query should return all columns of the queried tables.
 
 *   `FROM` clause indicates the table(s) to retrieve data from.
 
@@ -43,13 +43,11 @@ We will define each syntax as follows.
 
 *   `column1, column2, ...` these are used to specify the columns from where we want to retrieve the data.
 
-:::hint{type="info"}
-ℹ️ The `SELECT` statement is case insensitive, which means `select`** or **`SELECT` has the same result.
-:::
+<Info>The `SELECT` statement is case insensitive, which means `select` **or** `SELECT` has the same result.</Info>
 
 ## Examples
 
-We have a table named **student\_data **that stores the id, name, and where the student lives.
+We have a table named **student\_data** that stores the id, name, and where the student lives.
 
 ```pgsql
 CREATE TABLE student_data (
@@ -65,25 +63,23 @@ VALUES
     (119293,'Will','Sydney');
 ```
 
-:::hint{type="success"}
-All the examples below are executed in the `public` schema. You can also display table from another specific schema. Click [here](https://docs.oxla.com/schema) for more info.
-:::
+<Check>All the examples below are executed in the `public` schema. You can also display table from another specific schema. Click [here](https://oxla.mintlify.app/3-sql-reference/schema) for more info.</Check>
 
 ### #Case 1: Query data from all columns
 
-1\) In the first case, we want to display all the data from the **student\_data** table. Please refer to the syntax below:
+1. In the first case, we want to display all the data from the **student\_data** table. Please refer to the syntax below:
 
 ```pgsql
 SELECT * FROM table_name;
 ```
 
-2\) Use the `SELECT` statement within the table name to get all the data:
+2. Use the `SELECT` statement within the table name to get all the data:
 
 ```pgsql
 SELECT * FROM student_data;
 ```
 
-3\) If you have successfully run the query, you will get all the data from the **student\_data **table.
+3. If you have successfully run the query, you will get all the data from the **student\_data** table.
 
 ```pgsql
 +--------+----------+----------------+
@@ -97,19 +93,19 @@ SELECT * FROM student_data;
 
 ### #Case 2: Query data from specific columns
 
-1\) We want to get the list of students' names with their IDs. Please refer to the syntax below:
+1. We want to get the list of students' names with their IDs. Please refer to the syntax below:
 
 ```pgsql
 SELECT column_1, column_2 FROM table_name;
 ```
 
-2\) Run the following query:
+2. Run the following query:
 
 ```pgsql
 SELECT id, name FROM student_data;
 ```
 
-3\) If you have successfully run the query, you will get a list of students' IDs & names from the **student\_data **table.
+3. If you have successfully run the query, you will get a list of students' IDs & names from the **student\_data** table.
 
 ```pgsql
 +--------+----------+
@@ -123,19 +119,19 @@ SELECT id, name FROM student_data;
 
 ### #Case 3: Query data from a specific column with the condition
 
-1\) If we have a large number of data, skimming for the desired data will require a long time. We can apply some conditions to the `SELECT` statement. Please refer to the syntax below:
+1. If we have a large number of data, skimming for the desired data will require a long time. We can apply some conditions to the `SELECT` statement. Please refer to the syntax below:
 
 ```pgsql
 SELECT column_1 FROM table_name WHERE condition;
 ```
 
-2\) Let's say we want to know the student's name who lives in Sydney, have a look and run the query below:
+2. Let's say we want to know the student's name who lives in Sydney, have a look and run the query below:
 
 ```pgsql
 SELECT name FROM student_data WHERE domicile='Sydney';
 ```
 
-&#x20;3\) If you have successfully run the query, we now know that Will lives in Sydney! 🇦🇺
+3. If you have successfully run the query, we now know that Will lives in Sydney.
 
 ```pgsql
 +----------+ 

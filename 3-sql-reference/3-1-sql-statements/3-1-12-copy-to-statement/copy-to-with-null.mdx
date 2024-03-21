@@ -27,7 +27,7 @@ Parameters in the syntax include:
 
 ## **Example**
 
-1\) Create a table with a `NULL` value.
+1. Create a table with a `NULL` value.
 
 ```pgsql
 CREATE TABLE example_table (
@@ -43,13 +43,13 @@ INSERT INTO example_table (name, age, city) VALUES
   ('Bob', 30, NULL);
 ```
 
-2\) Now, let's use `COPY TO` with an empty string:
+2. Now, let's use `COPY TO` with an empty string:
 
 ```pgsql
 COPY example_table TO '/path/to/exampleexport.csv' (NULL '');
 ```
 
-3\) The `NULL` values in the table are replaced with the empty string in the CSV file.
+3. The `NULL` values in the table are replaced with the empty string in the CSV file.
 
 ```none
 1,John,25,"New York"
@@ -57,9 +57,6 @@ COPY example_table TO '/path/to/exampleexport.csv' (NULL '');
 3,Bob,30,""
 ```
 
-:::hint{type="info"}
-You can specify another string to replace the null value, such as blank, empty, invalid, etc.
-:::
-
+<Tip>You can specify another string to replace the null value, such as blank, empty, invalid, etc.</Tip>
 
 

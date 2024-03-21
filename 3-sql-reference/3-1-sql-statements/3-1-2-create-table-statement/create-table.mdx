@@ -8,9 +8,7 @@ updatedAt: 2024-01-10T17:37:41.396Z
 
 The `CREATE TABLE` statement is used to create a new table. Each table contains one or more columns, and each has a data type that defines the data that can be stored, e.g., numbers, strings, or date data.&#x20;
 
-:::hint{type="warning"}
-🚧 The table stores the data in a **database**, so ensure that you already have one.
-:::
+<Warning>The table stores the data in a **database**, so ensure that you already have one.</Warning>
 
 ## Syntax
 
@@ -29,7 +27,7 @@ column3 datatype,
 
 From the syntax above, we learned that to create a new table, we should:
 
-1.  Specify the name of the new table** (table\_name)**.
+1.  Specify the name of the new table **(table\_name)**.
 
 2.  Specify the column's name **(column1, column2, etc..)**.
 
@@ -37,15 +35,13 @@ From the syntax above, we learned that to create a new table, we should:
 
 The table name of the column name can't be a keyword unless it is quoted. The unquoted name is case insensitive.
 
-:::hint{type="info"}
-Click [here](https://docs.oxla.com/keywords) to see the list of keywords.
-:::
+<Info>Click [here](https://oxla.mintlify.app/3-sql-reference/3-1-sql-statements/3-1-2-create-table-statement/keywords) to see the list of keywords.</Info>
 
 ## Constraints
 
 When creating a table, we can add the following column constraints:
 
-**NOT NULL **– ensures that values in a column cannot be NULL and will always contain a value. In other words, if you don't define NOT NULL, the column can be empty/have no value/NULL.
+**NOT NULL** – ensures that values in a column cannot be NULL and will always contain a value. In other words, if you don't define NOT NULL, the column can be empty/have no value/NULL.
 
 ```pgsql
 CREATE TABLE table_name(
@@ -58,15 +54,13 @@ column3 datatype NOT NULL,
 
 ## Table index
 
-The freshly created table can contain an index. More detail [here](https://docs.oxla.com/create-index-statement).
+The freshly created table can contain an index. More detail [here](https://oxla.mintlify.app/3-sql-reference/3-1-sql-statements/3-1-3-create-index-statement/create-index).
 
-:::hint{type="info"}
-By default, the table will be created in the `public` schema. Furthermore, you can also create and specify tables to other specific schemas. Click [here](https://docs.oxla.com/schema) for more info
-:::
+<Note>By default, the table will be created in the `public` schema. Furthermore, you can also create and specify tables to other specific schemas. Click [here](https://oxla.mintlify.app/3-sql-reference/schema) for more info.</Note>
 
 ## Examples
 
-### #Case 1: Creating a new table
+### Case #1: Creating a new table
 
 Let us take an example where we create an “**employees”** table with an employee id, name, and address of the employee:
 
@@ -99,13 +93,11 @@ The table will be created with each defined column as shown below:
 | **employeeid** | **lastname** | **firstname** | **address** |
 | -------------- | ------------ | ------------- | ----------- |
 
-:::hint{type="danger"}
-❌ The table is only created with its headers. It doesn't have any value.
-:::
+<Warning>The table is only created with its headers. It doesn't have any value.</Warning>
 
-### #Case 2: Creating a new table with values
+### Case #2: Creating a new table with values
 
-Below is an example of creating a **client **table with values:
+Below is an example of creating a **client** table with values:
 
 ```pgsql
 CREATE TABLE client (
@@ -139,7 +131,7 @@ As a result, we have a table as seen below:
 +------------+--------------+------------------+
 ```
 
-### #Case 3: Quoted names
+### Case #3: Quoted names
 
 Let's try creating a table with the column named "language":
 

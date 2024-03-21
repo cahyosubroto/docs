@@ -8,13 +8,11 @@ updatedAt: 2024-01-30T15:17:21.395Z
 
 **COPY FROM** is used to import data from a file into a table by reading from the file directly. When using the COPY FROM, each field in the file is inserted sequentially into the specified column.
 
-:::hint{type="info"}
-The file must be accessible and able to be read and written to.
-:::
+<Info>The file must be accessible and able to be read and written to.</Info>
 
 ## **Syntax**
 
-The syntax for** COPY FROM** is as follows:&#x20;
+The syntax for **COPY FROM** is as follows:&#x20;
 
 ```pgsql
 COPY table_name FROM 'file_path';
@@ -30,7 +28,7 @@ Two parameters need to be specified in the syntax:
 
 ### Step #1: Create a CSV File
 
-First, you should create a CSV file and store it on your local computer. Here, we make a file called **“feature2.csv” **that stores features with its version.
+First, you should create a CSV file and store it on your local computer. Here, we make a file called **“feature2.csv”** that stores features with its version.
 
 > create a table, 1.0
 > modify a table, 1.2
@@ -98,9 +96,7 @@ In return, you will retrieve a list of existing tables in the Oxla.&#x20;
 +----------------------------+
 ```
 
-:::hint{type="warning"}
-Ensure you are not creating duplicate tables.
-:::
+<Warning>Ensure you are not creating duplicate tables.</Warning>
 
 We need to create a table to retrieve the data from the CSV file. Here we will create a “**featurelisttable**” table. Using the same data type as described in the file is recommended.
 

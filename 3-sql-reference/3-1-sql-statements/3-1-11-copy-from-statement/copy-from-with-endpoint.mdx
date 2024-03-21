@@ -7,7 +7,7 @@ updatedAt: 2024-02-29T14:06:06.281Z
 
 ## **Overview**
 
-We've improved the functionality for [COPY FROM](https://docs.oxla.com/copy-from-statement) queries. Now, you have the option to include the **endpoint URL**. This enhancement is useful for scenarios where you need to provide credentials and specify specific endpoints.
+We've improved the functionality for [COPY FROM](https://oxla.mintlify.app/3-sql-reference/3-1-sql-statements/3-1-11-copy-from-statement/copy-from) queries. Now, you have the option to include the **endpoint URL**. This enhancement is useful for scenarios where you need to provide credentials and specify specific endpoints.
 
 ## **Syntax**
 
@@ -56,11 +56,9 @@ COPY project FROM 'project_file' (AWS_CRED(AWS_REGION 'region1', AWS_KEY_ID "
       "'key_id', AWS_PRIVATE_KEY 'access_key', ENDPOINT 'https://storage.googleapis.com'));
 ```
 
-**Expected Output: **Data from `project_file` is copied into the `project` table.
+**Expected Output:** Data from `project_file` is copied into the `project` table.
 
-:::hint{type="info"}
-For Google Cloud Storage, it's recommended to use HMAC keys for authentication. You can find more details on the [HMAC keys - Cloud Storage](https://cloud.google.com/storage/docs/authentication/hmackeys) page.
-:::
+<Tip>For Google Cloud Storage, it's recommended to use HMAC keys for authentication. You can find more details on the [HMAC keys - Cloud Storage](https://cloud.google.com/storage/docs/authentication/hmackeys) page.</Tip>
 
 
 

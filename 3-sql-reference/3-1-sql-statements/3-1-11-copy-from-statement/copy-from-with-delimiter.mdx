@@ -20,11 +20,11 @@ A delimiter is a character that separates text strings. Common delimiters are:
 
 *   Slashes ( / \ ).
 
-**By default, the COPY FROM function accepts commas (,).** **By default, the COPY FROM function accepts commas **
+**By default, the COPY FROM function accepts commas (,).**
 
 ## **Syntax**
 
-The syntax for** COPY FROM** is as follows:
+The syntax for **COPY FROM** is as follows:
 
 ```pgsql
 COPY table_name FROM 'file_path' (DELIMITER 'delimiter');
@@ -111,10 +111,7 @@ In return, you will retrieve a list of existing tables in Oxla.
 | featurestable10            |
 +----------------------------+
 ```
-
-:::hint{type="warning"}
-Ensure you are not creating duplicate tables.
-:::
+<Warning>Ensure you are not creating duplicate tables.</Warning>
 
 Create a “**featurelisttable**” table using the command below:
 
