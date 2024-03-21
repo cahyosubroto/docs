@@ -10,15 +10,13 @@ A table can hold empty (null) and filled (non-null) values. Yet, often, we prefe
 
 `COALESCE()` function helps us when we want to ignore null values while processing data. It returns the first argument that is not null, while the remaining arguments from the first non-null argument are not evaluated.
 
-:::hint{type="info"}
-If all arguments are null, the COALESCE function will return null.
-:::
+<Info>If all arguments are null, the COALESCE function will return null.</Info>
 
 ## **Syntax**
 
 The syntax for the `COALESCE()` function is as follows:
 
-```pgsql
+```sql
 COALESCE (argument_1, argument_2, …);
 ```
 
@@ -38,13 +36,13 @@ Here are some examples to illustrate the application of `COALESCE()`:
 
 In this example, we have a set of values. By using the `COALESCE()` function, we're going to get the first non-null value from this set.
 
-```pgsql
+```sql
 SELECT COALESCE(9, 3, 8, 7, 1);
 ```
 
 The result will be `9`, the first value without null among the provided options.
 
-```pgsql
+```sql
  coalesce 
 ----------
         9
@@ -52,15 +50,15 @@ The result will be `9`, the first value without null among the provided options.
 
 ### Case #2: **Handling NULL Value as the Last Argument**
 
-Let’s include NULL as the final argument and check the query output.
+Let's include NULL as the final argument and check the query output.
 
-```pgsql
+```sql
 Select COALESCE(3,4,5,9,10,NULL);
 ```
 
 &#x20;The function output is `3` because it returns the first non-null value.
 
-```pgsql
+```sql
  coalesce 
 ----------
         3
@@ -70,13 +68,13 @@ Select COALESCE(3,4,5,9,10,NULL);
 
 Consider NULL as the first argument in the following example.
 
-```pgsql
+```sql
 Select COALESCE(NULL,1,5,7,9,2);
 ```
 
 The output is `1`, as it is the first non-null value of the argument.
 
-```pgsql
+```sql
  coalesce 
 ----------
         1
@@ -86,13 +84,13 @@ The output is `1`, as it is the first non-null value of the argument.
 
 In the following query, NULL appears in the first, second, fourth, and last positions.
 
-```pgsql
+```sql
 Select COALESCE(NULL, NULL ,3, NULL, 7,9,4,5, NULL);
 ```
 
 The `COALESCE()` function ignores the first two NULLs and returns the first non-null value, `3`. It does not process the subsequent NULL values.
 
-```pgsql
+```sql
  coalesce 
 ----------
         3
@@ -102,13 +100,13 @@ The `COALESCE()` function ignores the first two NULLs and returns the first non-
 
 Assume that the given values are entirely composed of nulls.
 
-```pgsql
+```sql
 Select COALESCE(NULL, NULL ,NULL, NULL);
 ```
 
 In this case, the `COALESCE()` function returns an empty value (null).
 
-```pgsql
+```sql
  coalesce 
 ----------
  
@@ -118,7 +116,7 @@ In this case, the `COALESCE()` function returns an empty value (null).
 
 Imagine we have the `employee_absent` table, which comprises a mix of NULL and non-null values:
 
-```pgsql
+```sql
 CREATE TABLE employee_absent (
     emp_name TEXT,
     emp_dept TEXT,
@@ -136,11 +134,11 @@ VALUES
 
 Use the `SELECT` statement to display all the records:
 
-```pgsql
+```sql
 SELECT * FROM employee_absent;
 ```
 
-```pgsql
+```sql
  emp_name |  emp_dept  | absent 
 ----------+------------+--------
  Alice    | Finance    | absent
@@ -152,11 +150,11 @@ SELECT * FROM employee_absent;
 
 The query below uses the `COALESCE()` function on the `absent` column. It retrieves names and absences (with `out of office` for NULL values) for each employee.
 
-```pgsql
+```sql
 SELECT emp_name, COALESCE(absent, 'out of office') AS DisplayAbsent FROM employee_absent;
 ```
 
-```pgsql
+```sql
  emp_name | displayabsent 
 ----------+---------------
  Alice    | absent
@@ -170,13 +168,13 @@ SELECT emp_name, COALESCE(absent, 'out of office') AS DisplayAbsent FROM employe
 
 When specifying arguments with different datatypes, they should be convertible.&#x20;
 
-```pgsql
+```sql
 Select Coalesce ('x',NULL,1);
 ```
 
 If the datatypes cannot be converted, the `COALESCE()` function will generate an error, as shown below.
 
-```pgsql
+```sql
 ERROR:  invalid input syntax for type integer: "x"
 ```
 
