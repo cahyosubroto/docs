@@ -292,8 +292,7 @@
       "group": "SQL Mutations",
       "pages": [
         "4-sql-mutations/sql-mutations",
-        "4-sql-mutations/delete-mutations",
-        "4-sql-mutations/update-mutations"
+        "4-sql-mutations/delete-mutations"
       ]
     },
     {
@@ -304,7 +303,7 @@
         "7-transactions/understanding-transactions",
         "8-public-metrics/public-metrics",
         "9-oxla-config-file/oxla-configuration-file",
-        "10-changelog/oxla-changelo"
+        "10-changelog/oxla-changelog"
       ]
     }
   ],
