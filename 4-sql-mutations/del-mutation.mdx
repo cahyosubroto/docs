@@ -23,8 +23,33 @@ In this syntax:
 - `table`: The table name from which you want to delete records.
 - `WHERE` conditions (**Optional**): The conditions must be met for the deletion to execute. If no conditions are provided, all records from the table will be deleted.
 
+## **Example**
+1. Let's create a sample table named `orders` that track customer orders.
 
+```sql
+CREATE TABLE orders (
+    order_id INT,
+    customer_name TEXT,
+    product_id INT,
+    quantity INT,
+    order_status TEXT
+);
 
+INSERT INTO orders (order_id, customer_name, product_id, quantity, order_status)
+VALUES
+    (101, 'Alice Johnson', 1, 3, 'shipped'),
+    (102, 'Bob Smith', 2, 1, 'pending'),
+    (103, 'Charlie Brown', 3, 2, 'completed'),
+    (104, 'David White', 1, 1, 'pending'),
+    (105, 'Eva Davis', 4, 4, 'shipped');
+```
+
+2. This creates a table named orders and inserts some sample data.
+
+```sql
+SELECT * FROM orders;
+```
+3. 
 
 
 
