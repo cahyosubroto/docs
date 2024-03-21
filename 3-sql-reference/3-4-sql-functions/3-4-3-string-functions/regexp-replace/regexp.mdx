@@ -24,7 +24,6 @@ The function takes six parameters:
 
 *   `replacement`: The replacement string.
 
-:::hint{type="info"}
 **Special Cases:**
 
 *   The function returns `NULL` if there are no input rows or `NULL` values.
@@ -78,7 +77,7 @@ The result will be:
 
 The following example demonstrates how the REGEXP\_REPLACE() function can replace certain substrings with a table.
 
-**1)** First, create a table called “with a single column 'words' of data type string and then insert five rows of data into the table, as shown below:
+1. First, create a table called “with a single column 'words' of data type string and then insert five rows of data into the table, as shown below:
 
 ```pgsql
 CREATE TABLE words (words string);
@@ -102,7 +101,7 @@ The result will be as follows:
 +--------+
 ```
 
-**2)** Use the following query to replace all occurrences of the substring **‘at’** with **‘ot’.**
+2. Use the following query to replace all occurrences of the substring **‘at’** with **‘ot’.**
 
 ```pgsql
 SELECT words, REGEXP_REPLACE(words, 'at', 'ot') AS "New words" FROM words;
@@ -122,6 +121,4 @@ The above query will generate the following result:
 +--------+-----------+
 ```
 
-When the query is executed, the function looks for all occurrences of the substring “a”' in the 'words' column that contain "at" and replaces them with the substring "ot”.&#x20;
-
-The result is a new column, **"New words"**, that displays the new words with the replacement.
+3. When the query is executed, the function looks for all occurrences of the substring “a”' in the 'words' column that contain "at" and replaces them with the substring "ot”.&#x20;The result is a new column, **"New words"**, that displays the new words with the replacement.
