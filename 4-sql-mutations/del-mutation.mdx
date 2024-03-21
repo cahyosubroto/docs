@@ -7,27 +7,25 @@ updatedAt: 2023-12-01T01:49:31.081Z
 
 ## **Overview**
 
-The `UPDATE` mutation is used to modify the existing records in a table. This support has limitations:
+The `DELETE` mutation is used to modify the existing records in a table. This support has limitations:
 
 1.  Only **one data mutation (DELETE or UPDATE) **at given moment is possible, trying to run another one will result in failure.
 
 2.  Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Please note that running `DELETE from table` without any condition is possible, but it will be much slower than just `DROP TABLE table`.
 
 3.  The syntax is simplified in comparison to Postgres. For example, the `SET column=<value>` operation doesn’t support sub-SELECT as the value, also the WHERE clause cannot contain sub-SELECT.
-
-:::hint{type="success"}
-**Feature Update: Initial Release**
+<Check>**Feature Update: Initial Release**
 
 This marks the initial release of our new Mutation feature, providing you with the ability to update data. The Mutations involve rewriting entire files which take several minutes and could generate infrastructure costs.&#x20;
 
-We are aiming to enhance and optimize this feature in future updates!
-:::
+We are aiming to enhance and optimize this feature in future updates!</Check>
+
 
 ## **Syntax**
 
 The syntax for `UPDATE` mutation is as follows:
 
-```pgsql
+```sql
 UPDATE table
 SET column1 = expression1,
     column2 = expression2
