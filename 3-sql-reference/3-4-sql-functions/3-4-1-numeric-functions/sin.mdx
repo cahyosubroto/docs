@@ -98,7 +98,7 @@ You will get the following output:
 
 In the following example, we will combine `SIN()` function with `CREATE TABLE` statement to obtain the sine values of a specific column.
 
-**1)** Create a new table named **sineTable** containing the **initialValue** column. Input some values with the negative and positive angles into the column.
+1. Create a new table named **sineTable** containing the **initialValue** column. Input some values with the negative and positive angles into the column.
 
 ```pgsql
 CREATE TABLE sineTable(initialValue int);
@@ -106,13 +106,13 @@ INSERT INTO sineTable(initialValue)
 VALUES (-5),(18), (0),(-27);
 ```
 
-**2)** Run the query below to get the output of a sine value:
+2. Run the query below to get the output of a sine value:
 
 ```pgsql
 SELECT * ,SIN(initialValue) AS sinValue FROM sineTable;
 ```
 
-**3)** The final result will have the **initialValue** column with the source value and the **sinValue** column with their calculated sine values.  
+3. The final result will have the **initialValue** column with the source value and the **sinValue** column with their calculated sine values.  
 
 ```pgsql
 +---------------+-------------------------------+
