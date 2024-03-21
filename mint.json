@@ -15,6 +15,9 @@
       "to": "#7d83fa"
     }
   },
+  "metadata": {
+    "og:image": "/assets/oxla.png"
+},
   "topbarLinks": [
     {
       "name": "Support",
