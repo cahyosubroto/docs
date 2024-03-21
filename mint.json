@@ -293,7 +293,7 @@
       "pages": [
         "4-sql-mutations/sql-mutations",
         "4-sql-mutations/update-mutations",
-        "5-error-handling/delete-mutations"
+        "5-sql-mutations/delete-mutations"
       ]
     },
     {
@@ -303,7 +303,8 @@
         "6-oxla-vs-postgre/differences-between-oxla-vs-postgre",
         "7-transactions/understanding-transactions",
         "8-public-metrics/public-metrics",
-        "9-oxla-config-file/oxla-configuration-file"
+        "9-oxla-config-file/oxla-configuration-file",
+        "10-changelog/oxla-changelog"
       ]
     }
   ],
