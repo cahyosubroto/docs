@@ -12,7 +12,7 @@ The `pg_total_relation_size` function allows you to retrieve the size of a table
 
 The syntax for the `pg_total_relation_size` function is as follows:
 
-```pgsql
+```sql
 pg_total_relation_size('relation_name');
 ```
 
@@ -24,9 +24,9 @@ The `pg_total_relation_size` function returns the size of the specified table in
 
 ## **Example**
 
-1\) First, let’s assume we have a table named **users. **Use the below query to create the table.
+1. First, let’s assume we have a table named **users. **Use the below query to create the table.
 
-```pgsql
+```sql
 CREATE TABLE users (
     username TEXT,
     email TEXT
@@ -42,15 +42,15 @@ INSERT INTO users (username, email) VALUES
     ('david_smith', 'david.smith@example.com');
 ```
 
-2\) In this case, we will use the `pg_total_relation_size` function to determine the size of a **users** table.
+2. In this case, we will use the `pg_total_relation_size` function to determine the size of a **users** table.
 
-```pgsql
+```sql
 SELECT pg_total_relation_size('users');
 ```
 
-3\) This query will return the size of the **users** table in bytes.
+3. This query will return the size of the **users** table in bytes.
 
-```pgsql
+```sql
  pg_total_relation_size 
 ------------------------
                     556

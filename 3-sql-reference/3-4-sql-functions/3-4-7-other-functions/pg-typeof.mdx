@@ -31,7 +31,7 @@ SELECT pg_typeof(100) as "data type";
 
 It will return its data type, which is “integer”.
 
-```pgsql
+```sql
  data type 
 -----------
  integer
@@ -41,13 +41,13 @@ It will return its data type, which is “integer”.
 
 Here, we will use a string value as an input:
 
-```pgsql
+```sql
 SELECT pg_typeof('event'::TEXT) as "data type";
 ```
 
 It will return its data type, which is “text”.
 
-```pgsql
+```sql
  data type 
 -----------
  text
@@ -57,13 +57,13 @@ It will return its data type, which is “text”.
 
 Another example is using an interval input:
 
-```pgsql
+```sql
 SELECT pg_typeof(INTERVAL '1 day') as "data type";
 ```
 
 It will return its data type in string literal.
 
-```pgsql
+```sql
  data type 
 -----------
  interval
@@ -73,9 +73,9 @@ It will return its data type in string literal.
 
 Suppose you have a sample table and want to use `pg_typeof()` to retrieve their data types.
 
-1\) Create the table and insert some data into the table.
+1. Create the table and insert some data into the table.
 
-```pgsql
+```sql
 CREATE TABLE timestamp_example (
     id int,
     event_time timestamp,
@@ -88,18 +88,18 @@ VALUES
   (NULL, 'Event 2');
 ```
 
-2\) Now, use `pg_typeof()` to determine the data types of the event\_time and description columns for each row.
+2. Now, use `pg_typeof()` to determine the data types of the event\_time and description columns for each row.
 
-```pgsql
+```sql
 SELECT 
     pg_typeof(event_time) AS event_time_type,
     pg_typeof(description) AS description_type
 FROM timestamp_example;
 ```
 
-3\) The result will show that the data type of the event\_time column is a timestamp, and the data type of the description column is text:
+3. The result will show that the data type of the event\_time column is a timestamp, and the data type of the description column is text:
 
-```pgsql
+```sql
        event_time_type       | description_type 
 -----------------------------+------------------
  timestamp without time zone | text

@@ -11,22 +11,20 @@ The `pg_get_expr` function retrieves the internal form of an individual expressi
 ## **Syntax**
 
 There are two versions of the `pg_get_expr` function:
+<CodeGroup>
 
-**Version 1**
-
-```pgsql
+```sql Version 1
 SELECT pg_get_expr('expr_text', relation_oid);
 ```
 
-**Version 2**
-
-```pgsql
+```sql Version 2
 SELECT pg_get_expr('expr_text', relation_oid, pretty_bool);
 ```
+</CodeGroup>
 
 Please see the breakdown of both versions:
 
-*   `expr_text`**: **The expression for which you want to obtain the internal representation. It can be any string value.
+*   `expr_text`: The expression for which you want to obtain the internal representation. It can be any string value.
 
 *   `relation_oid`: The OID (Object Identifier) of the table the expression belongs to. It is in integer type.
 
@@ -38,9 +36,9 @@ Both versions of the `pg_get_expr` function return an empty string `""`.
 
 ## **Example**
 
-1\. First, create a sample table named **employees.**
+1. First, create a sample table named **employees.**
 
-```pgsql
+```sql
 CREATE TABLE employees (
     id INT,
     name TEXT,
@@ -48,23 +46,23 @@ CREATE TABLE employees (
 );
 ```
 
-2\. Get OID of the table.
+2. Get OID of the table.
 
-```pgsql
+```sql
 SELECT oid FROM pg_class WHERE relname = 'employees';
 ```
 
 You will get the OID of the table:
 
-```pgsql
+```sql
  oid  
 ------
  1018
 ```
 
-3\. Retrieve the internal form for the `salary` column using `pg_get_expr`.
+3. Retrieve the internal form for the `salary` column using `pg_get_expr`.
 
-```pgsql
+```sql
 -- Version 1
 SELECT pg_get_expr('salary', 1018);
 
@@ -74,7 +72,7 @@ SELECT pg_get_expr('salary', 1018, TRUE);
 
 Both return the same value, an empty string `""`.
 
-```pgsql
+```sql
  pg_get_expr 
 -------------
  

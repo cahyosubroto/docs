@@ -16,31 +16,29 @@ It will return NULL if none of the schemas from `search_path` exist.&#x20;
 
 `CURRENT_SCHEMA()` function has the following syntax:
 
-```pgsql
+```sql
 SELECT CURRENT_SCHEMA();
 ```
 
 Another method is to omit the parenthesis from the above syntax.
 
-```pgsql
+```sql
 SELECT CURRENT_SCHEMA;
 ```
 
-:::hint{type="info"}
-It does not require any argument to operate.
-:::
+<Info>It does not require any argument to operate.</Info>
 
 ## **Example**
 
 The following example shows how to get the current schema name using `CURRENT_SCHEMA()` function.
 
-```pgsql
+```sql
 SELECT CURRENT_SCHEMA();
 ```
 
 The final result will display the schema that you currently use:
 
-```pgsql
+```sql
 +------------+
 | f          |
 +------------+
