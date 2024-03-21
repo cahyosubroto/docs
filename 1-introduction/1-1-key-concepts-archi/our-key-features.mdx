@@ -33,7 +33,7 @@ This article lists our prominent features supported in the current release:
 | `SELECT`&#xA;&#xA;   | The `SELECT` statement is used to select data from a database. The data returned is stored in a result table called the result set. | The following query will select all the columns from the **Products** table:&#xA;`SELECT * FROM Products;`                                                                                |
 | `INSERT INTO`        | The `INSERT INTO` query adds new rows to an existing table using a `SELECT` statement or explicitly stating input values.           | > INSERT INTO distance\_table (distance, unit) VALUES&#xA;    (2000, 'kilometers'),&#xA;    (1000, 'meters'),&#xA;    (5, 'miles');                                                       |
 | `DROP`               | The` DROP` statement is used to delete objects like an existing database or table.&#xA;                                             | The following query will delete a table named **testTB**:`DROP TABLE testTB;`The following query will delete a database named **testTB**:`DROP DATABASE testDB;`                          |
-| `CREATE TABLE`       | The `CREATE TABLE `statement is used to create a table in a database with a defined column and each column's data type.             | > CREATE TABLE book ( &#xD;&#xA;  bookID int,    &#xD;&#xA;  bookTitle text,    &#xD;&#xA;  bookCategory text,    &#xD;&#xA;  bookPublisher text,   &#xD;&#xA;  bookPages int;&#xD;&#xA;) |
+| `CREATE TABLE`       | The `CREATE TABLE `statement is used to create a table in a database with a defined column and each column's data type.             | > CREATE TABLE book ( &#xD;&#xA;  bookID int,    &#xD;&#xA;  bookTitle text,    &#xD;&#xA;  bookCategory text,    &#xD;&#xA;  bookPublisher text,   &#xD;&#xA;  bookPages int;&#xD;&#xA;) |
 | `CREATE INDEX`       | The `CREATE INDEX`  is used to create a single index on an empty table.                                                             |                                                                                                                                                                                           |
 | `SHOW TABLES` &#x20; | The `Show` statements allow you to obtain information about existing tables.                                                        | > SHOW TABLES;                                                                                                                                                                            |
 | `DESCRIBE` &#x20;    | The `Describe` statement show columns within a table and tables within a database.&#x20;                                            | > DESCRIBE TABLE part;> DESCRIBE DATABASE;                                                                                                                                                |
@@ -69,6 +69,24 @@ LIMIT 4;`                                                                       
 ORDER BY func_name
 LIMIT 5 OFFSET 2;`                                                                                              |
 | Set Operations | Set operations are used for comparisons, combinations, and distinctions among sets.                                                                                                                                                                                      | It includes the following operations: `UNION`, `EXCEPT`, `INTERSECT`.                                                                                           |
+
+### Supported Datatypes
+
+| **Data Types**                | **Definition**                                             | **Format**                                     |
+| ----------------------------- | ---------------------------------------------------------- | ---------------------------------------------- |
+| `BOOL`                        | Boolean value.                                             | `True` or `False`.                             |
+| `TEXT`                        | UTF8 encoded string with Unicode support.                  | 'text'                                         |
+| `DATE`                        | Date value.                                                | `YYYY-MM-DD`                                   |
+| `TIMESTAMP WITHOUT TIME ZONE` | Time and date values without a time zone.                  | `YYYY-MM-DD [HH:MM:SS[.SSSSSS]]`               |
+| `TIMESTAMP WITH TIME ZONE`    | Date and time values, including the time zone information. | `YYYY-MM-DD HH:MM:SS.SSSSSS+TZ`                |
+| `TIME`                        | Time values without any date information.&#x20;            | `HH:MM:SS[.SSSSSS]`                            |
+| `JSON`                        | A value in JSON standard format.                           | `variable_name JSON`                           |
+| `INTERVAL`                    | Encodes a span of time                                     | `year-month (YYYY-MM); day-time (DD HH:MM:SS)` |
+| `INT`                         | 32-bit signed integer                                      | one or more digits "0" to "9"                  |
+| `BIGINT`                      | 64-bit signed integer                                      | large numeric/decimal value                    |
+| `REAL`                        | 32-bit floating point number                               | `float(n)`                                     |
+| `DOUBLE PRECISION`            | 64-bit floating point number                               | `decimal(p, s)`                                |
+
 
 ### Supported Datatypes
 
@@ -205,7 +223,6 @@ LIMIT 5 OFFSET 2;`                                                              
 | `tan`         | It calculates the tangent of a given argument, where the argument is in radians.                 |
 | `tand`        | It calculates the tangent of a given argument, where the argument is in degrees.                 |
 
-:::hint{type="info"}
-🚀We still have a long road to go. We will keep you posted with our soon-to-be-released features to boost your experience. Stay tuned!
-:::
+<Check>We still have a long road to go. We will keep you posted with our soon-to-be-released features to boost your experience. Stay tuned!</Check>
+
 
