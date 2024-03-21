@@ -12,7 +12,7 @@ The `JSON_ARRAY_EXTRACT()` function returns the JSON array as a set of JSON valu
 
 The `JSON_ARRAY_EXTRACT()` has the basic syntax as seen below.
 
-```pgsql
+```sql
 JSON_ARRAY_EXTRACT('json_array'::JSON,id);
 ```
 
@@ -28,7 +28,7 @@ JSON_ARRAY_EXTRACT('json_array'::JSON,id);
 
 `JSON_ARRAY_EXTRACT` can also be achieved with the `->` operator, as shown in the syntax below:
 
-```pgsql
+```sql
 SELECT 'from_json'::JSON -> path;
 ```
 
@@ -42,21 +42,21 @@ SELECT 'from_json'::JSON -> path;
 
 ### **Case #1: Basic JSON\_ARRAY\_EXTRACT() function**
 
-**1)** In the below example, we will extract a JSON array as a JSON set.
+1. In the below example, we will extract a JSON array as a JSON set.
 
-```pgsql
+```sql
 SELECT JSON_ARRAY_EXTRACT('["Bougenvile", 2, 12, "Lily"]'::JSON,3);
 ```
 
 **or**
 
-```pgsql
+```sql
 SELECT ('["Bougenvile", 2, 12, "Lily"]'::JSON -> 3);
 ```
 
-**2)** The extracted array will look like the following.
+2. The extracted array will look like the following.
 
-```pgsql
+```sql
 +------------+
 | f          |
 +------------+
@@ -66,15 +66,15 @@ SELECT ('["Bougenvile", 2, 12, "Lily"]'::JSON -> 3);
 
 ### Case #2: Extract element of JSON array as text
 
-**1)** In this case, we will extract the element of the JSON array as text with the `->>` operator.
+1. In this case, we will extract the element of the JSON array as text with the `->>` operator.
 
-```pgsql
+```sql
 SELECT ('["Bougenvile", 2, 12, "Lily"]'::JSON ->> 1);
 ```
 
-**2)** You will get the final output as follows:
+2. You will get the final output as follows:
 
-```pgsql
+```sql
 +------------+
 | f          |
 +------------+

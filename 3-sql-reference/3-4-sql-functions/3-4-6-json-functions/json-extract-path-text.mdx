@@ -8,15 +8,13 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `JSON_EXTRACT_PATH_TEXT()` function extracts JSON nested value from a specified JSON value according to the defined path.&#x20;
 
-:::hint{type="info"}
-This function may be similar to the `JSON_EXTRACT_PATH()`. This function returns a value of type string instead of type JSON.
-:::
+<Info>This function may be similar to the `JSON_EXTRACT_PATH()`. This function returns a value of type string instead of type JSON.</Info>
 
 ## **Syntax**
 
 The `JSON_EXTRACT_PATH_TEXT()` syntax is shown below:&#x20;
 
-```pgsql
+```sql
 JSON_EXTRACT_PATH_TEXT(from_json JSON, path TEXT[])
 ```
 
@@ -30,7 +28,7 @@ The required arguments are explained below.
 
 Besides the syntax above, Oxla provides and supports the use of operators in queries. See the syntax below:
 
-```pgsql
+```sql
 SELECT 'from_json'::JSON ->> 'path';
 ```
 
@@ -42,23 +40,23 @@ SELECT 'from_json'::JSON ->> 'path';
 
 ## **Example**
 
-**1)** This example shows how to use the `JSON_EXTRACT_PATH_TEXT()` function to extract values ​​from a JSON object at a specified index.&#x20;
+1. This example shows how to use the `JSON_EXTRACT_PATH_TEXT()` function to extract values ​​from a JSON object at a specified index.&#x20;
 
 Run the following query:
 
-```pgsql
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{"a": "Oxla", "b": {"x": 1.234, "y": 4.321}}', 'a') AS "result a";
 ```
 
 **or**
 
-```pgsql
+```sql
 SELECT '{"a": "Oxla", "b": {"x": 1.234, "y": 4.321}}'::JSON ->> 'a' AS "result a";
 ```
 
-**2)** The JSON\_EXTRACT\_PATH\_TEXT() function extracts the values and returns the output below:
+2. The `JSON\_EXTRACT\_PATH\_TEXT()` function extracts the values and returns the output below:
 
-```pgsql
+```sql
 +------------+
 | result a   |
 +------------+

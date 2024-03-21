@@ -8,21 +8,19 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 This function returns the specified value if the condition is `TRUE` and another value if the condition is `FALSE`.  The syntax of the `IF()`function is shown below:
 
-```pgsql
+```sql
 IF(expression, true_result, else_result)
 ```
 
-:::hint{type="warning"}
-⚠️ The `expression` must be a Boolean expression.
-:::
+<Warning>The `expression` must be a Boolean expression.</Warning>
 
 ### Examples
 
-### #Case 1: `IF()` with a table
+### Case #1: `IF()` with a table
 
 In this example, we have the **test\_result** table. We want to know which participants passed and which failed from the table below:
 
-```pgsql
+```sql
 CREATE TABLE test_result (
   applicant_id int,
   name text,
@@ -37,13 +35,13 @@ INSERT INTO test_result VALUES
 (79769,'Augustine Harkness',572);
 ```
 
-```pgsql
+```sql
 SELECT * FROM test_result;
 ```
 
 The above query will display the following table:
 
-```pgsql
+```sql
 +---------------+--------------------+--------+
 | applicant_id  | name               | score  |
 +---------------+--------------------+--------+
@@ -55,15 +53,15 @@ The above query will display the following table:
 +---------------+--------------------+--------+
 ```
 
-1\) IF function in the query below states that *IF the score is equal to or greater than 500, then return “PASSED“. Otherwise, if the score is smaller than 500, return “NOT PASSED”*.
+1. IF function in the query below states that *IF the score is equal to or greater than 500, then return “PASSED“. Otherwise, if the score is smaller than 500, return “NOT PASSED”*.
 
-```pgsql
+```sql
 SELECT name, IF(score>=500, 'PASSED', 'NOT PASSED') FROM test_result; 
 ```
 
-2\) It will return the following result:&#x20;
+2. It will return the following result:&#x20;
 
-```pgsql
+```sql
 +--------------------+-------------+
 | name	             | case        |
 +--------------------+-------------+
@@ -75,11 +73,11 @@ SELECT name, IF(score>=500, 'PASSED', 'NOT PASSED') FROM test_result;
 +--------------------+-------------+
 ```
 
-### #Case 2: IF() with expressions as return value
+### Case #2: IF() with expressions as return value
 
-In the second example, we have another table named “**deptcost”**. We want to know which department exceeded the budget and which one did not from the following table.
+In the second example, we have another table named “**deptcost**. We want to know which department exceeded the budget and which one did not from the following table.
 
-```pgsql
+```sql
 CREATE TABLE deptcost (
   dept text,
   budget int,
@@ -96,13 +94,13 @@ INSERT INTO deptcost VALUES
 
 Run the following query to display the table:
 
-```pgsql
+```sql
 SELECT * FROM deptcost;
 ```
 
 We have **deptcost** table as seen below:
 
-```pgsql
+```sql
 +-----------+--------+--------+---------------+
 | dept      | budget | actual | status        |
 +-----------+--------+--------+---------------+
@@ -114,15 +112,15 @@ We have **deptcost** table as seen below:
 +-----------+--------+--------+---------------+
 ```
 
-1\) The following IF function states that *IF the actual is less than the budget, then return the budget difference, otherwise return 0*.
+1. The following IF function states that *IF the actual is less than the budget, then return the budget difference, otherwise return 0*.
 
-```pgsql
+```sql
 SELECT dept, IF(actual < budget, budget - actual, 0) FROM deptcost;
 ```
 
-2\) We get the following result using the `IF()` function:
+2. We get the following result using the `IF()` function:
 
-```pgsql
+```sql
 +-----------+-----+
 |   dept    |  f  |
 +-----------+-----+

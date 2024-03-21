@@ -12,7 +12,7 @@ The `IS DISTINCT FROM` operator compares two values, considering them distinct e
 
 The syntax for the operator is as follows:
 
-```pgsql
+```sql
 value1 IS DISTINCT FROM value2
 ```
 
@@ -30,13 +30,13 @@ Consider the following example where we compare two values:
 
 **Example 1**
 
-```pgsql
+```sql
 SELECT NULL IS DISTINCT FROM NULL AS "Result";
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  f
@@ -44,13 +44,13 @@ The above query will return the following output:
 
 **Example 2**
 
-```pgsql
+```sql
 SELECT 10 IS DISTINCT FROM 20 AS "Result";
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  t
@@ -58,13 +58,13 @@ The above query will return the following output:
 
 **Example 3**
 
-```pgsql
+```sql
 SELECT 10 IS DISTINCT FROM 10 AS "Result";    
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  f
@@ -76,13 +76,13 @@ In this example, we'll compare `NULL` values using the `IS DISTINCT FROM` operat
 
 **Example 1**
 
-```pgsql
+```sql
 SELECT NULL IS DISTINCT FROM 10 AS "Result";  
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  t
@@ -90,13 +90,13 @@ The above query will return the following output:
 
 **Example 2**
 
-```pgsql
+```sql
 SELECT 10 IS DISTINCT FROM NULL AS "Result";
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  t
@@ -106,7 +106,7 @@ The above query will return the following output:
 
 Suppose we have a table named `inventory_changes` that tracks changes in the quantities of products in a warehouse. The table has the following structure:
 
-```pgsql
+```sql
 CREATE TABLE inventory_changes (
   product_id INT,
   change_date DATE,
@@ -123,7 +123,7 @@ INSERT INTO inventory_changes VALUES
 
 We want to retrieve records where the change quantity is distinct from zero. In this scenario, the `IS DISTINCT FROM` operator can be used.
 
-```pgsql
+```sql
 SELECT *
 FROM inventory_changes
 WHERE change_quantity IS DISTINCT FROM 0;
@@ -131,7 +131,7 @@ WHERE change_quantity IS DISTINCT FROM 0;
 
 The result of the query will not include the 0 values as shown below:
 
-```pgsql
+```sql
  product_id | change_date | change_quantity 
 ------------+-------------+-----------------
         101 | 2023-08-01  |              50

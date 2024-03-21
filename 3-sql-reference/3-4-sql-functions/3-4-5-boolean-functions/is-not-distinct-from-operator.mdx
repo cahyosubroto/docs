@@ -14,7 +14,7 @@ It compares two values, treating them as equal even when they are both `NULL`. T
 
 The syntax for the operator is as follows:
 
-```pgsql
+```sql
 value1 IS NOT DISTINCT FROM value2
 ```
 
@@ -32,13 +32,13 @@ Consider the following example where we compare two values:
 
 **Example 1**
 
-```pgsql
+```sql
 SELECT 45 IS NOT DISTINCT FROM 45 AS "Result";  
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  t
@@ -46,13 +46,13 @@ The above query will return the following output:
 
 **Example 2**
 
-```pgsql
+```sql
 SELECT 60 IS NOT DISTINCT FROM 30 AS "Result";    
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  f
@@ -60,13 +60,13 @@ The above query will return the following output:
 
 **Example 3**
 
-```pgsql
+```sql
 SELECT NULL IS NOT DISTINCT FROM NULL AS "Result";
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  t
@@ -78,13 +78,13 @@ In this example, we'll compare NULL values using the IS NOT DISTINCT FROM operat
 
 **Example 1**
 
-```pgsql
+```sql
 SELECT NULL IS NOT DISTINCT FROM 80 AS "Result";   
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  f
@@ -92,13 +92,13 @@ The above query will return the following output:
 
 **Example 2**
 
-```pgsql
+```sql
 SELECT 5 IS NOT DISTINCT FROM NULL AS "Result";
 ```
 
 The above query will return the following output:
 
-```pgsql
+```sql
  Result 
 --------
  f
@@ -108,7 +108,7 @@ The above query will return the following output:
 
 Suppose we have a table named customer\_contacts that stores customer contact information.&#x20;
 
-```pgsql
+```sql
 CREATE TABLE customer_contacts (
   customer_id INT,
   email TEXT,
@@ -125,7 +125,7 @@ INSERT INTO customer_contacts VALUES
 
 Our objective is to retrieve records from this table where an email address or a phone number is available for contacting the customers.
 
-```pgsql
+```sql
 SELECT *
 FROM customer_contacts
 WHERE email IS NOT DISTINCT FROM phone;
@@ -133,7 +133,7 @@ WHERE email IS NOT DISTINCT FROM phone;
 
 In this query, we retrieve all rows from the `customer_contacts table` where the email and phone are NULL. We can conclude that the customer with `customer_id 104` has no phone number or email address.
 
-```pgsql
+```sql
  customer_id | email | phone 
 -------------+-------+-------
          104 |       | 

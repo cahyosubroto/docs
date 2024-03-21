@@ -12,7 +12,7 @@ The `JSON_ARRAY_LENGTH()` function returns the length of a specified JSON array.
 
 This function has the following basic syntax.
 
-```pgsql
+```sql
 JSON_ARRAY_LENGTH(arrayval JSON)
 ```
 
@@ -24,13 +24,13 @@ The required argument for this function is `arrayval`. It represents the JSON ar
 
 The following example returns the number of elements in the array:
 
-```pgsql
+```sql
 SELECT JSON_ARRAY_LENGTH('[4, 7, 10, 11, 14, {"vegetables":"spinach","fruits":"melon"}, {"a":"b"}]');
 ```
 
 The function above will return the following result:
 
-```pgsql
+```sql
 +-------+
 | f     |
 +-------+
@@ -42,13 +42,13 @@ The function above will return the following result:
 
 The following example returns the number of elements in the array.
 
-```pgsql
+```sql
 SELECT JSON_ARRAY_LENGTH('[1, 2, [3, 4]]');
 ```
 
 You will get the final result as follows:
 
-```pgsql
+```sql
 +-------+
 | f     |
 +-------+
@@ -60,13 +60,13 @@ You will get the final result as follows:
 
 This example shows that an empty JSON array will return 0.
 
-```pgsql
+```sql
 SELECT JSON_ARRAY_LENGTH('[]');
 ```
 
 An empty array will return 0 in the final output:
 
-```pgsql
+```sql
 +-------+
 | f     |
 +-------+

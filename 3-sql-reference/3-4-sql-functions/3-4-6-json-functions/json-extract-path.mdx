@@ -10,9 +10,9 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 ## **Syntax**
 
-The syntax of the `JSON_EXTRACT_PATH()` function can be seen below. 
+The syntax of the `JSON_EXTRACT_PATH()` function can be seen below.
 
-```pgsql
+```sql
 JSON_EXTRACT_PATH(from_json JSON, path TEXT[])
 ```
 
@@ -24,7 +24,7 @@ JSON_EXTRACT_PATH(from_json JSON, path TEXT[])
 
 Besides the syntax above, Oxla provides and supports the use of operators in queries.  See the syntax below:
 
-```pgsql
+```sql
 SELECT 'from_json'::JSON -> 'path';
 ```
 
@@ -38,15 +38,15 @@ SELECT 'from_json'::JSON -> 'path';
 
 These examples display how `JSON_EXTRACT_PATH()` extracts the "oxla" JSON sub-object from the specified path.&#x20;
 
-**1)** Use the below query:
+1. Use the below query:
 
-```pgsql
+```sql
 SELECT JSON_EXTRACT_PATH('{"f2":{"f3":1},"f4":{"f5":99,"f6":"oxla"}}', 'f4', 'f6');
 ```
 
 **or**
 
-```pgsql
+```sql
 SELECT '{"f2":{"f3":1},"f4":{"f5":99,"f6":"oxla"}}'::JSON -> 'f4' -> 'f6';
 ```
 
@@ -60,9 +60,9 @@ The query above will return the following result.
 +---------+
 ```
 
-**2)** Run the query below:
+2. Run the query below:
 
-```pgsql
+```sql
 SELECT
     JSON_EXTRACT_PATH('{"a": 1, "b": {"x": "subtract", "y": "plus"}}', 'b', 'x') AS "bx",
     JSON_EXTRACT_PATH('{"a": 1, "b": {"x": "multiply", "y": "divide"}}', 'b', 'y') AS "by";
