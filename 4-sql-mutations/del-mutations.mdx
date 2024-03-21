@@ -1,0 +1,24 @@
+---
+title: Mutation - DELETE
+slug: e_Xx-d
+createdAt: 2023-12-01T00:52:46.477Z
+updatedAt: 2023-12-01T01:49:31.081Z
+---
+
+## **Overview**
+
+The `DELETE` mutation deletes one or more records from a table based on specified conditions. This support has limitations:
+
+1.  Only **one data mutation (DELETE or UPDATE) **at a given moment is possible, trying to run another one will fail.
+
+2.  Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Running `DELETE from the table` without any condition is possible, but it will be much slower than the `DROP TABLE table`.
+
+3.  The syntax is simplified in comparison to Postgres. For example, the `SET column=<value>` operation doesn't support sub-SELECT as the value, and the `WHERE` clause cannot contain sub-SELECT.
+
+<Check>**Feature Update: Initial Release**
+
+This marks the initial release of our new Mutation feature, which allows you to update data. The Mutations involve rewriting entire files, which takes several minutes and could generate infrastructure costs.&#x20;
+
+We are aiming to enhance and optimize this feature in future updates!</Check>
+
+
