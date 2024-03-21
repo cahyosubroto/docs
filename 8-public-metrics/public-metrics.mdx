@@ -10,33 +10,31 @@ Metrics play a crucial role in monitoring and analyzing the performance of Oxla,
 
 This documentation will guide you on how to access and leverage the metrics.
 
-:::hint{type="info"}
-All metrics exposed by Oxla have a `label_node_id` with a node ID set. This is the same `node_id` that can be found in logs and on data storage.
-:::
+<Note>All metrics exposed by Oxla have a `label_node_id` with a node ID set. This is the same `node_id` that can be found in logs and on data storage.</Note>
 
 ## Accessing Metrics
 
 Once you have successfully deployed Oxla, you can access the comprehensive metrics that provide valuable insights into the performance and health of your database. To access the metrics, follow the steps below:
 
-1\) Open your preferred web browser and enter the following URL:&#x20;
+1. Open your preferred web browser and enter the following URL:&#x20;
 
 ```typescript
 <ip>:8080/metrics
 ```
 
-Replace `<ip>` with the actual IP address of your Oxla deployment. For example, if your Oxla instance is hosted on IP address 128.128.1.1, the URL would be:
+2. Replace `<ip>` with the actual IP address of your Oxla deployment. For example, if your Oxla instance is hosted on IP address 128.128.1.1, the URL would be:
 
 ```typescript
 128.128.1.1:8080/metrics
 ```
 
-2\) If you are running Oxla locally on your machine, you can use localhost as the IP address. In that case, the URL would be:
+3. If you are running Oxla locally on your machine, you can use localhost as the IP address. In that case, the URL would be:
 
 ```typescript
 localhost:8080/metrics
 ```
 
-3\) Upon accessing the URL, you will be presented with various metrics as shown below:&#x20;
+4. Upon accessing the URL, you will be presented with various metrics as shown below:&#x20;
 
 ```typescript
 # TYPE exposer_transferred_bytes_total counter
@@ -129,48 +127,52 @@ The following is a list of parameters available in the Public Metrics:
 | `exposer_request_latencies`           | Latencies of serving scrape requests, in microseconds.                                                                                                                                                                                                                                     |
 | `exposer_request_latencies_count`     | Count of latencies.                                                                                                                                                                                                                                                                        |
 | `exposer_request_latencies_sum`       | Sum of latencies.                                                                                                                                                                                                                                                                          |
-| `client_sql_successful_queries_total` | Number of successful queries received from clients.The available queries are:*   `label="COPY"`, successful COPY queries.
+| `client_sql_successful_queries_total` | Number of successful queries received from clients.                                                                                                                                                                                                                                         |
+|                                       | The available queries are:                                                                                                                                                                                                                                                                 |
+|                                       | - `label="COPY"`, successful COPY queries.                                                                                                                                                                                                                                                  |
+|                                       | - `label="SELECT"`, successful SELECT queries.                                                                                                                                                                                                                                              |
+|                                       | - `label="INSERT"`, successful INSERT queries.                                                                                                                                                                                                                                              |
+|                                       | The available label is `query_type`.                                                                                                                                                                                                                                                        |
+| `client_sql_queries_total`            | Number of queries received from clients.                                                                                                                                                                                                                                                    |
+|                                       | The available queries are:                                                                                                                                                                                                                                                                 |
+|                                       | - `label="COPY"`, total COPY queries.                                                                                                                                                                                                                                                       |
+|                                       | - `label="SELECT"`, total SELECT queries.                                                                                                                                                                                                                                                   |
+|                                       | - `label="INSERT"`, total INSERT queries.                                                                                                                                                                                                                                                   |
+|                                       | The available label is `query_type`.                                                                                                                                                                                                                                                        |
+| `file_flushed_total`                  | Number of files flushed when inserting rows.                                                                                                                                                                                                                                                |
+| `tasks_executed_total`                | Number of tasks executed on the cluster.                                                                                                                                                                                                                                                    |
+| `tasks_received_total`                | Number of tasks a node has received to be executed.                                                                                                                                                                                                                                         |
+|                                       | The available task types are:                                                                                                                                                                                                                                                               |
+|                                       | - `file_task_type="compact"`, total compact tasks received.                                                                                                                                                                                                                                 |
+|                                       | - `file_task_type="merge"`, total merge tasks received.                                                                                                                                                                                                                                     |
+| `tasks_scheduled_total`               | Number of tasks the leader has sent to nodes and are being executed.                                                                                                                                                                                                                         |
+|                                       | The available task types are:                                                                                                                                                                                                                                                               |
+|                                       | - `file_task_type="compact"`, total compact tasks scheduled.                                                                                                                                                                                                                               |
+|                                       | - `file_task_type="merge"`, total merge tasks scheduled.                                                                                                                                                                                                                                   |
+| `thread_pool_tasks_finished_total`    | Number of tasks finished by the thread pool.                                                                                                                                                                                                                                                |
+| `thread_pool_tasks_started_total`     | Number of tasks started by the thread pool.                                                                                                                                                                                                                                                 |
+| `readers_closed_total`                | Total number of readers closed since Oxla process creation.                                                                                                                                                                                                                                 |
+| `readers_opened_total`                | Total number of readers opened since Oxla process creation.                                                                                                                                                                                                                                 |
+| `writers_closed_total`                | Total number of writers closed since Oxla process creation.                                                                                                                                                                                                                                 |
+| `writers_opened_total`                | Total number of writers opened since Oxla process creation.                                                                                                                                                                                                                                 |
+| `cluster_has_leader_bool`             | Indicates if the cluster has a leader or not.                                                                                                                                                                                                                                               |
+| `num_nodes_connected`                 | Number of nodes connected.                                                                                                                                                                                                                                                                  |
+| `node_is_leader_bool`                 | Indicates if the node is a leader.                                                                                                                                                                                                                                                          |
+| `num_open_connections`                | Number of open connections.                                                                                                                                                                                                                                                                 |
+| `postgres_connections_total`          | Number of clients connected using the Postgres protocol.                                                                                                                                                                                                                                    |
+| `tasks_capacity_total`                | Number of task capacity on the cluster.                                                                                                                                                                                                                                                     |
+| `tasks_ongoing_total`                 | Number of tasks currently being executed on the node.                                                                                                                                                                                                                                       |
+|                                       | The available task types are:                                                                                                                                                                                                                                                               |
+|                                       | - `file_task_type="compact"`, total ongoing compact tasks.                                                                                                                                                                                                                                 |
+|                                       | - `file_task_type="merge"`, total ongoing merge tasks.                                                                                                                                                                                                                                     |
+| `thread_pool_size_total`              | Number of threads used by the thread pool.                                                                                                                                                                                                                                                  |
+| `oxla_memory_usage_bytes`             | Memory used by Oxla.                                                                                                                                                                                                                                                                        |
+|                                       | The available values are:                                                                                                                                                                                                                                                                  |
+|                                       | - `value="system_memory_consumption_total"`, total system memory consumption.                                                                                                                                                                                                               |
+|                                       | - `value="cache_memory_consumption_total"`, total cache memory consumption.                                                                                                                                                                                                                 |
+|                                       | - `value="query_memory_consumption_total"`, total query memory consumption.                                                                                                                                                                                                                 |
+| `oxla_mallinfo`                       | Information about glibc's malloc() internal state.                                                                                                                                                                                                                                          |
 
-*   `label="SELECT"`, successful SELECT queries.
 
-*   `label="INSERT"`, successful INSERT queries.The available label is `query_type`.                          |
-| `client_sql_queries_total`            | Number of queries received from clients.&#x20;The available queries are:*   `label="COPY"`, total COPY queries.
-
-*   `label="SELECT"`, total SELECT queries.
-
-*   `label="INSERT"`, total INSERT queries.The available label is `query_type`.                                              |
-| `file_flushed_total`                  | Number of files flushed when inserting rows.                                                                                                                                                                                                                                               |
-| `tasks_executed_total`                | Number of tasks executed on the cluster.                                                                                                                                                                                                                                                   |
-| `tasks_received_total`                | Number of tasks a node has received to be executed.The available task types are:*   `file_task_type="compact"`, total compact tasks received.
-
-*   `file_task_type="merge"`, total merge tasks received.                                                                                   |
-| `tasks_scheduled_total`               | Number of tasks the leader has sent to nodes and are being executed.The available task types are:*   `file_task_type="compact"`, total compact tasks scheduled.
-
-*   `file_task_type="merge"`, total merge tasks scheduled.                                                                |
-| `thread_pool_tasks_finished_total`    | Number of tasks finished by the thread pool.                                                                                                                                                                                                                                               |
-| `thread_pool_tasks_started_total`     | Number of tasks started by the thread pool.                                                                                                                                                                                                                                                |
-| `readers_closed_total`                | Total number of readers closed since Oxla process creation.                                                                                                                                                                                                                                |
-| `readers_opened_total`                | Total number of readers opened since Oxla process creation.                                                                                                                                                                                                                                |
-| `writers_closed_total`                | Total number of writers closed since Oxla process creation.                                                                                                                                                                                                                                |
-| `writers_opened_total`                | Total number of writers opened since Oxla process creation.                                                                                                                                                                                                                                |
-| `cluster_has_leader_bool`             | Indicates if the cluster has a leader or not.                                                                                                                                                                                                                                              |
-| `num_nodes_connected`                 | Number of nodes connected.                                                                                                                                                                                                                                                                 |
-| `node_is_leader_bool`                 | Indicates if the node is a leader.                                                                                                                                                                                                                                                         |
-| `num_open_connections`                | Number of open connections.                                                                                                                                                                                                                                                                |
-| `postgres_connections_total`          | Number of clients connected using the Postgres protocol.                                                                                                                                                                                                                                   |
-| `tasks_capacity_total`                | Number of task capacity on the cluster.                                                                                                                                                                                                                                                    |
-| `tasks_ongoing_total`                 | Number of tasks currently being executed on the node.The available task types are:*   `file_task_type="compact"`, total ongoing compact tasks.
-
-*   `file_task_type="merge"`, total ongoing merge tasks.                                                                                   |
-| `thread_pool_size_total`              | Number of threads used by the thread pool.                                                                                                                                                                                                                                                 |
-| `oxla_memory_usage_bytes`             | Memory used by Oxla.The available values are:*   `value="system_memory_consumption_total"`, total system memory consumption.
-
-*   `value="cache_memory_consumption_total"`, total cache memory consumption.
-
-*   `value="query_memory_consumption_total"`, total query memory consumption. |
-| `oxla_mallinfo`                       | Information about glibc's malloc() internal state.                                                                                                                                                                                                                                         |
-
-:::hint{type="info"}
-ℹ️ By regularly monitoring these metrics, you can gain valuable insights into the efficiency of your database operations, identify potential bottlenecks, and make data-driven optimizations to enhance the overall performance and reliability of your analytical workflows.
-:::
+<Tip>By regularly monitoring these metrics, you can gain valuable insights into the efficiency of your database operations, identify potential bottlenecks, and make data-driven optimizations to enhance the overall performance and reliability of your analytical workflows.</Tip>
 
