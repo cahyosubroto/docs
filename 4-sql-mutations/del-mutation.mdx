@@ -9,7 +9,8 @@ updatedAt: 2023-12-01T01:49:31.081Z
 
 The `DELETE` mutation deletes one or more records from a table based on specified conditions. This support has limitations:
 - Only one data mutation (DELETE or UPDATE) at a given moment is possible, trying to run another one will fail.
-- data mutation
+- Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Running `DELETE from the table` without any condition is possible, but it will be much slower than the `DROP TABLE table`.
+
 ## **Syntax**
 
 
