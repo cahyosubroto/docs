@@ -10,7 +10,7 @@ The `TIMESTAMP_TRUNC()` function rounds a timestamp to a specific `day_time` gra
 
 ### Syntax
 
-```pgsql
+```sql
 SELECT TIMESTAMP_TRUNC(TIMESTAMP 'YYYY-MM-DD hour:min:sec', day_time);
 ```
 
@@ -34,13 +34,13 @@ SELECT TIMESTAMP_TRUNC(TIMESTAMP 'YYYY-MM-DD hour:min:sec', day_time);
 
 The following example shows how to round the hour to the closest value:
 
-```pgsql
+```sql
 SELECT TIMESTAMP_TRUNC(TIMESTAMP '2017-09-18 14:43:39.02322', HOUR) ;
 ```
 
 The final result will display the current date and time in your timezone:
 
-```pgsql
+```sql
 +-----------------------------+
 | f                           |
 +-----------------------------+
@@ -52,13 +52,13 @@ The final result will display the current date and time in your timezone:
 
 Here we will truncate the specified timestamp into the nearest value:
 
-```pgsql
+```sql
 SELECT TIMESTAMP_TRUNC(TIMESTAMP '2005-03-18 14:13:13', MINUTE) ;
 ```
 
 The result will return the truncated timestamp as shown below:
 
-```pgsql
+```sql
 +-----------------------------+
 | f                           |
 +-----------------------------+
@@ -70,13 +70,13 @@ The result will return the truncated timestamp as shown below:
 
 Run the following query to round the date to the closest value:
 
-```pgsql
+```sql
 SELECT TIMESTAMP_TRUNC(TIMESTAMP '2023-03-04', YEAR);
 ```
 
 The function will truncate the year and return the following result:
 
-```pgsql
+```sql
 +-----------------------------+
 | f                           |
 +-----------------------------+

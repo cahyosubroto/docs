@@ -8,13 +8,11 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `CURRENT_TIMESTAMP()` returns the current timestamp value representing the date and time the query was executed.
 
-:::hint{type="info"}
-ℹ️ Note that the time returned by this function is the time when the query was executed.
-:::
+<Info>Note that the time returned by this function is the time when the query was executed.</Info>
 
 ### Syntax
 
-```pgsql
+```sql
 CURRENT_TIMESTAMP(precision)
 ```
 
@@ -22,9 +20,7 @@ The `precision` is used to set the number of digits in the fractional seconds pr
 
 If you omit the `precision`, the `CURRENT_TIMESTAMP()` function will return a current timestamp that includes the complete fractional seconds precision.
 
-:::hint{type="warning"}
-⚠️ The maximum precision value that you can input is 6.
-:::
+<Warning>The maximum precision value that you can input is 6.</Warning>
 
 ## Examples
 
@@ -32,13 +28,13 @@ If you omit the `precision`, the `CURRENT_TIMESTAMP()` function will return a cu
 
 The following example shows how to get the current date and time with a `CURRENT_TIMESTAMP()`function:
 
-```pgsql
+```sql
 SELECT CURRENT_TIMESTAMP AS "Current Time";
 ```
 
 The final result will display the current date and time in your timezone:
 
-```pgsql
+```sql
 +-----------------------------+
 | Current Time                |
 +-----------------------------+
@@ -48,15 +44,15 @@ The final result will display the current date and time in your timezone:
 
 ### #Case 2: Current timestamp with precision
 
-Let’s assume we want to get the current timestamp but with a 2-fractional seconds precision:
+Let's assume we want to get the current timestamp but with a 2-fractional seconds precision:
 
-```pgsql
+```sql
 SELECT CURRENT_TIMESTAMP(2);
 ```
 
 The function will return the current date and time with 2 digits after seconds:
 
-```pgsql
+```sql
 +-------------------------+
 | current_timestamp       |
 +-------------------------+

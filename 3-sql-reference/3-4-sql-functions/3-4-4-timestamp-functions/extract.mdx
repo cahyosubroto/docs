@@ -10,11 +10,11 @@ The `EXTRACT()` function extracts a given part from a specified source. The sour
 
 ### Syntax
 
-```pgsql
+```sql
 EXTRACT(field from source)
 ```
 
-Let’s analyze the above syntax:
+Let's analyze the above syntax:
 
 - `field`: used to specify the time parts that are to be extracted.
 
@@ -32,13 +32,13 @@ The table below shows the supported input types of `field` and the return type o
 
 The below example uses the `EXTRACT()` function to extract a given timestamp’s **YEAR**:
 
-```pgsql
+```sql
 SELECT EXTRACT(YEAR FROM TIMESTAMP '2020-12-31 13:30:15');
 ```
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +----------+
 | extract  |
 +----------+
@@ -50,13 +50,13 @@ The final output will be as follows:
 
 Here we will use the `EXTRACT()` function to extract a given timestamp’s **MONTH:**
 
-```pgsql
+```sql
 SELECT EXTRACT(MONTH FROM TIMESTAMP '2016-10-31 13:30:15');
 ```
 
 The final output will take the month’s part of a given timestamp:
 
-```pgsql
+```sql
 +----------+
 | extract  |
 +----------+
@@ -68,13 +68,13 @@ The final output will take the month’s part of a given timestamp:
 
 In this example, we will extract the **DAY **part of a given interval:
 
-```pgsql
+```sql
 SELECT EXTRACT(DAY FROM INTERVAL '6 years 8 months 20 days 4 hours 47 minutes 22 second' );
 ```
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +----------+
 | extract  |
 +----------+
@@ -86,13 +86,13 @@ The final output will be as follows:
 
 The below example uses the `EXTRACT()` function to extract seconds from the given interval.
 
-```pgsql
+```sql
 SELECT EXTRACT(SECOND FROM INTERVAL '6 years 2 months 13 days 8 hours 30 minutes 43 second' );
 ```
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +------------+
 | extract    |
 +------------+

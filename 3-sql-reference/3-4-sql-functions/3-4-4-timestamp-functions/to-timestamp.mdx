@@ -12,11 +12,11 @@ The `TO_TIMESTAMP()` function converts a string into a timestamp based on the pr
 
 The syntax for using the `TO_TIMESTAMP()` function is as follows:
 
-```pgsql
+```sql
 SELECT TO_TIMESTAMP('source', 'format'');
 ```
 
-Let’s analyze the above syntax:
+Let's analyze the above syntax:
 
 *   `source`: The date/time value to be converted. The value type is `TIMESTAMP` (`YYYY-MM-DD HH:MM:SS`).
 
@@ -28,72 +28,33 @@ Format string supports following template patterns (can be lowercase):
 
 | **Pattern**                      | **Description**           | **Detail**                                                                     |
 | -------------------------------- | ------------------------- | ------------------------------------------------------------------------------ |
-| `YYYY`                           | Year (1-9999)&#x20;       | *   The lowest possible value is 1 AD
-
-*   0001 is 1
-
-*   1 is 1               |
-| `MM`                             | Month number (1–12)       | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `DD`                             | Day of month (1–31)       | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `HH`                             | Hour of day (1–12)&#x20;  | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `HH12`                           | Hour of day (1–12)&#x20;  | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `HH24`                           | Hour of day (0–23)&#x20;  | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `MI`                             | Minute (0–59)             | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `SS`                             | Second (0–59)&#x20;       | *   Up to 2 digits
-
-*   01 is 1
-
-*   1 is 1                                    |
-| `MS`                             | Millisecond (0–999)&#x20; | *   Up to 3 digits
-
-*   001 is 1 milisecond
-
-*   1 is 100 mlilliseconds        |
-| `US`                             | Microsecond (0–999999)    | *   Up to 6 digits
-
-*   000001 is 1 microsecond
-
-*   1 is 100000 mlilliseconds |
+| `YYYY`                           | Year (1-9999)             | - The lowest possible value is 1 AD<br />- 0001 is 1<br />- 1 is 1               |
+| `MM`                             | Month number (1–12)       | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `DD`                             | Day of month (1–31)       | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `HH`                             | Hour of day (1–12)        | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `HH12`                           | Hour of day (1–12)        | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `HH24`                           | Hour of day (0–23)        | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `MI`                             | Minute (0–59)             | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `SS`                             | Second (0–59)             | - Up to 2 digits<br />- 01 is 1<br />- 1 is 1                                    |
+| `MS`                             | Millisecond (0–999)       | - Up to 3 digits<br />- 001 is 1 millisecond<br />- 1 is 100 milliseconds         |
+| `US`                             | Microsecond (0–999999)    | - Up to 6 digits<br />- 000001 is 1 microsecond<br />- 1 is 100000 milliseconds   |
 | `AM`, `am`, `PM` or `pm`         | Meridiem indicator        | Without periods                                                                |
-| `A.M.`, `a.m.`, `P.M.` or `p.m.` | Meridiem indicator&#x20;  | With periods                                                                   |
+| `A.M.`, `a.m.`, `P.M.` or `p.m.` | Meridiem indicator        | With periods                                                                   |
 
-## **Examples **
+
+## Examples
 
 ### Case #1: Timestamp into YYYY-MM-DD HH24\:MI
 
 The `TO_TIMESTAMP()` function converts the provided string into a timestamp with the format `YYYY-MM-DD HH24:MI`.
 
-```pgsql
+```sql
 select TO_TIMESTAMP('2020-03-04 14:30', 'YYYY-MM-DD HH24:MI');
 ```
 
 The final output will be a timestamp with a timezone.
 
-```pgsql
+```sql
         to_timestamp          
 -------------------------------
  2020-03-04 14:30:00.000000+00
@@ -103,13 +64,13 @@ The final output will be a timestamp with a timezone.
 
 The `TO_TIMESTAMP()` function converts the provided string into a timestamp with the format `MM-DD HH12:MI`.
 
-```pgsql
+```sql
 select TO_TIMESTAMP('3-04 02:30', 'MM-DD HH12:MI');
 ```
 
 The final output will be a timestamp with a timezone.
 
-```pgsql
+```sql
        to_timestamp        
 ----------------------------
  1-03-04 02:30:00.000000+00
@@ -121,19 +82,19 @@ The `TO_TIMESTAMP()`\` function converts the provided string into a timestamp wi
 
 **Request 1**
 
-```pgsql
+```sql
 select TO_TIMESTAMP('2020-02 12:30AM', 'YYYY-MM HH12:MIPM');
 ```
 
 **Request 2**
 
-```pgsql
+```sql
 select TO_TIMESTAMP('2020-02 12:30AM', 'YYYY-MM HH:MIAM');
 ```
 
 The final output of both requests will have the same result. It changes the time into a 12-hour format, resulting in **12:30** being adjusted to **00:30**.
 
-```pgsql
+```sql
          to_timestamp          
 -------------------------------
  2020-02-01 00:30:00.000000+00
@@ -143,13 +104,13 @@ The final output of both requests will have the same result. It changes the time
 
 The `TO_TIMESTAMP()` function converts the provided string into a timestamp with `YYYY-MM-DD HH24:MI:SS.MS.US` format.
 
-```pgsql
+```sql
 select TO_TIMESTAMP('1960-01-31 15:12:02.020.001230', 'YYYY-MM-DD HH24:MI:SS.MS.US');
 ```
 
 The final output will be a timestamp with milliseconds and microseconds.
 
-```pgsql
+```sql
         to_timestamp          
 -------------------------------
  1960-01-31 15:12:02.021230+00
@@ -159,13 +120,13 @@ The final output will be a timestamp with milliseconds and microseconds.
 
 The `TO_TIMESTAMP()` function converts the provided string into a timestamp with `YYYY-MM-DD HH24:MI:SS.MS` format.
 
-```pgsql
+```sql
 select TO_TIMESTAMP('1960-01-31 15:12:02.02', 'YYYY-MM-DD HH24:MI:SS.MS');
 ```
 
 The final output will be a timestamp with milliseconds.
 
-```pgsql
+```sql
         to_timestamp          
 -------------------------------
  1960-01-31 15:12:02.020000+00

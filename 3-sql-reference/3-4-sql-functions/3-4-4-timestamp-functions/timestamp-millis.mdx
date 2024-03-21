@@ -8,7 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `TIMESTAMP_MILLIS()` function converts a given UNIX timestamp value in milliseconds since 1970-01-01 00:00:00 UTC into a timestamp. Its syntax can be seen below:
 
-```pgsql
+```sql
 SELECT TIMESTAMP_MILLIS(Int64)
 ```
 
@@ -20,13 +20,13 @@ Its input type is an `int64` expression which represents a UNIX timestamp in mil
 
 The below example uses the `TIMESTAMP_MILLIS()` function to convert a given UNIX timestamp in milliseconds into a timestamp without a timezone.
 
-```pgsql
+```sql
 SELECT TIMESTAMP_MILLIS(1671975000000) AS timestamp_millisvalues;
 ```
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +-----------------------------+
 | timestamp_millisvalues      |
 +-----------------------------+
@@ -36,9 +36,9 @@ The final output will be as follows:
 
 ### #Case 2: `TIMESTAMP_MILLIS()` function using columns
 
-Let’s suppose we have a table named **unix\_example **with the following UNIX time values in milliseconds in the **unix\_timestamp** column:
+Let's suppose we have a table named **unix\_example **with the following UNIX time values in milliseconds in the **unix\_timestamp** column:
 
-```pgsql
+```sql
 CREATE TABLE unix_example (
   unix_timestamp long
 );
@@ -49,13 +49,13 @@ INSERT INTO unix_timestamp VALUES
 ('153276000000');
 ```
 
-```pgsql
+```sql
 SELECT * FROM unix_example;
 ```
 
 The above query will show the following table:
 
-```pgsql
+```sql
 +----------------+
 | unix_timestamp | 
 +----------------+
@@ -67,7 +67,7 @@ The above query will show the following table:
 
 We want to convert all UNIX timestamp values in milliseconds to timestamp values. To do that, we have to run the following query:
 
-```pgsql
+```sql
 SELECT unix_timestamp, TIMESTAMP_MILLIS(unix_timestamp)
 AS timestamp_value
 FROM unix_example;
@@ -75,7 +75,7 @@ FROM unix_example;
 
 The output displays all the entries in the table in UNIX timestamp format (in milliseconds) in the **unix\_timestamp **column and in the timestamp format in the column** timestamp\_value** without timezone.
 
-```pgsql
+```sql
 +-------------------------+-----------------------+
 | unix_timestamp          | timestamp_value       |
 +-------------------------+-----------------------+

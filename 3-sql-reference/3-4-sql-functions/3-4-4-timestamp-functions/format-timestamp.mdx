@@ -8,7 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `FORMAT_TIMESTAMP()` function returns a given timestamp value in a specified format. Its syntax is illustrated below:
 
-```pgsql
+```sql
 FORMAT_TIMESTAMP(timestamp, format_string)
 ```
 
@@ -18,31 +18,29 @@ This function requires two arguments, i.e., a **timestamp** string that represen
 
 The below example uses the `FORMAT_TIMESTAMP()` function to convert a given timestamp into a timestamp format as specified in the function arguments.
 
-```pgsql
+```sql
 SELECT FORMAT_TIMESTAMP( 2 '2022-05-30 5:30:04', 3 'YYYY-MM-DD HH:MI:SS' 4);
 ```
 
 Details of the format specified are as follows:
 
-*   YYYY is the four-digit year 2022
+*   `YYYY` is the four-digit year 2022
 
-*   MM is the month: 05
+*   `MM` is the month: 05
 
-*   DD is the day: 30
+*   `DD` is the day: 30
 
-*   HH is the hour: 5
+*   `HH` is the hour: 5
 
-*   MI is the minute: 30
+*   `MI` is the minute: 30
 
-*   SS is the second: 04
+*   `SS` is the second: 04
 
-:::hint{type="info"}
-ℹ️ The format specified in the string can be used in any combination.
-:::
+<Info>The format specified in the string can be used in any combination.</Info>
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +-----------------------------+
 | format_timestamp            |
 +-----------------------------+
@@ -52,15 +50,15 @@ The final output will be as follows:
 
 ### #Case 2: `FORMAT_TIMESTAMP()` function using multiple spaces
 
-The `FORMAT_TIMESTAMP()` when given multiple spaces in the input string, omits the spaces and only returns the correct timestamp value. Let’s see how it works using the following example:
+The `FORMAT_TIMESTAMP()` when given multiple spaces in the input string, omits the spaces and only returns the correct timestamp value. Let's see how it works using the following example:
 
-```pgsql
+```sql
 SELECT 2 FORMAT_TIMESTAMP('2008 Dec','YYYY MON');
 ```
 
 It will return the following output:
 
-```pgsql
+```sql
 +-----------------------------+
 | format_timestamp            |
 +-----------------------------+
@@ -72,13 +70,13 @@ It will return the following output:
 
 `FORMAT_TIMESTAMP()` will adjust the year to the nearest year value if the input argument has less than the required number of digits i.e., less than 4. To see how it works, look at the example below:
 
-```pgsql
+```sql
 SELECT 2 FORMAT_TIMESTAMP('07 25 09 10:40', 'MM DD YY HH:MI');
 ```
 
 It will return the following output:
 
-```pgsql
+```sql
 +-----------------------------+
 | format_timestamp            |
 +-----------------------------+

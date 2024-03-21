@@ -12,7 +12,7 @@ The `TO_CHAR` function formats a timestamp into a string using a given format.
 
 The syntax for using the `TO_CHAR` function is as follows:
 
-```pgsql
+```sql
 TO_CHAR(timestamp, format_string)
 ```
 
@@ -53,13 +53,13 @@ Format string supports following template patterns (can be lowercase):
 
 The query aims to format a timestamp to display the year, month, day, hour, minute, second, and microseconds (`YYYY-MM-DD HH24:MI:SS.US`).
 
-```pgsql
+```sql
 SELECT TO_CHAR('2012-03-04 05:06:07.080910'::timestamp, 'YYYY-MM-DD HH24:MI:SS.US');
 ```
 
 The output shows the timestamp '2012-03-04 05:06:07.080910'.
 
-```pgsql
+```sql
           to_char           
 ----------------------------
  2012-03-04 05:06:07.080910
@@ -69,13 +69,13 @@ The output shows the timestamp '2012-03-04 05:06:07.080910'.
 
 This query format a timestamp in a 12-hour clock format with the meridiem indicator (`p.m`).
 
-```pgsql
+```sql
 SELECT TO_CHAR('2012-03-04 05:06:07.080910'::timestamp, 'HH12-MI-SS.MS p.m.');
 ```
 
 The output shows the time 5:06:07 a.m. with milliseconds.
 
-```pgsql
+```sql
       to_char      
 -------------------
  05-06-07.080 a.m.
@@ -85,13 +85,13 @@ The output shows the time 5:06:07 a.m. with milliseconds.
 
 This query format a timestamp to display time in a 12-hour clock format along with the meridiem indicator (`AM`).
 
-```pgsql
+```sql
 SELECT TO_CHAR('2012-03-04 17:06:07.080910'::timestamp, 'HH-MI-SS AM');
 ```
 
 The output presents the time '17:06:07' in the format 'HH-MI-SS AM': 5:06:07 PM.
 
-```pgsql
+```sql
   to_char   
 -------------
  05-06-07 PM
@@ -101,13 +101,13 @@ The output presents the time '17:06:07' in the format 'HH-MI-SS AM': 5:06:07 PM.
 
 This example adds custom text to the timestamp output.
 
-```pgsql
+```sql
 SELECT TO_CHAR('2012-03-04 17:06:07.080910'::timestamp, 'Text "HH24-MI-SS" {HH24-MI-SS}');
 ```
 
 It will return the output below.
 
-```pgsql
+```sql
           to_char           
 ----------------------------
  Text HH24-MI-SS {17-06-07}

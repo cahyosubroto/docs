@@ -8,7 +8,7 @@ updatedAt: 2023-10-09T13:02:32.129Z
 
 The `UNIX_SECONDS()` function returns a given timestamp to a UNIX timestamp in seconds, from 1970-01-01 00:00:00-00. Its syntax is illustrated below:
 
-```pgsql
+```sql
 SELECT UNIX_SECONDS(TIMESTAMP)
 ```
 
@@ -20,13 +20,13 @@ Its input type is a TIMESTAMP expression, and the return data type is `int64` re
 
 The below example uses the `UNIX_SECONDS()` function to convert a given timestamp into a UNIX timestamp in seconds:
 
-```pgsql
+```sql
 SELECT UNIX_SECONDS(TIMESTAMP "2008-12-25 15:30:00+00") AS unix_secondsvalues;
 ```
 
 The final output will be as follows:
 
-```pgsql
+```sql
 +-----------------------------+
 | unix_secondsvalues          |
 +-----------------------------+
@@ -38,7 +38,7 @@ The final output will be as follows:
 
 Let’s suppose we have a table named **time\_example **with the following timestamp values in the **time\_stampvalues** column:
 
-```pgsql
+```sql
 CREATE TABLE time_example (
   time_stampvalues timestamp
 );
@@ -50,13 +50,13 @@ INSERT INTO time_example VALUES
 ('2021-10-02 06:30:00');
 ```
 
-```pgsql
+```sql
 SELECT * FROM time_example;
 ```
 
 The above query will return the following table:
 
-```pgsql
+```sql
 +-------------------------+
 | time_stampvalues        | 
 +-------------------------+
@@ -67,17 +67,17 @@ The above query will return the following table:
 +-------------------------+
 ```
 
-1\) We want to convert all timestamp values into UNIX timestamp values in seconds. To do that, we have to run the following query:
+1. We want to convert all timestamp values into UNIX timestamp values in seconds. To do that, we have to run the following query:
 
-```pgsql
+```sql
 SELECT time_stampvalues, UNIX_SECONDS(time_stampvalues)
 AS time_secondsvalues
 FROM time_example;
 ```
 
-2\) The output displays all the timestamp entries of the table in the **time\_stampvalues **column and the converted UNIX seconds timestamp entries in the column **time\_secondsvalues**.
+2. The output displays all the timestamp entries of the table in the **time\_stampvalues** column and the converted UNIX seconds timestamp entries in the column **time\_secondsvalues**.
 
-```pgsql
+```sql
 +-------------------------+-----------------------+
 | time_stampvalues        | time_secondsvalues    |
 +-------------------------+-----------------------+
