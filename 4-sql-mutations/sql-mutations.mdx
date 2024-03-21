@@ -11,7 +11,7 @@ A mutation refers to a change made to data stored in a database. Several command
 
 This support has limitations:
 
-*   Only **one data mutation (DELETE or UPDATE) **at a given moment is possible. Trying to run another one will fail.
+*   Only **one data mutation (DELETE or UPDATE)** at a given moment is possible. Trying to run another one will fail.
 
 *   Data mutations rewrite all files containing the data from the UPDATE/DELETE condition. Running `DELETE from the table` without any condition is possible, but it will be much slower than the `DROP TABLE table`.
 
