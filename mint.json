@@ -6,8 +6,8 @@
     "light": "black-oxla-logo.svg"
   },
   "metadata": {
-    "og:image": "https://mintlify.s3-us-west-1.amazonaws.com/oxla/assets/homepage-img-light.png",
-    "twitter:image": "https://mintlify.s3-us-west-1.amazonaws.com/oxla/assets/homepage-img-light.png"
+    "og:image": "/assets/oxla-metaimage.png",
+    "twitter:image": "/assets/oxla-metaimage.png"
   },
   "favicon": "/assets/oxla-favicon.svg",
   "colors": {
