@@ -18,6 +18,14 @@ body {
   filter: brightness();
 }
 
+:is(.dark .dark\:bg-codeblock\/50) svg {
+  filter: brightness(10);
+}
+
 :is(.dark .dark\:bg-codeblock\/50):hover {
   filter: brightness(10);
+}
+
+:is(.dark .dark\:text-primary-light) {
+  color: rgb(152 157 255);
 }

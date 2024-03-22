@@ -5,6 +5,10 @@
     "dark": "/logo/light.png",
     "light": "black-oxla-logo.svg"
   },
+  "metadata": {
+    "og:image": "/assets/oxla-metaimage.png",
+    "twitter:image": "/assets/oxla-metaimage.png"
+  },
   "favicon": "/assets/oxla-favicon.svg",
   "colors": {
     "primary": "#3139DB",
@@ -314,8 +318,5 @@
     "discord": "https://discord.gg/DJaksZfurn",
     "linkedin": "https://www.linkedin.com/company/oxla/"
   },
-  "backgroundImage": "/assets/ring-light.png",
-  "metadata": {
-    "og:image": "/assets/oxla-metaimage.png"
-  }
+  "backgroundImage": "/assets/ring-light.png"
 }
