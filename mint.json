@@ -10,11 +10,11 @@
   },
   "favicon": "/assets/oxla-favicon.svg",
   "colors": {
-    "primary": "#3139DB",
-    "light": "#3139DB",
+    "primary": "#8e14ff",
+    "light": "#8e14ff",
     "dark": "#7d83fa",
     "anchors": {
-      "from": "#3139DB",
+      "from": "#8e14ff",
       "to": "#7d83fa"
     }
   },
